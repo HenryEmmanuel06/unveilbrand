@@ -19,19 +19,9 @@ const HeroSection = () => {
         priority
       />
       {/* Main container */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-8"
-      >
+      <div className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-8">
         {/* Navbar */}
-        <motion.nav 
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="fixed top-[50px] left-0 right-0 z-50 w-full lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]"
-        >
+        <nav className="fixed top-[50px] left-0 right-0 z-50 w-[90%] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]">
           <Link href="/">
             <Image
               src="/images/unveilbrand logo.png"
@@ -74,7 +64,7 @@ const HeroSection = () => {
               <path d="M3 18H21" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
-        </motion.nav>
+        </nav>
         {/* Mobile Menu Overlay */}
         <div className={`fixed inset-0 bg-black/95 z-50 transition-all duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
           <div className="flex flex-col items-center justify-center h-full relative">
@@ -235,7 +225,7 @@ const HeroSection = () => {
             .client-info-text span.ml-2 { margin-left: 0 !important; margin-top: 0.25rem !important; }
           }
         `}</style>
-      </motion.div>
+      </div>
     </section>
   );
 };
