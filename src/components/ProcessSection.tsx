@@ -28,9 +28,11 @@ const ProcessSection = () => {
         {/* Steps */}
         <div className="flex flex-col md:flex-row gap-12 md:gap-8 w-full justify-center items-stretch">
           {processSteps.map((step, idx) => (
-            <div key={idx} className="w-[90%] md:w-auto flex-1 flex flex-col bg-white/5 rounded-2xl p-6 md:p-8 shadow-lg border border-white/10 max-w-[350px] mx-auto">
-              <h3 className="text-white text-xl font-semibold mb-2 text-left">{step.title}</h3>
-              <p className="text-white/70 text-base mb-6 text-left">{step.desc}</p>
+            <div key={idx} className="flex-1 flex flex-col bg-white/5 rounded-2xl shadow-lg border border-white/10 w-[90%] md:w-[410px] h-[300px] mx-auto p-6">
+              <div className="flex flex-col flex-grow">
+                <h3 className="text-white text-xl font-semibold mb-2 text-left">{step.title}</h3>
+                <p className="text-white/70 text-base text-left">{step.desc}</p>
+              </div>
               <div className="w-full flex justify-center">
                 <Image src={step.img} alt={step.title} width={320} height={180} className="rounded-xl object-cover w-full h-auto" />
               </div>

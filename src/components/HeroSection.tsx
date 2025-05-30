@@ -21,7 +21,7 @@ const HeroSection = () => {
       {/* Main container */}
       <div className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-8">
         {/* Navbar */}
-        <nav className="fixed top-[50px] left-0 right-0 z-50 w-[90%] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]">
+        <nav className="fixed top-[50px] left-0 right-0 z-50 w-[90%] lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]">
           <Link href="/">
             <Image
               src="/images/unveilbrand logo.png"
@@ -119,7 +119,7 @@ const HeroSection = () => {
         {/* Headline */}
         <h1 className="text-white text-[40px] md:text-[70px] lg:text-[90px] font-normal leading-[90%] max-w-5xl mx-auto text-center">
           We build <span className="font-bold text-white">digital products</span><br className="hidden md:block" />
-          with <span className="font-bold text-[#A212A8]">emphasis!</span>
+          with <span className="font-bold text-white">emphasis!</span>
         </h1>
         {/* Subheadline */}
         <p className="text-white text-lg max-w-xl mx-auto">
