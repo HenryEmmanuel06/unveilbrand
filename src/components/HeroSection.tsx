@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -31,31 +32,33 @@ const HeroSection = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="fixed top-[50px] left-0 right-0 z-50 w-full lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]"
         >
-          <Image
-            src="/images/unveilbrand logo.png"
-            alt="Unveilbrand Logo"
-            width={135}
-            height={40}
-            className="object-contain cursor-pointer"
-            priority
-          />
+          <Link href="/">
+            <Image
+              src="/images/unveilbrand logo.png"
+              alt="Unveilbrand Logo"
+              width={135}
+              height={40}
+              className="object-contain cursor-pointer"
+              priority
+            />
+          </Link>
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center">
             <ul className="flex gap-8 text-white text-base font-medium">
               <li className="hover:text-[#A212A8] transition cursor-pointer">
-                <a href="/">Home</a>
+                <Link href="/">Home</Link>
               </li>
               <li className="hover:text-[#A212A8] transition cursor-pointer">
-                <a href="/our-works">Our Works</a>
+                <Link href="/our-works">Our Works</Link>
               </li>
               <li className="hover:text-[#A212A8] transition cursor-pointer">
-                <a href="/about">About</a>
+                <Link href="/about">About</Link>
               </li>
               <li className="hover:text-[#A212A8] transition cursor-pointer">
-                <a href="/blog">Blog</a>
+                <Link href="/blog">Blog</Link>
               </li>
               <li className="hover:text-[#A212A8] transition cursor-pointer">
-                <a href="/products">Products</a>
+                <Link href="/products">Products</Link>
               </li>
             </ul>
             <button className="ml-20 border border-white/30 rounded-full px-6 py-2 text-white font-medium hover:bg-[#A212A8] transition cursor-pointer">Contact</button>
@@ -86,11 +89,21 @@ const HeroSection = () => {
               </div>
             </button>
             <ul className="flex flex-col gap-8 text-white text-2xl font-medium text-center">
-              <li className="hover:text-[#A212A8] transition cursor-pointer">Home</li>
-              <li className="hover:text-[#A212A8] transition cursor-pointer">Our Works</li>
-              <li className="hover:text-[#A212A8] transition cursor-pointer">About</li>
-              <li className="hover:text-[#A212A8] transition cursor-pointer">Blog</li>
-              <li className="hover:text-[#A212A8] transition cursor-pointer">Products</li>
+              <li className="hover:text-[#A212A8] transition cursor-pointer">
+                <Link href="/">Home</Link>
+              </li>
+              <li className="hover:text-[#A212A8] transition cursor-pointer">
+                <Link href="/our-works">Our Works</Link>
+              </li>
+              <li className="hover:text-[#A212A8] transition cursor-pointer">
+                <Link href="/about">About</Link>
+              </li>
+              <li className="hover:text-[#A212A8] transition cursor-pointer">
+                <Link href="/blog">Blog</Link>
+              </li>
+              <li className="hover:text-[#A212A8] transition cursor-pointer">
+                <Link href="/products">Products</Link>
+              </li>
             </ul>
             <button className="mt-8 border border-white/S30 rounded-full px-8 py-3 text-white font-medium hover:bg-white/10 transition">Contact</button>
           </div>
@@ -120,7 +133,7 @@ const HeroSection = () => {
         </h1>
         {/* Subheadline */}
         <p className="text-white text-lg max-w-xl mx-auto">
-          More than just great design, we craft strategic solutions that fuel your brand's growth, attract the right customers, and turn attention into sales.
+          More than just great design, we craft strategic solutions that fuel your brand&apos;s growth, attract the right customers, and turn attention into sales.
         </p>
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
