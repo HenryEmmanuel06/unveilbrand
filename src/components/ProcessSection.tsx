@@ -31,7 +31,7 @@ const ProcessSection = () => {
             <div key={idx} className="flex-1 flex flex-col bg-white/5 rounded-2xl shadow-lg border border-white/10 w-[90%] md:w-[410px] h-[330px] mx-auto">
               <div className="flex flex-col flex-grow">
                 <h3 className="text-white text-xl font-semibold pl-[40px] pt-[35px] text-left text-[32px]">{step.title}</h3>
-                <p className="text-white text-base text-left px-[40px] pt-[10px]">{step.desc}</p>
+                <p className="text-white text-base text-left text-[15px] px-[40px] pt-[10px]">{step.desc}</p>
               </div>
               <div className="w-full flex justify-center">
                 <Image src={step.img} alt={step.title} width={320} height={180} className="rounded-xl object-cover w-full h-auto" />
