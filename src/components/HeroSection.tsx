@@ -20,7 +20,7 @@ const HeroSection = () => {
       {/* Main container */}
       <div className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-8">
         {/* Navbar */}
-        <nav className="fixed top-[50px] left-0 right-0 z-50 w-[90%] lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]">
+        <nav className="fixed top-[20px] left-0 right-0 z-50 w-[90%] lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]">
           <Link href="/">
             <Image
               src="/images/unveilbrand logo.png"
@@ -116,8 +116,8 @@ const HeroSection = () => {
           </div>
         </div>
         {/* Headline */}
-        <h1 className="text-white text-[40px] md:text-[70px] lg:text-[90px] font-normal leading-[90%] max-w-5xl mx-auto text-center">
-          We build <span className="font-bold text-white">digital products</span><br className="hidden md:block" />
+        <h1 className="text-white text-[40px] md:text-[70px] xl:text-[70px] font-normal leading-[90%] mx-auto text-center">
+          We build <span className="font-bold text-white">digital products </span><br className="hidden md:block" />
           with <span className="font-bold text-white">emphasis!</span>
         </h1>
         {/* Subheadline */}
@@ -158,7 +158,7 @@ const HeroSection = () => {
             </div>
           </div>
           {/* Logo Slider */}
-          <div className="relative w-full max-w-[700px] overflow-hidden h-[40px] xl:h-[40px] lg:h-[32px] md:h-[28px]">
+          <div className="relative w-full max-w-[770px] overflow-hidden h-[40px] xl:h-[40px] lg:h-[32px] md:h-[28px]">
             <div className="absolute left-0 top-0 flex items-center h-full animate-logo-scroll min-w-full">
               {[...Array(8)].map((_, i) => (
                 <Image

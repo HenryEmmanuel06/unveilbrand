@@ -3,18 +3,18 @@ import Image from "next/image";
 const processSteps = [
   {
     img: "/images/process img 1.png",
-    title: "Step 1 Title",
-    desc: "Description for step 1 goes here. This should match the Figma design text.",
+    title: "Swift",
+    desc: "We move fast—because your time is money. From idea to launch, our turnaround is built for speed without compromising quality.",
   },
   {
     img: "/images/process img 2.png",
-    title: "Step 2 Title",
-    desc: "Description for step 2 goes here. This should match the Figma design text.",
+    title: "Effortless",
+    desc: "We handle it, so you don't have to. Seamless processes, clear communication, & intuitive design making everything feel smooth.",
   },
   {
     img: "/images/process img 3.png",
-    title: "Step 3 Title",
-    desc: "Description for step 3 goes here. This should match the Figma design text.",
+    title: "Affordable",
+    desc: "Premium doesn't have to be pricey. We deliver top results that match your budget; no hidden costs, no bloated packages.",
   },
 ];
 
@@ -23,15 +23,15 @@ const ProcessSection = () => {
     <section className="w-full bg-[#040508] py-20 flex flex-col items-center">
       <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center">
         {/* Section Title */}
-        <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">Our Process</h2>
-        <p className="text-white/80 text-lg max-w-2xl mb-12">A short description of the process section, matching the Figma subtitle or intro text.</p>
+        <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">Excellence in 3 Distinct Abilities</h2>
+        <p className="text-white/80 text-lg max-w-900px mb-12">Here at Unveilbrand, we deliver solutions that save time, cut complexity, and fit your budget.</p>
         {/* Steps */}
-        <div className="flex flex-col md:flex-row gap-12 md:gap-8 w-full justify-center items-stretch">
+        <div className="flex flex-col lg:flex-row gap-12 md:gap-8 w-full justify-center items-stretch">
           {processSteps.map((step, idx) => (
-            <div key={idx} className="flex-1 flex flex-col bg-white/5 rounded-2xl shadow-lg border border-white/10 w-[90%] md:w-[410px] h-[300px] mx-auto p-6">
+            <div key={idx} className="flex-1 flex flex-col bg-white/5 rounded-2xl shadow-lg border border-white/10 w-[90%] md:w-[410px] h-[330px] mx-auto">
               <div className="flex flex-col flex-grow">
-                <h3 className="text-white text-xl font-semibold mb-2 text-left">{step.title}</h3>
-                <p className="text-white/70 text-base text-left">{step.desc}</p>
+                <h3 className="text-white text-xl font-semibold pl-[40px] pt-[35px] text-left text-[32px]">{step.title}</h3>
+                <p className="text-white text-base text-left px-[40px] pt-[10px]">{step.desc}</p>
               </div>
               <div className="w-full flex justify-center">
                 <Image src={step.img} alt={step.title} width={320} height={180} className="rounded-xl object-cover w-full h-auto" />
