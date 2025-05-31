@@ -21,7 +21,7 @@ const processSteps = [
 const ProcessSection = () => {
   return (
     <section className="w-full bg-[#040508] py-20 flex flex-col items-center">
-      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center">
+      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2">
         {/* Section Title */}
         <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">Excellence in 3 Distinct Abilities</h2>
         <p className="text-white/80 text-lg max-w-900px mb-12">Here at Unveilbrand, we deliver solutions that save time, cut complexity, and fit your budget.</p>
@@ -41,7 +41,7 @@ const ProcessSection = () => {
         </div>
         {/* Book Now Button */}
         <div className="mt-12 flex justify-center">
-          <button className="flex items-center gap-2 bg-[#A212A8] text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-[#A212A8] transition">
+          <button className="flex items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#A212A8] transition cursor-pointer">
             <Image src="/images/cta logo.png" alt="CTA Logo" width={20} height={20} />
             Book a call with us
           </button>

@@ -18,7 +18,7 @@ const HeroSection = () => {
         priority
       />
       {/* Main container */}
-      <div className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-8">
+      <div className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-2">
         {/* Navbar */}
         <nav className="fixed top-[20px] left-0 right-0 z-50 w-[90%] lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]">
           <Link href="/">
@@ -105,7 +105,7 @@ const HeroSection = () => {
                 key={cat}
                 className={
                   `border border-white/20 rounded-full px-[30px] py-[15px] text-white/80 text-sm font-medium backdrop-blur-sm hover:bg-white/10 transition cursor-pointer whitespace-nowrap ` +
-                  `${idx !== 0 ? '-ml-4 ' : ''}` +
+                  `${idx !== 0 ? '-ml-7 ' : ''}` +
                   `z-[${10 + idx}]`
                 }
                 style={{ position: 'relative' }}
@@ -116,21 +116,21 @@ const HeroSection = () => {
           </div>
         </div>
         {/* Headline */}
-        <h1 className="text-white text-[40px] md:text-[70px] xl:text-[70px] font-normal leading-[90%] mx-auto text-center">
+        <h1 className="text-white text-[40px] md:text-[70px] xl:text-[90px] font-normal leading-[90%] mx-auto text-center">
           We build <span className="font-bold text-white">digital products </span><br className="hidden md:block" />
           with <span className="font-bold text-white">emphasis!</span>
         </h1>
         {/* Subheadline */}
-        <p className="text-white text-lg max-w-xl mx-auto">
+        <p className="text-white text-lg max-w-xl mx-auto my-4">
           More than just great design, we craft strategic solutions that fuel your brand&apos;s growth, attract the right customers, and turn attention into sales.
         </p>
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
-          <button className="flex items-center gap-2 bg-[#A212A8] text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-[#A212A8] transition">
+          <button className="flex items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#A212A8] transition cursor-pointer">
             <Image src="/images/cta logo.png" alt="CTA Logo" width={20} height={20} />
             Book a call with us
           </button>
-          <button className="border border-white/30 rounded-full px-8 py-3 text-white font-semibold hover:bg-white/10 transition">
+          <button className="border border-white/30 rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer">
             See our works
           </button>
         </div>
@@ -158,7 +158,7 @@ const HeroSection = () => {
             </div>
           </div>
           {/* Logo Slider */}
-          <div className="relative w-full max-w-[770px] overflow-hidden h-[40px] xl:h-[40px] lg:h-[32px] md:h-[28px]">
+          <div className="relative w-full max-w-[67%] overflow-hidden h-[40px] xl:h-[40px] lg:h-[32px] md:h-[28px]">
             <div className="absolute left-0 top-0 flex items-center h-full animate-logo-scroll min-w-full">
               {[...Array(8)].map((_, i) => (
                 <Image
