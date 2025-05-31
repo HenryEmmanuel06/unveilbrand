@@ -127,7 +127,7 @@ const HeroSection = () => {
                     zIndex: 10 + idx
                   }}
                   className={
-                    `border border-white/20 rounded-full px-[30px] py-[15px] text-white/80 text-sm font-medium backdrop-blur-sm hover:bg-white/10 transition cursor-pointer whitespace-nowrap ` +
+                    `border border-white/20 rounded-full px-[30px] py-[15px] text-white/80 text-sm font-medium bg-black/30 backdrop-blur-[15px] hover:bg-white/10 transition cursor-pointer whitespace-nowrap ` +
                     `${idx !== 0 ? '-ml-7 ' : ''}`
                   }
                 >
