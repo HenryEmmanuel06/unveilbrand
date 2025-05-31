@@ -2,10 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const HeroSection = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { scrollY } = useScroll();
+  
+  // Multi-stage transform values for pills
+  const leftPillsY = useTransform(scrollY, [0, 200, 800], [0, 120, 600]);
+  const leftPillsX = useTransform(scrollY, [0, 200, 800], [0, -60, -300]);
+  const leftPillsRotate = useTransform(scrollY, [0, 200, 800], [0, -10, -45]);
+  const leftPillsOpacity = useTransform(scrollY, [0, 800, 1000], [1, 1, 0]);
+
+  const rightPillsY = useTransform(scrollY, [0, 200, 800], [0, 120, 600]);
+  const rightPillsX = useTransform(scrollY, [0, 200, 800], [0, 60, 300]);
+  const rightPillsRotate = useTransform(scrollY, [0, 200, 800], [0, 10, 45]);
+  const rightPillsOpacity = useTransform(scrollY, [0, 800, 1000], [1, 1, 0]);
 
   return (
     <section className="relative w-full flex flex-col items-center justify-center min-h-[80vh] py-16 bg-[#040508] overflow-hidden">
@@ -100,19 +113,28 @@ const HeroSection = () => {
         {/* Category Pills */}
         <div className="w-full flex justify-center lg:justify-end max-w-[945px] mx-auto mt-[20px] lg:mt-[100px]">
           <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-0 justify-center lg:justify-end w-full">
-            {['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat, idx) => (
-              <span
-                key={cat}
-                className={
-                  `border border-white/20 rounded-full px-[30px] py-[15px] text-white/80 text-sm font-medium backdrop-blur-sm hover:bg-white/10 transition cursor-pointer whitespace-nowrap ` +
-                  `${idx !== 0 ? '-ml-7 ' : ''}` +
-                  `z-[${10 + idx}]`
-                }
-                style={{ position: 'relative' }}
-              >
-                {cat}
-              </span>
-            ))}
+            {['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat, idx) => {
+              const isLeftSide = idx < 3;
+              return (
+                <motion.span
+                  key={cat}
+                  style={{
+                    y: isLeftSide ? leftPillsY : rightPillsY,
+                    x: isLeftSide ? leftPillsX : rightPillsX,
+                    rotate: isLeftSide ? leftPillsRotate : rightPillsRotate,
+                    opacity: isLeftSide ? leftPillsOpacity : rightPillsOpacity,
+                    position: 'relative',
+                    zIndex: 10 + idx
+                  }}
+                  className={
+                    `border border-white/20 rounded-full px-[30px] py-[15px] text-white/80 text-sm font-medium backdrop-blur-sm hover:bg-white/10 transition cursor-pointer whitespace-nowrap ` +
+                    `${idx !== 0 ? '-ml-7 ' : ''}`
+                  }
+                >
+                  {cat}
+                </motion.span>
+              );
+            })}
           </div>
         </div>
         {/* Headline */}
