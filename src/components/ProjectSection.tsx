@@ -1,40 +1,5 @@
 import Image from "next/image";
 
-const images = [
-  {
-    src: "/images/project img 1.png",
-    alt: "Applibry",
-    title: "Applibry",
-    tags: ["Branding", "UI Kits", "Interface Design"],
-    style: "row-span-2 col-span-1 flex flex-col items-start justify-start",
-    showTitle: true,
-  },
-  {
-    src: "/images/project img 3.png",
-    alt: "LX Logo",
-    style: "col-span-1 row-span-1 flex items-center justify-center",
-  },
-  {
-    src: "/images/project img 2.png",
-    alt: "Shield Logo",
-    style: "col-span-1 row-span-1 flex items-center justify-center",
-  },
-  {
-    src: "/images/project img 4.png",
-    alt: "Website Stack",
-    style: "col-start-2 col-end-4 row-start-2 row-end-3 flex items-center justify-center",
-  },
-  {
-    src: "/images/project img 5.png",
-    alt: "Food App",
-    style: "col-start-3 row-start-1 row-span-2 flex items-center justify-center",
-  },
-  {
-    src: "/images/project img 6.png",
-    alt: "GetHomly",
-    style: "col-start-3 row-start-3 flex items-center justify-center",
-  },
-];
 
 const ProjectSection = () => {
   return (
