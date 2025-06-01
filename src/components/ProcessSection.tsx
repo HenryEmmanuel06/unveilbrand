@@ -20,15 +20,21 @@ const processSteps = [
 
 const ProcessSection = () => {
   return (
-    <section className="w-full bg-[#040508] py-20 flex flex-col items-center">
-      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2">
+    <section className="w-full bg-[#040508] pb-20 flex flex-col items-center">
+      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 py-30" style={{
+        backgroundImage: 'url("/images/shiny bg Abilities.png")',
+        backgroundSize: 'cover',
+        backgroundPositionY: '-100px',
+        backgroundRepeat: "no-repeat"
+        // backgroundColor: "red",
+    }}>
         {/* Section Title */}
         <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">Excellence in 3 Distinct Abilities</h2>
         <p className="text-white/80 text-lg max-w-900px mb-12">Here at Unveilbrand, we deliver solutions that save time, cut complexity, and fit your budget.</p>
         {/* Steps */}
         <div className="flex flex-col lg:flex-row gap-12 md:gap-8 w-full justify-center items-stretch">
           {processSteps.map((step, idx) => (
-            <div key={idx} className="flex-1 flex flex-col bg-white/5 rounded-2xl shadow-lg border border-white/10 w-[90%] md:w-[410px] h-[330px] mx-auto">
+            <div key={idx} className="flex-1 flex flex-col rounded-2xl shadow-lg border border-white/10 w-[90%] md:w-[410px] h-[330px] mx-auto bg-[#121316CC] backdrop-blur-[1px]">
               <div className="flex flex-col flex-grow">
                 <h3 className="text-white text-xl font-semibold pl-[40px] pt-[35px] text-left text-[32px]">{step.title}</h3>
                 <p className="text-white text-base text-left text-[15px] px-[40px] pt-[10px]">{step.desc}</p>

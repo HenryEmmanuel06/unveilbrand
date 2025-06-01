@@ -21,17 +21,14 @@ const HeroSection = () => {
   const rightPillsOpacity = useTransform(scrollY, [0, 800, 1000], [1, 1, 0]);
 
   return (
-    <section className="relative w-full flex flex-col items-center justify-center min-h-[80vh] py-16 bg-[#040508] overflow-hidden">
-      {/* Shiny background */}
-      <Image
-        src="/images/shinny background.png"
-        alt="Shiny background"
-        fill
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none z-0"
-        priority
-      />
+    <section className="relative w-full flex flex-col items-center justify-center pt-16 bg-[#040508] overflow-hidden">
       {/* Main container */}
-      <div className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-2">
+      <div className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-2" style={{
+        backgroundImage: 'url("/images/shiny bg hero.png")',
+        backgroundSize: 'cover',
+        backgroundPositionY: '80px',
+        // backgroundColor: "red",
+    }}>
         {/* Navbar */}
         <nav className="fixed top-[20px] left-0 right-0 z-50 w-[90%] lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]">
           <Link href="/">
