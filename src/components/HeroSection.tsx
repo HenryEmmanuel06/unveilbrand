@@ -156,7 +156,7 @@ const HeroSection = () => {
         {/* Clients and Logo Slider Section */}
         <div className="w-[90%] lg:w-full max-w-[1332px] mx-auto mt-12 border-t border-b border-white/10 px-8 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
           {/* Happy Clients */}
-          <div className="flex items-center min-w-[220px] xl:w-auto xl:justify-start justify-center client-info-row">
+          <div className="flex items-center min-w-[220px] w-full xl:w-auto xl:justify-start justify-center client-info-row">
             <div className="flex -space-x-3 justify-center w-full">
               {[1,2,3,4,5].map((i) => (
                 <Image
@@ -210,7 +210,7 @@ const HeroSection = () => {
               animation-duration: 15s;
             }
             .client-info-row {
-              flex-direction: row !important;
+              flex-direction: column !important;
               align-items: center !important;
             }
             .client-info-text {
@@ -238,7 +238,7 @@ const HeroSection = () => {
           }
 
           @media (max-width: 480px) {
-            .client-info-row { flex-direction: row !important; align-items: center !important; }
+            .client-info-row { flex-direction: column !important; align-items: center !important; }
             .client-info-text { margin-left: 0 !important; align-items: center !important; flex-direction: column !important; margin-top: 0.5rem !important; }
             .client-info-text span.ml-2 { margin-left: 0 !important; margin-top: 0.25rem !important; }
           }
