@@ -210,8 +210,9 @@ const HeroSection = () => {
               animation-duration: 15s;
             }
             .client-info-row {
-              flex-direction: column !important;
+              flex-direction: row !important;
               align-items: center !important;
+              margin-left: 40px;
             }
             .client-info-text {
               margin-left: 0 !important;
@@ -238,7 +239,7 @@ const HeroSection = () => {
           }
 
           @media (max-width: 480px) {
-            .client-info-row { flex-direction: column !important; align-items: center !important; }
+            .client-info-row { flex-direction: row !important; align-items: center !important; }
             .client-info-text { margin-left: 0 !important; align-items: center !important; flex-direction: column !important; margin-top: 0.5rem !important; }
             .client-info-text span.ml-2 { margin-left: 0 !important; margin-top: 0.25rem !important; }
           }
