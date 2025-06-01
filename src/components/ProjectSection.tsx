@@ -14,10 +14,10 @@ const ProjectSection = () => {
       }}>
         <h2 className="text-white text-3xl md:text-5xl font-bold mb-20 text-left">Thoughtful Designs With Real World Solutions</h2>
 
-        <div className="mx-auto h-[700px] grid grid-cols-12 grid-rows-12 gap-4">
+        <div className="mx-auto h-[700px] grid grid-cols-1 lg:grid-cols-12 grid-rows-auto lg:grid-rows-12 gap-4">
 
           {/* First Container - 5 columns */}
-          <div className="col-span-5 row-span-12 h-full grid gap-4 bg-[#121316] p-[10px] rounded-[20px]">
+          <div className="lg:col-span-5 row-span-12 h-full grid gap-4 bg-[#121316] p-[10px] rounded-[20px]">
             <div className="row-span-1 bg-[#FFFFFF05] rounded-[15px] h-full">
 
               <div className="">
@@ -38,7 +38,7 @@ const ProjectSection = () => {
           </div>
 
           {/* Second Container - 4 columns */}
-          <div className="col-span-4 row-span-12 h-full grid grid-cols-2 gap-4">
+          <div className="lg:col-span-4 row-span-12 h-full grid grid-cols-2 gap-4">
             <div className="col-span-1 row-span-3 rounded-[20px] relative h-full" style={{
               backgroundImage: 'url("/images/project img 3.png")',
               backgroundSize: 'cover',
@@ -63,7 +63,7 @@ const ProjectSection = () => {
           </div>
 
           {/* Third Container - 3 columns */}
-          <div className="col-span-3 row-span-12 h-full grid gap-4">
+          <div className="lg:col-span-3 row-span-12 h-full grid gap-4">
             <div className="row-span-7 rounded-[20px] relative overflow-hidden h-full" style={{
               backgroundImage: 'url("/images/project img 5.png")',
               backgroundSize: 'cover',
