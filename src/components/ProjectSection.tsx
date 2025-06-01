@@ -14,11 +14,11 @@ const ProjectSection = () => {
       }}>
         <h2 className="text-white text-3xl md:text-5xl font-bold mb-20 text-left">Thoughtful Designs With Real World Solutions</h2>
 
-        <div className="mx-auto h-[700px] grid grid-cols-1 lg:grid-cols-12 grid-rows-auto lg:grid-rows-12 gap-4">
+        <div className="mx-auto h-[700px] grid grid-cols-1 lg:grid-cols-12 grid-rows-24 lg:grid-rows-12 gap-4">
 
           {/* First Container - 5 columns */}
-          <div className="lg:col-span-5 row-span-12 h-full grid gap-4 bg-[#121316] p-[10px] rounded-[20px]">
-            <div className="row-span-1 bg-[#FFFFFF05] rounded-[15px] h-full">
+          <div className="lg:col-span-5 row-span-12 lg:row-span-12 row-span-8 h-full grid gap-4 bg-[#121316] p-[10px] rounded-[20px]">
+            <div className="row-span-3 lg:row-span-1 bg-[#FFFFFF05] rounded-[15px] h-full">
 
               <div className="">
                 <div className="flex items-center justify-between w-full px-[15px] py-[30px] pb-0">
@@ -29,7 +29,7 @@ const ProjectSection = () => {
                 </div>
               </div>
             </div>
-            <div className="row-span-11 rounded-[20px] relative h-ful" style={{
+            <div className="row-span-9 lg:row-span-11 rounded-[20px] relative h-ful" style={{
               backgroundImage: 'url("/images/project img 1.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -38,22 +38,22 @@ const ProjectSection = () => {
           </div>
 
           {/* Second Container - 4 columns */}
-          <div className="lg:col-span-4 row-span-12 h-full grid grid-cols-2 gap-4">
-            <div className="col-span-1 row-span-3 rounded-[20px] relative h-full" style={{
+          <div className="lg:col-span-4 row-span-12 lg:row-span-12 row-span-8 h-full grid grid-cols-2 gap-4">
+            <div className="col-span-1 row-span-2 lg:row-span-3 rounded-[20px] relative h-full" style={{
               backgroundImage: 'url("/images/project img 3.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}>
 
             </div>
-            <div className="col-span-1 row-span-3 rounded-[20px] relative h-full" style={{
+            <div className="col-span-1 row-span-2 lg:row-span-3 rounded-[20px] relative h-full" style={{
               backgroundImage: 'url("/images/project img 2.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}>
 
             </div>
-            <div className="col-span-2 row-span-9 rounded-[20px] relative h-full" style={{
+            <div className="col-span-2 row-span-4 lg:row-span-9 rounded-[20px] relative h-full" style={{
               backgroundImage: 'url("/images/project img 4.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -63,15 +63,15 @@ const ProjectSection = () => {
           </div>
 
           {/* Third Container - 3 columns */}
-          <div className="lg:col-span-3 row-span-12 h-full grid gap-4">
-            <div className="row-span-7 rounded-[20px] relative overflow-hidden h-full" style={{
+          <div className="lg:col-span-3 row-span-12 lg:row-span-12 row-span-8 h-full grid gap-4">
+            <div className="row-span-4 lg:row-span-7 rounded-[20px] relative overflow-hidden h-full" style={{
               backgroundImage: 'url("/images/project img 5.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}>
 
             </div>
-            <div className="row-span-5 rounded-[20px] relative overflow-hidden h-full" style={{
+            <div className="row-span-4 lg:row-span-5 rounded-[20px] relative overflow-hidden h-full" style={{
               backgroundImage: 'url("/images/project img 6.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -82,7 +82,7 @@ const ProjectSection = () => {
         </div>
 
              <div className="w-full max-w-[1332px] mx-auto mt-12 border-t border-b border-white/10 px-8 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
-          <div className="flex items-center min-w-[220px] w-full xl:w-auto xl:justify-start justify-center client-info-row">
+          <div className="flex items-center min-w-[220px] xl:w-auto xl:justify-start justify-center client-info-row">
             <div className="flex -space-x-3 justify-center w-full">
               {[1,2,3,4,5].map((i) => (
                 <Image
