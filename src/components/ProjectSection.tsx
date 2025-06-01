@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 
+
 const ProjectSection = () => {
   return (
     <section className="w-full flex flex-col items-center justify-center py-20 bg-black">
@@ -21,17 +22,17 @@ const ProjectSection = () => {
                 </div>
               </div>
               <div className="w-full">
-                <Image src="/images/project img 1.png" alt="Applibry" width={1100} height={900} className="rounded-xl object-cover w-full" style={{maxWidth:'100%', minHeight:'auto'}} />
+                <Image src="/images/project img 1.png" alt="Applibry" width={1100} height={900} className="rounded-xl object-cover w-full h-auto" style={{maxWidth:'100%', minHeight:'auto'}} />
               </div>
             </div>
           </div>
           {/* Column 2: LX and Shield side by side (row 1) */}
           <div className="col-start-2 col-end-3 row-start-1 row-end-2 flex items-center justify-center gap-[20px] p-0 m-0">
-            <div className="w-1/2 flex items-center justify-center">
-              <Image src="/images/project img 3.png" alt="LX Logo" width={220} height={220} className="rounded-xl object-cover w-full" style={{maxWidth:'100%'}} />
+            <div className="w-1/2 flex items-center justify-center h-auto">
+              <Image src="/images/project img 3.png" alt="LX Logo" width={220} height={220} className="rounded-xl object-cover w-full h-auto" style={{maxWidth:'100%'}} />
             </div>
-            <div className="w-1/2 flex items-center justify-center">
-              <Image src="/images/project img 2.png" alt="Shield Logo" width={220} height={220} className="rounded-xl object-cover w-full" style={{maxWidth:'100%'}} />
+            <div className="w-1/2 flex items-center justify-center h-auto">
+              <Image src="/images/project img 2.png" alt="Shield Logo" width={220} height={220} className="rounded-xl object-cover w-full h-auto" style={{maxWidth:'100%'}} />
             </div>
           </div>
           {/* Column 2: Website Stack (row 2, full width of col 2) */}
