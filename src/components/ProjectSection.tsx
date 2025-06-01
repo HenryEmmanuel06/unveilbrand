@@ -36,15 +36,15 @@ const ProjectSection = () => {
             </div>
           </div>
           {/* Column 2: Website Stack (row 2, full width of col 2) */}
-          <div className="col-start-2 col-end-3 row-start-2 row-end-3 flex items-center justify-center p-0 m-0">
+          <div className="col-start-2 col-end-3 row-start-2 row-end-3 flex items-center justify-center p-0 m-0 h-auto">
             <Image src="/images/project img 4.png" alt="Website Stack" width={400} height={400} style={{height:'auto',width:'auto',maxWidth:'100%'}} />
           </div>
           {/* Column 3: Food App (row 1) */}
-          <div className="col-start-3 col-end-4 row-start-1 row-end-3 flex flex-col h-full gap-1">
+          <div className="col-start-3 col-end-4 row-start-1 row-end-3 flex flex-col h-auto gap-1">
             <div className="flex-1 flex items-center justify-center">
               <Image src="/images/project img 5.png" alt="Food App" width={400} height={600} style={{height:'auto',width:'auto',maxWidth:'100%'}} />
             </div>
-             <div className="flex-1 flex items-center justify-center mt-[20px]">
+             <div className="flex-1 flex items-center justify-center mt-[20px] h-auto">
               <Image src="/images/project img 6.png" alt="GetHomly" width={300} height={200} style={{height:'auto',width:'auto',maxWidth:'100%'}} />
             </div>
           </div>
