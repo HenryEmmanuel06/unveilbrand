@@ -212,7 +212,6 @@ const HeroSection = () => {
             .client-info-row {
               flex-direction: row !important;
               align-items: center !important;
-              margin-left: 40px;
             }
             .client-info-text {
               margin-left: 0 !important;
