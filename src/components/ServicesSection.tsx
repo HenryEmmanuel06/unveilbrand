@@ -36,7 +36,7 @@ const ServicesSection = () => {
           return (
             <div
               key={idx}
-              className={`bg-[#FFFFFF0D] px-8 py-5 text-white text-[16px] md:text-[20px] font-normal flex items-center justify-start shadow-md border border-[0.5px] border-[#FFFFFF33] border-opacity-10 backdrop-blur-sm ${borderRadius}`}
+              className={`bg-[#FFFFFF0D] px-8 py-5 text-white text-[16px] md:text-[20px] font-normal flex items-center justify-start shadow-md border border-[0.5px] border-[#FFFFFF33] border-opacity-10 ${borderRadius}`}
               style={{
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
               }}
