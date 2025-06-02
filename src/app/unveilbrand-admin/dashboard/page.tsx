@@ -78,7 +78,7 @@ export default function AdminDashboard() {
         const fileExt = featuredImage.name.split('.').pop()
         const fileName = `${Math.random()}.${fileExt}`
         
-        const { data: uploadData, error: uploadError } = await supabase.storage
+        const { error: uploadError } = await supabase.storage
           .from('blog-images')
           .upload(fileName, featuredImage)
 
@@ -95,7 +95,7 @@ export default function AdminDashboard() {
       }
 
       // Insert blog post
-      const { data, error: insertError } = await supabase
+      const { error: insertError } = await supabase
         .from('blogs')
         .insert([
           {
