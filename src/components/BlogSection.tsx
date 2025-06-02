@@ -108,9 +108,9 @@ export default function BlogSection() {
             </div>
           </div>
           {/* Right: Tech-education and Tech-stories */}
-          <div className="flex-1 flex flex-col gap-8 mt-10">
+          <div className="flex-1 flex flex-col gap-10 mt-10">
             {techEducation && (
-              <Link href={`/blog/${techEducation.id}`} className="flex flex-row items-stretch p-0 min-h-[120px] overflow-hidden group border-t border-b border-white/10">
+              <Link href={`/blog/${techEducation.id}`} className="flex flex-row items-stretch p-0 min-h-[120px] overflow-hidden group border-t border-white/10">
                 {/* Rotated Category */}
                 <div className="flex items-center font-normal justify-end bg-transparent -ml-7" style={{
                   marginLeft: "-40px",
@@ -138,7 +138,7 @@ export default function BlogSection() {
               </Link>
             )}
             {techStories && (
-              <Link href={`/blog/${techStories.id}`} className="flex flex-row items-stretch p-0 min-h-[120px] overflow-hidden group">
+              <Link href={`/blog/${techStories.id}`} className="flex flex-row items-stretch p-0 min-h-[120px] overflow-hidden group border-t border-white/10">
                 {/* Rotated Category */}
                 <div className="flex items-center font-normal justify-end bg-transparent -ml-7">
                   <span className="block text-xs font tracking-widest rotate-[-90deg] whitespace-nowrap border-b-1 border-[#A212A8] pb-1" style={{}}>
