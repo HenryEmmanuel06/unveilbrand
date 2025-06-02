@@ -21,7 +21,7 @@ const processSteps = [
 const ProcessSection = () => {
   return (
     <section className="w-full bg-[#040508] pb-20 flex flex-col items-center">
-      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 py-30" style={{
+      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 py-5 pt-10 md:py-30 md:pt-30" style={{
         backgroundImage: 'url("/images/shiny bg Abilities.png")',
         backgroundSize: 'cover',
         backgroundPositionY: '-100px',
