@@ -21,25 +21,24 @@ export default function BlogDetail() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    const fetchBlog = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('blogs')
+          .select('*')
+          .eq('id', params.id)
+          .single()
+
+        if (error) throw error
+        setBlog(data)
+      } catch (error) {
+        console.error('Error fetching blog:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
     fetchBlog()
   }, [params.id])
-
-  const fetchBlog = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('blogs')
-        .select('*')
-        .eq('id', params.id)
-        .single()
-
-      if (error) throw error
-      setBlog(data)
-    } catch (error) {
-      console.error('Error fetching blog:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
 
   if (loading) {
     return (

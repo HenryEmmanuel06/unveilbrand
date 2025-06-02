@@ -122,9 +122,9 @@ export default function AdminDashboard() {
       // Refresh blogs list
       await fetchBlogs()
 
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error creating blog:', error)
-      setError(error.message || 'Failed to create blog post')
+      setError((error as Error).message || 'Failed to create blog post')
     } finally {
       setLoading(false)
     }
@@ -145,8 +145,8 @@ export default function AdminDashboard() {
       const { error } = await supabase.from('blogs').delete().eq('id', id)
       if (error) throw error
       await fetchBlogs()
-    } catch (error: any) {
-      setError(error.message || 'Failed to delete blog')
+    } catch (error) {
+      setError((error as Error).message || 'Failed to delete blog')
     } finally {
       setDeleteLoading(null)
     }
@@ -176,8 +176,8 @@ export default function AdminDashboard() {
       if (error) throw error
       setEditBlog(null)
       await fetchBlogs()
-    } catch (error: any) {
-      setError(error.message || 'Failed to update blog')
+    } catch (error) {
+      setError((error as Error).message || 'Failed to update blog')
     } finally {
       setEditLoading(false)
     }
