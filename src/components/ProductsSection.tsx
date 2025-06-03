@@ -5,7 +5,7 @@ export default function ProductsSection() {
     <section className="w-full bg-[#040508] flex flex-col items-center py-20">
       <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2">
         {/* Section Title */}
-        <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">Ready-Made Tools You'll Love Using!</h2>
+        <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">Ready-Made Tools You&apos;ll Love Using!</h2>
         <p className="text-white/80 text-lg max-w-2xl mb-8">Hand-picked collections crafted to help you start, design & work smarter, all optimized for modern creators.</p>
         {/* CTA Button */}
         <div className="mb-12 flex justify-center">
