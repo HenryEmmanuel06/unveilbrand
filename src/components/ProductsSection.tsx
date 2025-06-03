@@ -44,10 +44,10 @@ export default function ProductsSection() {
                 <Image
                   src="/images/product img 4.png"
                   alt="Product 4"
-                   width={259}
-              height={384}
+                   width={400}
+              height={500}
                 
-                  className="rounded-xl object-cover absolute top-24 -left-6 z-10 rotate-[-6deg]"
+                  className="rounded-xl object-cover absolute top-24 -left-5 z-10 rotate-[-6deg]"
                 />
           
               {/* Back Image (img 3, right, tilted) */}
