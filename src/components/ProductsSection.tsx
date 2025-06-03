@@ -33,11 +33,12 @@ export default function ProductsSection() {
             background: "linear-gradient(179.93deg, rgba(255, 255, 255, 0.1) 0.06%, rgba(255, 255, 255, 0.0285513) 59.94%, rgba(255, 255, 255, 0.015055) 76.91%, rgba(255, 255, 255, 0) 91.85%)",
 
           }}>
-            <div className="relative w-[320px] h-[420px] md:w-[320px] md:h-[420px] flex items-end justify-center left-[19px] -top-5 md:top-0 md:left-6">
-              {/* Gradient overlay at the bottom */}
-              <div className="pointer-events-none absolute -left-[19px] -bottom-5 w-full h-1/2 z-40" style={{
+             {/* Gradient overlay at the bottom */}
+              <div className="pointer-events-none absolute w-min-[380px] w-full -bottom-5 h-1/2 z-40" style={{
                 background: "linear-gradient(180deg, rgba(11, 12, 15, 0) 11.73%, rgba(11, 12, 15, 0.111839) 31.6%, rgba(11, 12, 15, 0.8) 71.64%, rgba(9, 10, 13, 0.9) 82.47%, #040508 100%)"
               }} />
+            <div className="relative w-[320px] h-[420px] md:w-[320px] md:h-[420px] flex items-end justify-center left-[19px] -top-5 md:top-0 md:left-6">
+             
               {/* Back Image (img 4, left, tilted) */}
 
                 <Image
@@ -48,15 +49,15 @@ export default function ProductsSection() {
                 
                   className="rounded-xl object-cover absolute top-24 -left-6 z-10 rotate-[-6deg]"
                 />
-             
+          
               {/* Back Image (img 3, right, tilted) */}
               <Image
                   src="/images/product img 3.png"
                   alt="Product 4"
-                   width={259}
-              height={384}
+                   width={400}
+              height={500}
                 
-                  className="rounded-xl object-cover absolute top-24 left-12 z-20 rotate-[6deg]"
+                  className="rounded-xl object-cover absolute top-24 left-5 z-20 rotate-[6deg]"
                 />
               {/* Front Image (img 2, centered, straight) */}
               <Image
