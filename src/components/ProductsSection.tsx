@@ -34,7 +34,7 @@ export default function ProductsSection() {
 
           }}>
              {/* Gradient overlay at the bottom */}
-              <div className="pointer-events-none absolute w-min-[380px] w-full -bottom-5 h-1/2 z-40" style={{
+              <div className="pointer-events-none absolute w-min-[400px] w-full -bottom-5 h-1/2 z-40" style={{
                 background: "linear-gradient(180deg, rgba(11, 12, 15, 0) 11.73%, rgba(11, 12, 15, 0.111839) 31.6%, rgba(11, 12, 15, 0.8) 71.64%, rgba(9, 10, 13, 0.9) 82.47%, #040508 100%)"
               }} />
             <div className="relative w-[320px] h-[420px] md:w-[320px] md:h-[420px] flex items-end justify-center left-[19px] -top-5 md:top-0 md:left-6">
@@ -44,20 +44,20 @@ export default function ProductsSection() {
                 <Image
                   src="/images/product img 4.png"
                   alt="Product 4"
-                   width={400}
-              height={500}
+                   width={259}
+              height={384}
                 
-                  className="rounded-xl object-cover absolute top-24 -left-5 z-10 rotate-[-6deg]"
+                  className="rounded-xl object-cover absolute top-24 -left-6 z-10 rotate-[-6deg]"
                 />
           
               {/* Back Image (img 3, right, tilted) */}
               <Image
                   src="/images/product img 3.png"
                   alt="Product 4"
-                   width={400}
-              height={500}
+                   width={259}
+              height={384}
                 
-                  className="rounded-xl object-cover absolute top-24 left-5 z-20 rotate-[6deg]"
+                  className="rounded-xl object-cover absolute top-24 left-12 z-20 rotate-[6deg]"
                 />
               {/* Front Image (img 2, centered, straight) */}
               <Image
