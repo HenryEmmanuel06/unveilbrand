@@ -15,23 +15,23 @@ export default function ProductsSection() {
           </button>
         </div>
         {/* Main Content: Images */}
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full gap-12 mt-4 md:pt-20 min-h-[300px] md:min-h-[540px] overflow-hidden product-image-display-desktop">
+        <div className="flex flex-col-reverse md:flex-row justify-center items-center w-full gap-10 lg:gap-12 mt-4 md:pt-20 min-h-[300px] md:min-h-[540px] overflow-hidden product-image-display-desktop">
           {/* Left: Main Product Image (Person) */}
           
             <Image
               src="/images/product img 1.png"
               alt="Main Product"
               width={700}
-              height={456}
+              height={457}
               className="object-contain relative top-10 product-1-img"
               priority
               unoptimized
             />
          
           {/* Right: Stacked Product Images */}
-          <div className="flex-1 flex flex-col justify-end items-center md:items-center relative px-[0] backdrop-blur-[1.5px] rounded-[20px] top-10" style={{
+          <div className="flex-1 flex flex-col justify-end items-center md:items-center relative px-[0] backdrop-blur-[1.5px] rounded-[20px] top-10 product-rhs" style={{
             background: "linear-gradient(179.93deg, rgba(255, 255, 255, 0.1) 0.06%, rgba(255, 255, 255, 0.0285513) 59.94%, rgba(255, 255, 255, 0.015055) 76.91%, rgba(255, 255, 255, 0) 91.85%)",
-
+          
           }}>
              {/* Gradient overlay at the bottom */}
               <div className="pointer-events-none absolute w-min-[400px] w-full -bottom-5 h-1/2 z-40" style={{
@@ -47,7 +47,7 @@ export default function ProductsSection() {
                    width={259}
               height={384}
                 
-                  className="rounded-xl object-cover absolute top-24 -left-6 z-10 rotate-[-6deg]"
+                  className="rounded-xl object-cover absolute top-24 -left-12 z-10 rotate-[-4deg]"
                 />
           
               {/* Back Image (img 3, right, tilted) */}
@@ -57,7 +57,7 @@ export default function ProductsSection() {
                    width={259}
               height={384}
                 
-                  className="rounded-xl object-cover absolute top-24 left-12 z-20 rotate-[6deg]"
+                  className="rounded-xl object-cover absolute top-24 left-18 z-20 rotate-[4deg]"
                 />
               {/* Front Image (img 2, centered, straight) */}
               <Image

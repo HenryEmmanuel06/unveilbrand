@@ -156,7 +156,13 @@ const HeroSection = () => {
           display: none;
           }
              }
-          
+        @media (min-width: 1400px) {
+.product-rhs{
+          min-width: 460px;
+          max-width: 460px;
+          width: 460px;
+          }
+             }
           /* Mobile Layout (below 980px) */
           @media (max-width: 980px) {
             .animate-logo-scroll {
