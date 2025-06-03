@@ -15,7 +15,7 @@ export default function ProductsSection() {
           </button>
         </div>
         {/* Main Content: Images */}
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full gap-12 mt-4 md:pt-20 min-h-[300px] md:min-h-[540px] overflow-hidden">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full gap-12 mt-4 md:pt-20 min-h-[300px] md:min-h-[540px] overflow-hidden product-image-display-desktop">
           {/* Left: Main Product Image (Person) */}
           
             <Image
@@ -70,6 +70,16 @@ export default function ProductsSection() {
           </div>
         </div>
       </div>
+
+       <div className="w-[90%] max-w-[1330px] h-[400px] mx-auto flex flex-col items-center text-center gap-2 product-img-mobile">
+                <Image 
+                  src="/images/product-img-5-mobile.png"
+                  alt="Product 4"
+                  width={400}
+                  height={500}
+                  className="object-cover"
+                />
+       </div>
     </section>
   );
 } 

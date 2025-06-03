@@ -168,7 +168,19 @@ const HeroSection = () => {
             .client-info-row { flex-direction: row !important; align-items: center !important; }
             .client-info-text { margin-left: 0 !important; align-items: center !important; flex-direction: column !important; margin-top: 0.5rem !important; }
             .client-info-text span.ml-2 { margin-left: 0 !important; margin-top: 0.25rem !important; }
+            .product-image-display-desktop{
+            display: none;
+            }
+            .product-img-mobile{
+            display: block;
+            }
+           
           }
+            @media (min-width: 480px){
+             .product-img-mobile{
+            display: none;
+            }
+            }
         `}</style>
       </div>
     </section>
