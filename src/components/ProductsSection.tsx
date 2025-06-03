@@ -62,8 +62,8 @@ export default function ProductsSection() {
               <Image
                   src="/images/product img 2.png"
                   alt="Product 4"
-                  width={259}
-                  height={384}
+                  width={400}
+                  height={500}
                   className="rounded-xl object-cover absolute top-8 -left-4 z-30"
                 />
             </div>
