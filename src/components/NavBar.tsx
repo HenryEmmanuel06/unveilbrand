@@ -8,14 +8,14 @@ const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <>
-      <nav className="fixed top-[20px] left-0 right-0 z-50 w-[90%] lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]">
+      <nav className="fixed top-[20px] left-0 right-0 z-50 w-[90%] lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[5px]">
         <Link href="/">
           <Image
             src="/images/unveilbrand logo.png"
             alt="Unveilbrand Logo"
             width={135}
             height={40}
-            className="object-contain cursor-pointer"
+            className="object-contain cursor-pointer ml-3"
             priority
           />
         </Link>
@@ -38,7 +38,7 @@ const NavBar = () => {
               <Link href="/products">Products</Link>
             </li>
           </ul>
-          <button className="ml-20 border border-white/30 rounded-full px-6 py-2 text-white font-medium hover:bg-[#A212A8] transition cursor-pointer">Contact</button>
+          <button className="ml-10 border border-white/30 rounded-full px-6 py-2 text-white font-medium hover:bg-[#A212A8] transition cursor-pointer">Contact</button>
         </div>
         {/* Mobile Menu Button */}
         <button 

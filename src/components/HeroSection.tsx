@@ -30,7 +30,7 @@ const HeroSection = () => {
         {/* Navbar */}
         <NavBar />
         {/* Category Pills */}
-        <div className="w-full flex justify-center lg:justify-end max-w-[945px] mx-auto mt-[20px] lg:mt-[100px]">
+        <div className="w-full flex justify-center lg:justify-end max-w-[945px] mx-auto mt-[20px] lg:mt-[150px]">
           <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-0 justify-center lg:justify-end w-full">
             {['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat, idx) => {
               const isLeftSide = idx < 3;
@@ -46,7 +46,7 @@ const HeroSection = () => {
                     zIndex: 10 + idx
                   }}
                   className={
-                    `border border-white/20 rounded-full px-[30px] py-[15px] text-white/80 text-sm font-medium bg-black/30 backdrop-blur-[15px] hover:bg-white/10 transition cursor-pointer whitespace-nowrap ` +
+                    `border border-white/20 rounded-full px-[30px] py-[15px] text-[#cccccc] tracking-widest text-xs font-[100] bg-black/30 backdrop-blur-[7px] hover:bg-white/10 transition cursor-pointer whitespace-nowrap ` +
                     `${idx !== 0 ? '-ml-7 ' : ''}`
                   }
                 >
@@ -66,7 +66,7 @@ const HeroSection = () => {
           More than just great design, we craft strategic solutions that fuel your brand&apos;s growth, attract the right customers, and turn attention into sales.
         </p>
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-4">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
           <button className="flex items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#A212A8] transition cursor-pointer">
             <Image src="/images/cta logo.png" alt="CTA Logo" width={20} height={20} />
             Book a call with us
@@ -76,7 +76,7 @@ const HeroSection = () => {
           </button>
         </div>
         {/* Clients and Logo Slider Section */}
-        <div className="w-[90%] lg:w-full max-w-[1332px] mx-auto mt-12 border-t border-b border-white/10 px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
+        <div className="w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t border-b border-white/10 px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
           {/* Happy Clients */}
           <div className="flex items-center min-w-[220px] w-full xl:w-auto xl:justify-start justify-center client-info-row">
             <div className="flex -space-x-3 justify-center w-full">
@@ -158,9 +158,9 @@ const HeroSection = () => {
              }
         @media (min-width: 1400px) {
 .product-rhs{
-          min-width: 460px;
-          max-width: 460px;
-          width: 460px;
+          min-width: 480px;
+          max-width: 480px;
+          width: 480px;
           }
              }
           /* Mobile Layout (below 980px) */

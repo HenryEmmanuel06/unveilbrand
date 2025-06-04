@@ -97,7 +97,7 @@ const ProjectSection = () => {
             </div>
             <div className="flex flex-col items-center ml-4 client-info-text">
               <span className="text-white text-sm font-semibold text-left min-w-[200px]">★★★★★</span>
-              <span className="text-white text-sm font-semibold mt-1 text-left min-w-[200px]">
+              <span className="text-white text-sm font-semibold text-left min-w-[200px]">
                 20+ Happy Clients
               </span>
             </div>

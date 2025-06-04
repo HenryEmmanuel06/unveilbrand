@@ -14,17 +14,17 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="services-section w-full flex flex-col items-center py-30 bg-[#040508]">
-      <div className="relative mx-auto w-[90%] max-w-[1180px]" style={{
+    <section className="services-section w-full flex flex-col items-center bg-[#040508]">
+      <div className="relative mx-auto w-[90%] max-w-[1180px] py-5 pt-10 md:py-30 md:pt-40" style={{
       backgroundImage: 'url("/images/shiny bg services.png")',
       backgroundSize: 'cover',
-      backgroundPositionY: '-100px',
+      backgroundPosition: 'center',
       backgroundRepeat: "no-repeat"
       // backgroundColor: "red",
   }}>
-      <h2 className="text-white text-3xl md:text-5xl font-bold mb-6 mx-auto text-center">Excellence in 3 Distinct Abilities</h2>
+      <h2 className="text-white text-3xl md:text-5xl font-bold mx-auto text-center">Solutions We&apos;re Really Good At</h2>
       <p className="text-white/80 text-lg max-w-900px mb-12 text-center">
-        Here at Unveilbrand, we deliver solutions that save time, cut complexity, and fit your budget
+        From development to Result. We deliver skills crafted to position your brand for long-term impact.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mb-10 mx-auto w-[90%] max-w-[1180px]">
         {services.map((service, idx) => {
@@ -36,7 +36,7 @@ const ServicesSection = () => {
           return (
             <div
               key={idx}
-              className={`bg-[#FFFFFF0D] px-8 py-5 text-white text-[16px] md:text-[20px] font-normal flex items-center justify-start shadow-md border border-[0.5px] border-[#FFFFFF33] border-opacity-10 ${borderRadius}`}
+              className={`bg-white/5 px-8 py-5 text-white text-[16px] md:text-[20px] font-normal flex items-center justify-start shadow-md border border-[0.5px] border-[#FFFFFF33] border-opacity-10 backdrop-blur-[1px] ${borderRadius}`}
               style={{
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
               }}
