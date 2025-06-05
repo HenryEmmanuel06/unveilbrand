@@ -1,0 +1,102 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
+const Footer = () => {
+  return (
+    <footer className="relative bg-[#040508] text-white pt-24 pb-10 overflow-hidden">
+      {/* Top section: Navigation links and subscription form */}
+      <div className="w-[85%] max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between pb-10">
+        {/* Navigation Links */}
+        <nav className="flex gap-10 mb-4 md:mb-0">
+          <Link href="/" className="hover:text-[#A212A8] transition cursor-pointer">Home</Link>
+          <Link href="/about" className="hover:text-[#A212A8] transition cursor-pointer">About</Link>
+          <Link href="/works" className="hover:text-[#A212A8] transition cursor-pointer">Our Works</Link>
+          <Link href="/marketplace" className="hover:text-[#A212A8] transition cursor-pointer">Marketplace</Link>
+          <Link href="/blog" className="hover:text-[#A212A8] transition cursor-pointer">Blog</Link>
+        </nav>
+        {/* Subscription Form */}
+        <form className="flex items-center gap-3">
+          <div className="flex items-center border border-[#7F7F7F] rounded-full px-4 py-2">
+            <input
+              type="email"
+              placeholder="Enter Your Email Address"
+              className="bg-transparent outline-none text-white placeholder-[#7F7F7F] w-65 px-2"
+            />
+            <button type="submit" className="p-1">
+              <Image src="/images/email logo.svg" alt="Email" width={22} height={22} />
+            </button>
+          </div>
+          <button
+            type="submit"
+            className="border border-[#7F7F7F] rounded-full px-6 py-2 text-white hover:bg-[#232323] transition"
+          >
+            Subscribe Today!
+          </button>
+        </form>
+      </div>
+
+      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col text-center gap-2">
+        {/* Large background text */}
+        <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none w-[90%] max-w-[1330px] mx-auto mt-30">
+         
+          <Image src="/images/unveilbrand footer logo.png" alt="WhatsApp" width={1330} height={239} className='border-b border-[#7F7F7F] px-5'/>
+        
+          {/* <div className="border-t border-[#7F7F7F] relative z-10 w-[1775px] md:w-[1330px] mx-auto"></div> */}
+        </div>
+
+        {/* Content above the line (empty for spacing) */}
+        <div className="h-32 md:h-40 lg:h-48" />
+        {/* Horizontal line */}
+        
+
+        {/* Footer main row */}
+        <div className="z-10 flex flex-col md:flex-row items-center justify-between w-full mx-auto pt-20">
+          {/* Chat Us Button */}
+          <Link
+            href="https://wa.me/your-number"
+            className="flex items-center gap-2 border border-[#232323] rounded-full px-6 py-2 text-white hover:bg-[#232323] transition mb-4 md:mb-0"
+          >
+            <Image src="/images/whatsapp logo.svg" alt="WhatsApp" width={22} height={22} />
+            <span className="font-medium">Chat Us!</span>
+          </Link>
+
+          {/* Social Icons */}
+          <div className="flex items-center gap-7 border border-[#232323] rounded-full px-[20px] py-[10px]" style={{
+            boxShadow: "0px 0px 10px 0px #00000026",
+          }}>
+
+            <Link href="#" aria-label="Facebook" className="hover:opacity-80 transition">
+              <Image src="/images/facebook logo.svg" alt="Facebook" width={22} height={22} />
+            </Link>
+            <Link href="#" aria-label="Instagram" className="hover:opacity-80 transition">
+              <Image src="/images/instagram logo.svg" alt="Instagram" width={22} height={22} />
+            </Link>
+            <Link href="#" aria-label="TikTok" className="hover:opacity-80 transition">
+              <Image src="/images/tiktok logo.svg" alt="TikTok" width={22} height={22} />
+            </Link>
+            <Link href="#" aria-label="YouTube" className="hover:opacity-80 transition">
+              <Image src="/images/youtube logo.svg" alt="YouTube" width={22} height={22} />
+            </Link>
+            <Link href="#" aria-label="X" className="hover:opacity-80 transition">
+              <Image src="/images/twitter logo.svg" alt="X" width={22} height={22} />
+            </Link>
+            <Link href="#" aria-label="Dribbble" className="hover:opacity-80 transition">
+              <Image src="/images/dribble logo.svg" alt="Dribbble" width={22} height={22} />
+            </Link>
+          </div>
+
+          {/* Scroll Up Button */}
+          <Link
+            href="#top"
+            className="flex items-center gap-2 border border-[#232323] rounded-full px-6 py-2 text-white hover:bg-[#232323] transition"
+          >
+            <Image src="/images/arrow up.svg" alt="Scroll Up" width={22} height={22} />
+            <span className="font-medium">Scroll Up</span>
+          </Link>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer; 
