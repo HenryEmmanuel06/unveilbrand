@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#040508] text-white pt-10 pb-10 overflow-hidden">
+    <footer className="relative bg-[#040508] text-white pt-20 pb-10 overflow-hidden">
       {/* Top section: Navigation links and subscription form */}
       <div className="w-[85%] max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between pb-10">
         {/* Navigation Links */}
