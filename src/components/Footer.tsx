@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#040508] text-white pt-24 pb-10 overflow-hidden">
+    <footer className="relative bg-[#040508] text-white pt-10 pb-10 overflow-hidden">
       {/* Top section: Navigation links and subscription form */}
       <div className="w-[85%] max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between pb-10">
         {/* Navigation Links */}
@@ -16,19 +16,18 @@ const Footer = () => {
         </nav>
         {/* Subscription Form */}
         <form className="flex items-center gap-3">
-          <div className="flex items-center border border-[#7F7F7F] rounded-full px-4 py-2">
+          <div className="flex items-center border border-[#ffffff] rounded-full px-4 py-2.5">
             <input
               type="email"
               placeholder="Enter Your Email Address"
-              className="bg-transparent outline-none text-white placeholder-[#7F7F7F] w-65 px-2"
+              className="bg-transparent outline-none text-white placeholder-[#FFFFFF33] w-65 px-2"
             />
-            <button type="submit" className="p-1">
               <Image src="/images/email logo.svg" alt="Email" width={22} height={22} />
-            </button>
+            
           </div>
           <button
             type="submit"
-            className="border border-[#7F7F7F] rounded-full px-6 py-2 text-white hover:bg-[#232323] transition"
+            className="border border-[#fffff] rounded-full px-6 py-2.5 h-full text-white hover:bg-[#232323] transition"
           >
             Subscribe Today!
           </button>
