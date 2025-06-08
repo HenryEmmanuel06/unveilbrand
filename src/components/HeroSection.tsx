@@ -116,78 +116,7 @@ const HeroSection = () => {
         </div>
         {/* End Clients and Logo Slider Section */}
 
-        <style jsx global>{`
-          @keyframes logo-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-logo-scroll {
-            animation: logo-scroll 20s linear infinite;
-            width: 200%;
-          }
-
-          /* Tablet Layout (below 1280px) */
-          @media (max-width: 1280px) {
-            .animate-logo-scroll {
-              animation-duration: 15s;
-            }
-            .client-info-row {
-              flex-direction: row !important;
-              align-items: center !important;
-            }
-            .client-info-text {
-              margin-left: 0 !important;
-              align-items: center !important;
-              flex-direction: column !important;
-              margin-top: 0.5rem !important;
-              text-align: center !important;
-              width: 100%;
-              display: flex;
-              justify-content: center;
-            }
-            .client-info-text span {
-              text-align: center !important;
-              width: 100%;
-              display: block;
-            }
-          }
-             @media (max-width: 1170px) {
-.product-1-img{
-          display: none;
-          }
-             }
-        @media (min-width: 1400px) {
-.product-rhs{
-          min-width: 480px;
-          max-width: 480px;
-          width: 480px;
-          }
-             }
-          /* Mobile Layout (below 980px) */
-          @media (max-width: 980px) {
-            .animate-logo-scroll {
-              animation-duration: 12s;
-            }
-          }
-
-          @media (max-width: 480px) {
-            .client-info-row { flex-direction: row !important; align-items: center !important; }
-            .client-info-text { margin-left: 0 !important; align-items: center !important; flex-direction: column !important; margin-top: 0.5rem !important; }
-            .client-info-text span.ml-2 { margin-left: 0 !important; margin-top: 0.25rem !important; }
-            .product-image-display-desktop{
-            display: none;
-            }
-            .product-img-mobile{
-            display: block;
-            }
-           
-          }
-            @media (min-width: 480px){
-             .product-img-mobile{
-            display: none;
-            }
-            }
-        `}</style>
+       
       </div>
     </section>
   );

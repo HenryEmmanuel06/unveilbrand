@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -85,13 +86,14 @@ const Footer = () => {
           </div>
 
           {/* Scroll Up Button */}
-          <Link
-            href="#top"
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-2 border border-[#232323] rounded-full px-6 py-2 text-white hover:bg-[#232323] transition"
           >
             <Image src="/images/arrow up.svg" alt="Scroll Up" width={22} height={22} />
             <span className="font-medium">Scroll Up</span>
-          </Link>
+          </button>
         </div>
       </div>
     </footer>
