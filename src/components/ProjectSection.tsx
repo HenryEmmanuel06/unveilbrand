@@ -163,7 +163,7 @@ const ProjectSection = () => {
                 {/* Prev Button */}
                 <button
                   onClick={prevSlide}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
                   aria-label="Previous Slide"
                 >
                   <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
@@ -173,7 +173,7 @@ const ProjectSection = () => {
                 {/* Next Button */}
                 <button
                   onClick={nextSlide}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
                   aria-label="Next Slide"
                 >
                   <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
@@ -183,7 +183,8 @@ const ProjectSection = () => {
                   {slides.map((_, idx) => (
                     <span
                       key={idx}
-                      className={`w-[10px] h-[10px] rounded-full ${idx === slide ? 'bg-white' : 'bg-[#FFFFFF80]'}`}
+                      onClick={() => setSlide(idx)}
+                      className={`cursor-pointer w-[10px] h-[10px] rounded-full ${idx === slide ? 'bg-white' : 'bg-[#FFFFFF80]'} transition-all duration-300 hover:bg-white`}
                     ></span>
                   ))}
                 </div>
