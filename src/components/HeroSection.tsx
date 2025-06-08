@@ -101,11 +101,11 @@ const HeroSection = () => {
           {/* Logo Slider */}
           <div className="relative w-full max-w-[67%] overflow-hidden h-[40px] xl:h-[40px] lg:h-[32px] md:h-[28px]">
             <div className="absolute left-0 top-0 flex items-center h-full animate-logo-scroll min-w-full">
-              {[...Array(8)].map((_, i) => (
+              {[...Array(10)].map((_, i) => (
                 <Image
                   key={i}
-                  src="/images/logo slider.png"
-                  alt="Unveilbrand Logo Slider"
+                  src={`/images/hero slide img ${(i % 5) + 1}.png`}
+                  alt={`Hero Slide Image ${(i % 5) + 1}`}
                   width={160}
                   height={40}
                   className="object-contain mx-8 xl:w-[160px] lg:w-[140px] md:w-[120px]"
