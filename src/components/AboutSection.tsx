@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 
 const AboutSection = () => {
   return (
@@ -14,9 +15,11 @@ const AboutSection = () => {
         We have many years of experience working for big brands both directly and indirectly through big Agencies. We partner with you and your team to deliver technology solutions that would help you better serve your customers.
       </p>
       <div className="flex justify-center">
-        <img
+        <Image
           src="/images/about purple arrow.svg"
           alt="Scroll Down"
+          width={48}
+          height={48}
           className="w-10 h-10 md:w-12 md:h-12 animate-bounce cursor-pointer"
           onClick={() => window.scrollBy({ top: 400, left: 0, behavior: 'smooth' })}
         />
@@ -30,7 +33,7 @@ const AboutSection = () => {
         </div>
         <div className="flex flex-col justify-center w-[65%] py-8 px-15 bg-[#FFFFFF0D] backdrop-blur-[1.5px] border border-[0.5px] border-[#FFFFFF33] border-opacity-10">
           <p className="text-base md:text-lg text-[#E0E0E0] mb-2">
-            When you work with us, we consider ourselves your partners and we do all that's required to help achieve your goals.
+            When you work with us, we consider ourselves your partners and we do all that&apos;s required to help achieve your goals.
           </p>
           <p className="text-base md:text-lg text-[#E0E0E0]">
             we consider ourselves your partners
