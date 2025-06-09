@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 
 const projects = [
@@ -41,13 +41,44 @@ const ProjectSection = () => {
   const [showModal, setShowModal] = useState(false);
   const [slide, setSlide] = useState(0);
   const [currentProjectId, setCurrentProjectId] = useState<number | null>(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   const openModal = (projectId: number) => {
+    // Save current scroll position
+    setScrollPosition(window.scrollY);
+    // Prevent scrolling
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${window.scrollY}px`;
+    document.body.style.width = '100%';
+    
     setCurrentProjectId(projectId);
     setShowModal(true);
     setSlide(0);
   };
-  const closeModal = () => setShowModal(false);
+
+  const closeModal = () => {
+    // Re-enable scrolling
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    // Restore scroll position
+    window.scrollTo(0, scrollPosition);
+    
+    setShowModal(false);
+  };
+
+  // Cleanup on component unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    };
+  }, []);
+
   const nextSlide = () => setSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
@@ -80,6 +111,7 @@ const ProjectSection = () => {
               backgroundImage: 'url("/images/project img 1.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
+              backgroundRepeat: "no-repeat"
             }}
             onClick={() => openModal(1)}
             >
@@ -190,7 +222,7 @@ const ProjectSection = () => {
                 </div>
               </div>
               {/* Right: Controls */}
-              <div className="w-[40%] max-w-full flex flex-col p-4 text-white rounded-3xl shadow-lg bg-[#111111]">
+              <div className="w-[40%] 2xl:w-[35%] max-w-full flex flex-col p-4 text-white rounded-[10px] shadow-lg bg-[#111111]">
                 {/* Header */}
                 <div className="flex justify-between gap-3 items-center mb-[10px]">
                   <h2 className="text-3xl font-bold bg-[#FFFFFF0D] py-[16px] px-[20px] flex-1 rounded-[10px]">{currentProject?.title}</h2>
