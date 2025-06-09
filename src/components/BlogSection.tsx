@@ -80,7 +80,7 @@ export default function BlogSection() {
             {latestBlogs[0] && (
               <Link href={`/blog/${latestBlogs[0].id}`} className="block mb-6">
                 <div className='border-l-2 border-white] pl-7 mt-5'>
-                  <h3 className="text-white text-[40px] font-semibold italic leading-tight mb-2">{latestBlogs[0].title.length > 35 ? `${latestBlogs[0].title.slice(0, 35)}...` : latestBlogs[0].title}</h3>
+                  <h3 className="text-white text-[27px] md:text-[40px] font-semibold italic leading-tight mb-2">{latestBlogs[0].title.length > 35 ? `${latestBlogs[0].title.slice(0, 35)}...` : latestBlogs[0].title}</h3>
                   <div className="flex gap-4 text-white/70 text-xs font-semibold">
                     <span>{latestBlogs[0].author?.toUpperCase()}</span>
                     <span>{formatDate(latestBlogs[0].created_at)}</span>
@@ -121,10 +121,10 @@ export default function BlogSection() {
                 </div>
                 {/* Main Content */}
                 <div className="flex-1 flex flex-col justify-center p-6 pl-0 -ml-3">
-                  <h3 className="text-[#333333] text-[27px] font-bold mb-2 group-hover:text-white transition">{techEducation.title}</h3>
+                  <h3 className="text-white md:text-[#333333] text-[16px] md:text-[27px] font-bold mb-2 md:group-hover:text-white transition">{techEducation.title}</h3>
                   <div className="flex gap-4 text-[#A212A8] text-xs font-normal pt-1">
                     <span>{techEducation.author?.toUpperCase()}</span>
-                    <span className="flex gap-4 text-[#333333] text-xs group-hover:text-white">{new Date(techEducation.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })} GMT +1</span>
+                    <span className="flex gap-4 text-white md:text-[#333333] text-xs md:group-hover:text-white">{new Date(techEducation.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })} GMT +1</span>
                   </div>
                 </div>
                 {/* Image */}
@@ -147,10 +147,10 @@ export default function BlogSection() {
                 </div>
                 {/* Main Content */}
                 <div className="flex-1 flex flex-col justify-center p-6 pl-0 -ml-3">
-                  <h3 className="text-[#333333] text-[27px] font-bold mb-2 group-hover:text-white transition">{techStories.title}</h3>
+                  <h3 className="text-white md:text-[#333333] text-[16px] md:text-[27px] font-bold mb-2 md:group-hover:text-white transition">{techStories.title}</h3>
                   <div className="flex gap-4 text-[#A212A8] text-xs font-normal pt-1">
                     <span>{techStories.author?.toUpperCase()}</span>
-                    <span className="flex gap-4 text-[#333333] text-xs group-hover:text-white">{new Date(techStories.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })} GMT +1</span>
+                    <span className="flex gap-4 text-white md:text-[#333333] text-xs md:group-hover:text-white">{new Date(techStories.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })} GMT +1</span>
                   </div>
                 </div>
                 {/* Image */}

@@ -6,14 +6,14 @@ const Footer = () => {
   return (
     <footer className="relative bg-[#040508] text-white pt-20 pb-10 overflow-hidden">
       {/* Top section: Navigation links and subscription form */}
-      <div className="w-[85%] max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between pb-10">
+      <div className="w-[90%] max-w-[1332px] mx-auto flex flex-col md:flex-row items-center justify-between pb-10">
         {/* Navigation Links */}
-        <nav className="flex gap-10 mb-4 md:mb-0">
-          <Link href="/" className="hover:text-[#A212A8] transition cursor-pointer">Home</Link>
-          <Link href="/about" className="hover:text-[#A212A8] transition cursor-pointer">About</Link>
-          <Link href="/works" className="hover:text-[#A212A8] transition cursor-pointer">Our Works</Link>
-          <Link href="/marketplace" className="hover:text-[#A212A8] transition cursor-pointer">Marketplace</Link>
-          <Link href="/blog" className="hover:text-[#A212A8] transition cursor-pointer">Blog</Link>
+        <nav className="flex flex-col sm:justify-center sm:items-center md:flex-row gap-10 mb-4 md:mb-0">
+          <Link href="/" className="hover:text-[#A212A8] transition cursor-pointer text-center">Home</Link>
+          <Link href="/about" className="hover:text-[#A212A8] transition cursor-pointer text-center">About</Link>
+          <Link href="/works" className="hover:text-[#A212A8] transition cursor-pointer text-center">Our Works</Link>
+          <Link href="/marketplace" className="hover:text-[#A212A8] transition cursor-pointer text-center">Marketplace</Link>
+          <Link href="/blog" className="hover:text-[#A212A8] transition cursor-pointer text-center">Blog</Link>
         </nav>
         {/* Subscription Form */}
         <form className="flex items-center gap-3">

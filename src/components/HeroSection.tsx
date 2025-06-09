@@ -78,26 +78,26 @@ const HeroSection = () => {
         {/* Clients and Logo Slider Section */}
         <div className="w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t border-b border-white/10 px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
           {/* Happy Clients */}
-          <div className="flex items-center min-w-[220px] w-full xl:w-auto xl:justify-start justify-center client-info-row">
-            <div className="flex -space-x-3 justify-center w-full">
-              {[1,2,3,4,5].map((i) => (
-                <Image
-                  key={i}
-                  src={`/images/client ${i}.png`}
-                  alt={`Client ${i}`}
-                  width={40}
-                  height={40}
-                  className="rounded-full border-2 border-black"
-                />
-              ))}
-            </div>
-            <div className="flex flex-col items-center ml-4 client-info-text">
-              <span className="text-white text-sm font-semibold text-left min-w-[200px]">★★★★★</span>
-              <span className="text-white text-sm font-semibold mt-1 text-left min-w-[200px]">
-                20+ Happy Clients
-              </span>
-            </div>
-          </div>
+          <div className="flex items-center min-w-[220px] xl:w-auto xl:justify-start justify-center client-info-row">
+                     <div className="flex -space-x-3 justify-center w-full">
+                       {[1,2,3,4,5].map((i) => (
+                         <Image
+                           key={i}
+                           src={`/images/client ${i}.png`}
+                           alt={`Client ${i}`}
+                           width={40}
+                           height={40}
+                           className="rounded-full border-2 border-black"
+                         />
+                       ))}
+                     </div>
+                     <div className="flex flex-col items-center ml-4 client-info-text">
+                       <span className="text-white text-sm font-semibold text-left min-w-[200px]">★★★★★</span>
+                       <span className="text-white text-sm font-semibold text-left min-w-[200px]">
+                         20+ Happy Clients
+                       </span>
+                     </div>
+                   </div>
           {/* Logo Slider */}
           <div className="relative w-full max-w-[67%] overflow-hidden h-[40px] xl:h-[40px] lg:h-[32px] md:h-[28px]">
             <div className="absolute left-0 top-0 flex items-center h-full animate-logo-scroll min-w-full">
