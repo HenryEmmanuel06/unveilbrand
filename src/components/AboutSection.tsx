@@ -51,7 +51,7 @@ const AboutSection = () => {
           {/* Card 1 */}
           <div className="flex flex-col items-center p-4 pb-8 bg-[#FFFFFF1A] text-center rounded-[20px]">
             <Image
-              src="https://uccce2e410d3fe3b0672edf7b6bb.previews.dropboxusercontent.com/p/thumb/ACol69bx6m6xQHLM8PUjnh32C0adi6zu--ag2dMqW4RonVbB_8n_ODgbhx5WXRI-K44rKoKoLPsQ66g3cea-N0o90Ig7pOsKMKmFFHs1VdYdnYt7cevaLsdqA_j3yTH286dDeKuuvXJWRlrjn9-4HespDO8CaoZXMZUP6eVyJe-EQgnJ6pyd4EYyK0Q7bfx_lG5-sPi-XKnMCT1lGk34CSHwlispDRSRt8IIzPQa2M0vUR8OCVc5rkqEwklreLRKLehBUR5Kzl_r_PusOmWjp8Ffvz0qWGvsiwvQnDE_8pOdja2VOiq-s1f2GpC1h5AVwGa7KnxSY6DiHEK3IfbQW7CX3mdKkLJkLeNoUXQPjLE5i895TwevJAUDZJXG-rkoNeBgifBD5Oeue4HVGWhzbad6_VsMUuwf2TpeeHx5C56kEOb1GDq8oe6tLrBd4UbCaTmICOcEl5cxp0UmjlqTJADUGS0_yPpSa_qa2kaoe7iX7Nquvbh6e1rNpJeSIWQ7fSc_3QsmCe8tvVylbkdDJRp6/p.gif?is_prewarmed=truehttps://www.dropbox.com/scl/fi/wbr48addf8e9lwfxjf56f/about-section-gif-1.gif?rlkey=8s6gcfkvjsfp9maa1apxer3dx&st=axrat6cb&dl=0"
+              src="https://res.cloudinary.com/dddpexcfo/image/upload/v1749580761/about_section_gif_1_pqkwzz.gif"
               alt="People Over Technology"
               width={250}
               height={250}
@@ -67,7 +67,7 @@ const AboutSection = () => {
           {/* Card 2 */}
           <div className="flex flex-col items-center p-4 pb-8 bg-[#FFFFFF1A] text-center rounded-[20px]">
             <Image
-              src="https://uc0a5bbd5e3dbb509a52f3e8cd37.previews.dropboxusercontent.com/p/thumb/ACqqSjY7Ljqxp1fcBONfJ85TCUV8M79iD9L5vHNL89hqwAetBRf7I14HvHzJN0IWeYjg5xiF6TAAfdGIfPwO8qSpmQKNMCrFT-x4W2u2fniWxpfINV3BxHV6QnNaYTrbbo7Ovna46_pmQr612ObFpVyWDrJz00ScuWt60JHpZVh_uUPLJTWgE8xh48MPMzHzx8UI66CzS-Hd7mKtn1Tjmd0IANU_Gi6D6_33ny_p9f0GPH32d5Zyo9IhW42lg8Vvx7NC_zxBoobRSN-XjimR3GpVDdOww5oP2bPax_PH32hLB4XUEFDIbwqdVXD4bNLA2yjBIZiHJ2IGsPuti5aew5bGR2EsmV4Dg84nJsdYGz-Clvju2IciNLZowipKPCvtK8Cv7y2OOfLcEtk1Q61aAlQopqS9MHlbN6NgXb8ZREKGoSw7fOSdxUqgtkhDfme_jKcJ9dVG5UbTDGVoib087YL7/p.gif?is_prewarmed=true"
+              src="https://res.cloudinary.com/dddpexcfo/image/upload/v1749581878/about_section_gif_2_eakgyt.gif"
               alt="People Over Technology"
               width={250}
               height={250}
@@ -84,7 +84,7 @@ const AboutSection = () => {
           {/* Card 3 */}
           <div className="flex flex-col items-center p-4 pb-8 bg-[#FFFFFF1A] text-center rounded-[20px]">
             <Image
-              src="https://previews.dropbox.com/p/thumb/ACqU3wtqUJQnfeZ2JsZ7LUcMHflKPOaZDSTzpKJWBt5lrNDCmlpxTMYdguf2pOg5TiTYGCNNsf92SSe7xIlZRZSGIhqvOXmX-TH05FeCV1GI2qbJxBrO5Hs7r1IZriWoHn65Qo1DUGE8NxPh9i0MMWfC3dFTbYspfqmrjZbHh0aSFcChaREeiKOa_--6deGqEdMVdsxB12aWpxBQ2-TdsAZBTfob8bQHaVGGi7RRB8ptTlhNM6jtcgj1pcnxYYhonD09CRGVdPYNCtBqvpnWToSeU-515vjYe3ldF2Y_2r0wN7V9C4f3TJdf2XFTrlcmoa4YdyIYXvqv-OEoHLJZ70c-v1Gw6tHrBRiAAN7B0sPXyEQUTFV4rI-V0MRmyOr9joTsdBNiFNUc1OzIY4jATf0Z/p.gif?is_prewarmed=true"
+              src="https://res.cloudinary.com/dddpexcfo/image/upload/v1749582676/about_section_gif_3_wmplhu.gif"
               alt="People Over Technology"
               width={250}
               height={250}
