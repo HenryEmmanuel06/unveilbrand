@@ -99,7 +99,7 @@ const HeroSection = () => {
                      </div>
                    </div>
           {/* Logo Slider */}
-          <div className="relative w-full max-w-[67%] overflow-hidden h-[40px] xl:h-[40px] lg:h-[32px] md:h-[28px]">
+          <div className="relative w-full sm:max-w-[100%] md:max-w-[67%] overflow-hidden h-[40px] xl:h-[40px] lg:h-[32px] md:h-[28px]">
             <div className="absolute left-0 top-0 flex items-center h-full animate-logo-scroll min-w-full">
               {[...Array(10)].map((_, i) => (
                 <Image

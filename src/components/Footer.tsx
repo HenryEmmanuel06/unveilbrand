@@ -16,19 +16,19 @@ const Footer = () => {
           <Link href="/blog" className="hover:text-[#A212A8] transition cursor-pointer text-center">Blog</Link>
         </nav>
         {/* Subscription Form */}
-        <form className="flex items-center gap-3">
-          <div className="flex items-center border border-[#ffffff] rounded-full px-4 py-2.5">
+        <form className="flex items-center gap-3 w-[90%] md:w-auto flex-col md:flex-row">
+          <div className="flex items-center border border-[#ffffff] rounded-full px-4 py-2.5 w-[100%] md:w-auto">
             <input
               type="email"
               placeholder="Enter Your Email Address"
-              className="bg-transparent outline-none text-white placeholder-[#FFFFFF33] w-65 px-2"
+              className="bg-transparent outline-none text-white placeholder-[#FFFFFF33] px-2 w-[100%] md:w-auto h-full"
             />
               <Image src="/images/email logo.svg" alt="Email" width={22} height={22} />
             
           </div>
           <button
             type="submit"
-            className="border border-[#fffff] rounded-full px-6 py-2.5 h-full text-white hover:bg-[#232323] transition"
+            className="border border-[#fffff] rounded-full px-6 py-2.5 h-full text-white hover:bg-[#232323] transition w-[100%] md:w-auto"
           >
             Subscribe Today!
           </button>
@@ -37,7 +37,7 @@ const Footer = () => {
 
       <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col text-center gap-2">
         {/* Large background text */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none w-[90%] max-w-[1330px] mx-auto mt-30">
+        <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none w-[90%] max-w-[1330px] mx-auto mt-60 md:mt-30">
          
           <Image src="/images/unveilbrand footer logo.png" alt="WhatsApp" width={1330} height={239} className='border-b border-[#7F7F7F] px-5'/>
         
