@@ -80,7 +80,7 @@ export default function AllBlogs() {
             >
               {
                 blog.featured_image ? (
-                  <img
+                  <Image
                     src={blog.featured_image}
                     alt={blog.title}
                     className="w-full h-48 object-cover rounded-md mb-4"

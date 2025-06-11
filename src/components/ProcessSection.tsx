@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ScrollReveal from "./ScrollReveal";
 import AnimatedSection from "./AnimatedSection";
 
 const processSteps = [
@@ -31,17 +30,7 @@ const ProcessSection = () => {
         // backgroundColor: "red",
     }}>
         {/* Section Title */}
-          <ScrollReveal
-           baseOpacity={0}
-           enableBlur={true}
-           baseRotation={5}
-           blurStrength={10}
-          >
-        <h2 className="text-white text-3xl md:text-5xl font-bold">
-          Excellence in 3 Distinct Abilities
-          </h2>
-          </ScrollReveal>
-          
+        <h2 className="text-white text-3xl md:text-5xl font-bold"> Excellence in 3 Distinct Abilities</h2>
         <p className="text-white/80 text-lg max-w-900px mb-12">Here at Unveilbrand, we deliver solutions that save time, cut complexity, and fit your budget.</p>
         {/* Steps */}
         <div className="flex flex-col lg:flex-row gap-12 md:gap-8 w-full justify-center items-stretch pt-10">
