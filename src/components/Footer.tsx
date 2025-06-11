@@ -39,7 +39,7 @@ const Footer = () => {
         </form>
       </AnimatedSection>
 
-      <AnimatedSection className="w-[90%] max-w-[1330px] mx-auto flex flex-col text-center gap-2">
+      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col text-center gap-2">
         {/* Large background text */}
         <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none w-[90%] max-w-[1330px] mx-auto mt-60 md:mt-30">
          
@@ -99,7 +99,7 @@ const Footer = () => {
             <span className="font-medium">Scroll Up</span>
           </button>
         </div>
-      </AnimatedSection>
+      </div>
     </footer>
   );
 };
