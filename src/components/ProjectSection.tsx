@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import AnimatedSection from './AnimatedSection';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const projects = [
   {
@@ -184,90 +185,102 @@ const ProjectSection = () => {
             Become One Of Them Today!
           </button>
         </AnimatedSection>
-        {showModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
-            <div
-              className="relative rounded-3xl w-[90vw] h-[90vh] flex flex-row shadow-2xl overflow-hidden gap-4">
-              {/* Left: Image Slide */}
-              <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative" style={{
-                backgroundImage: `url(${currentProject?.modalBackground})`,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-                backgroundSize: "cover"
-              }}>
-                {/* Prev Button */}
-                <button
-                  onClick={prevSlide}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
-                  aria-label="Previous Slide"
-                >
-                  <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
-                </button>
-                {/* Image */}
-                <Image src={slides[slide]} alt={`Slide ${slide + 1}`} width={600} height={400} className="rounded-2xl object-contain max-h-[60vh]" />
-                {/* Next Button */}
-                <button
-                  onClick={nextSlide}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
-                  aria-label="Next Slide"
-                >
-                  <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
-                </button>
-                {/* Pagination Dots */}
-                <div className="absolute bottom-[20px] left-1/2 -translate-x-1/2 flex gap-3 z-10 bg-[#11111133] p-3 rounded-full">
-                  {slides.map((_, idx) => (
-                    <span
-                      key={idx}
-                      onClick={() => setSlide(idx)}
-                      className={`cursor-pointer w-[10px] h-[10px] rounded-full ${idx === slide ? 'bg-white' : 'bg-[#FFFFFF80]'} transition-all duration-300 hover:bg-white`}
-                    ></span>
-                  ))}
-                </div>
-              </div>
-              {/* Right: Controls */}
-              <div className="w-[40%] 2xl:w-[35%] max-w-full flex flex-col p-4 text-white rounded-[10px] shadow-lg bg-[#111111]">
-                {/* Header */}
-                <div className="flex justify-between gap-3 items-center mb-[10px]">
-                  <h2 className="text-3xl font-bold bg-[#FFFFFF0D] py-[16px] px-[20px] flex-1 rounded-[10px]">{currentProject?.title}</h2>
-                  <div className="flex gap-2">
-                    <a href={currentProject?.projectLink} target="_blank" rel="noopener noreferrer" className="w-[70px] h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white">
-                      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
-                    </a>
-                    <button onClick={closeModal} className="w-[70px] h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white text-[35px] cursor-pointer">&times;</button>
+        <AnimatePresence>
+          {showModal && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60"
+            >
+              <motion.div
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                exit={{ y: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="relative rounded-3xl w-[90vw] h-[90vh] flex flex-row shadow-2xl overflow-hidden gap-4"
+              >
+                {/* Left: Image Slide */}
+                <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative" style={{
+                  backgroundImage: `url(${currentProject?.modalBackground})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  backgroundSize: "cover"
+                }}>
+                  {/* Prev Button */}
+                  <button
+                    onClick={prevSlide}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
+                    aria-label="Previous Slide"
+                  >
+                    <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
+                  </button>
+                  {/* Image */}
+                  <Image src={slides[slide]} alt={`Slide ${slide + 1}`} width={600} height={400} className="rounded-2xl object-contain max-h-[60vh]" />
+                  {/* Next Button */}
+                  <button
+                    onClick={nextSlide}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
+                    aria-label="Next Slide"
+                  >
+                    <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
+                  </button>
+                  {/* Pagination Dots */}
+                  <div className="absolute bottom-[20px] left-1/2 -translate-x-1/2 flex gap-3 z-10 bg-[#11111133] p-3 rounded-full">
+                    {slides.map((_, idx) => (
+                      <span
+                        key={idx}
+                        onClick={() => setSlide(idx)}
+                        className={`cursor-pointer w-[10px] h-[10px] rounded-full ${idx === slide ? 'bg-white' : 'bg-[#FFFFFF80]'} transition-all duration-300 hover:bg-white`}
+                      ></span>
+                    ))}
                   </div>
                 </div>
+                {/* Right: Controls */}
+                <div className="w-[40%] 2xl:w-[35%] max-w-full flex flex-col p-4 text-white rounded-[10px] shadow-lg bg-[#111111]">
+                  {/* Header */}
+                  <div className="flex justify-between gap-3 items-center mb-[10px]">
+                    <h2 className="text-3xl font-bold bg-[#FFFFFF0D] py-[16px] px-[20px] flex-1 rounded-[10px]">{currentProject?.title}</h2>
+                    <div className="flex gap-2">
+                      <a href={currentProject?.projectLink} target="_blank" rel="noopener noreferrer" className="w-[70px] h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
+                      </a>
+                      <button onClick={closeModal} className="w-[70px] h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white text-[35px] cursor-pointer">&times;</button>
+                    </div>
+                  </div>
 
-                {/* Project Details */}
-                <div className="mb-[10px] bg-[#1a1a1a] rounded-2xl p-4">
-                  <div className="flex flex-row text-sm gap-10">
-                    <div>
-                      <p className="text-white text-[12px] font-normal">COMPANY</p>
-                      <p className="font-bold text-[16px] 2xl:text-[18px]">{currentProject?.company}</p>
-                    </div>
-                    <div>
-                      <p className="text-white text-[12px] font-normal">YEAR</p>
-                      <p className="font-bold text-lg">{currentProject?.year}</p>
-                    </div>
-                    <div>
-                      <p className="text-white text-[12px] font-normal">TYPE</p>
-                      <div className="flex flex-wrap gap-1 mt-1">
-                        <span className="border border-white/30 text-white/70 text-[10px] xlg:text-[12px] px-2 py-1 rounded-full bg-transparent">
-                          {currentProject?.type.join(' | ')}
-                        </span>
+                  {/* Project Details */}
+                  <div className="mb-[10px] bg-[#1a1a1a] rounded-2xl p-4">
+                    <div className="flex flex-row text-sm gap-10">
+                      <div>
+                        <p className="text-white text-[12px] font-normal">COMPANY</p>
+                        <p className="font-bold text-[16px] 2xl:text-[18px]">{currentProject?.company}</p>
+                      </div>
+                      <div>
+                        <p className="text-white text-[12px] font-normal">YEAR</p>
+                        <p className="font-bold text-lg">{currentProject?.year}</p>
+                      </div>
+                      <div>
+                        <p className="text-white text-[12px] font-normal">TYPE</p>
+                        <div className="flex flex-wrap gap-1 mt-1">
+                          <span className="border border-white/30 text-white/70 text-[10px] xlg:text-[12px] px-2 py-1 rounded-full bg-transparent">
+                            {currentProject?.type.join(' | ')}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Overview */}
-                <div className="bg-[#1a1a1a] rounded-2xl p-4 flex-1 overflow-y-auto">
-                  <h3 className="text-white text-[12px] font-normal mb-2">OVERVIEW</h3>
-                  <p className="text-white/90 text-sm leading-relaxed whitespace-pre-line">{currentProject?.description}</p>
+                  {/* Overview */}
+                  <div className="bg-[#1a1a1a] rounded-2xl p-4 flex-1 overflow-y-auto">
+                    <h3 className="text-white text-[12px] font-normal mb-2">OVERVIEW</h3>
+                    <p className="text-white/90 text-sm leading-relaxed whitespace-pre-line">{currentProject?.description}</p>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        )}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
