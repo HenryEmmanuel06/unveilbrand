@@ -1,17 +1,21 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import AnimatedSection from './AnimatedSection';
 
 const Footer = () => {
   return (
     <footer className="relative bg-[#040508] text-white pt-20 pb-10 overflow-hidden">
       {/* Top section: Navigation links and subscription form */}
-      <div className="w-[90%] max-w-[1332px] mx-auto flex flex-col md:flex-row items-center justify-between pb-10">
+      <AnimatedSection className="w-[90%] max-w-[1332px] mx-auto flex flex-col md:flex-row items-center justify-between pb-10">
         {/* Navigation Links */}
         <nav className="flex flex-col sm:justify-center sm:items-center md:flex-row gap-10 mb-4 md:mb-0">
           <Link href="/" className="hover:text-[#A212A8] transition cursor-pointer text-center">Home</Link>
           <Link href="/about" className="hover:text-[#A212A8] transition cursor-pointer text-center">About</Link>
-          <Link href="/works" className="hover:text-[#A212A8] transition cursor-pointer text-center">Our Works</Link>
+          <Link href="#projects" onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+          }} className="hover:text-[#A212A8] transition cursor-pointer text-center">Our Works</Link>
           <Link href="/marketplace" className="hover:text-[#A212A8] transition cursor-pointer text-center">Marketplace</Link>
           <Link href="/blog" className="hover:text-[#A212A8] transition cursor-pointer text-center">Blog</Link>
         </nav>
@@ -33,9 +37,9 @@ const Footer = () => {
             Subscribe Today!
           </button>
         </form>
-      </div>
+      </AnimatedSection>
 
-      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col text-center gap-2">
+      <AnimatedSection className="w-[90%] max-w-[1330px] mx-auto flex flex-col text-center gap-2">
         {/* Large background text */}
         <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none w-[90%] max-w-[1330px] mx-auto mt-60 md:mt-30">
          
@@ -95,7 +99,7 @@ const Footer = () => {
             <span className="font-medium">Scroll Up</span>
           </button>
         </div>
-      </div>
+      </AnimatedSection>
     </footer>
   );
 };

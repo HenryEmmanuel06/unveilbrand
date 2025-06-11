@@ -26,7 +26,10 @@ const NavBar = () => {
               <Link href="/">Home</Link>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
-              <Link href="/our-works">Our Works</Link>
+              <Link href="#projects" onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+              }}>Our Works</Link>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
               <Link href="/about">About</Link>
@@ -70,7 +73,10 @@ const NavBar = () => {
               <Link href="/">Home</Link>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
-              <Link href="/our-works">Our Works</Link>
+              <a href="#projects" onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+              }}>Our Works</a>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
               <Link href="/about">About</Link>

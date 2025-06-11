@@ -1,11 +1,12 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import AnimatedSection from './AnimatedSection';
 
 export default function ProductsSection() {
   return (
     <section className="w-full bg-[#040508] flex flex-col items-center py-20 pb-0">
-      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 border-b border-[#7F7F7F] px-5" style={{
+      <AnimatedSection className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 border-b border-[#7F7F7F] px-5" style={{
       backgroundImage: 'url("/images/shiny bg product.png")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -81,7 +82,7 @@ export default function ProductsSection() {
             </div>
           </div>
         </div>
-      </div>
+      </AnimatedSection>
 
        <div className="w-[90%] max-w-[1330px] h-[400px] mx-auto flex flex-col items-center text-center gap-2 product-img-mobile">
                 <Image 

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import ScrollReveal from "./ScrollReveal";
+import AnimatedSection from "./AnimatedSection";
 
 const processSteps = [
   {
@@ -21,7 +23,7 @@ const processSteps = [
 const ProcessSection = () => {
   return (
     <section className="w-full bg-[#040508] pb-20 flex flex-col items-center">
-      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 py-5 pt-10 md:py-30 md:pt-40" style={{
+      <AnimatedSection className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 py-5 pt-10 md:py-30 md:pt-40" style={{
         backgroundImage: 'url("/images/shiny bg Abilities.png")',
         backgroundSize: 'cover',
         backgroundPosition: 'center -100px',
@@ -29,7 +31,17 @@ const ProcessSection = () => {
         // backgroundColor: "red",
     }}>
         {/* Section Title */}
-        <h2 className="text-white text-3xl md:text-5xl font-bold">Excellence in 3 Distinct Abilities</h2>
+          <ScrollReveal
+           baseOpacity={0}
+           enableBlur={true}
+           baseRotation={5}
+           blurStrength={10}
+          >
+        <h2 className="text-white text-3xl md:text-5xl font-bold">
+          Excellence in 3 Distinct Abilities
+          </h2>
+          </ScrollReveal>
+          
         <p className="text-white/80 text-lg max-w-900px mb-12">Here at Unveilbrand, we deliver solutions that save time, cut complexity, and fit your budget.</p>
         {/* Steps */}
         <div className="flex flex-col lg:flex-row gap-12 md:gap-8 w-full justify-center items-stretch pt-10">
@@ -52,7 +64,7 @@ const ProcessSection = () => {
             Book a call with us
           </button>
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 };

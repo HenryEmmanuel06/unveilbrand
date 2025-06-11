@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
+import AnimatedSection from './AnimatedSection';
 
 const projects = [
   {
@@ -51,7 +52,7 @@ const ProjectSection = () => {
     document.body.style.position = 'fixed';
     document.body.style.top = `-${window.scrollY}px`;
     document.body.style.width = '100%';
-    
+
     setCurrentProjectId(projectId);
     setShowModal(true);
     setSlide(0);
@@ -65,7 +66,7 @@ const ProjectSection = () => {
     document.body.style.width = '';
     // Restore scroll position
     window.scrollTo(0, scrollPosition);
-    
+
     setShowModal(false);
   };
 
@@ -86,13 +87,14 @@ const ProjectSection = () => {
   const slides = currentProject ? currentProject.images : [];
 
   return (
-    <section className="w-full py-2 bg-[#040508]">
+    <section className="w-full py-2 bg-[#040508]" id='projects'>
       <div className="relative mx-auto w-[90%] max-w-[1330px]" style={{
         backgroundImage: 'url("/images/shiny bg Projects.png")',
         backgroundSize: 'cover',
         backgroundPositionY: '-100px',
         backgroundRepeat: "no-repeat"
       }}>
+        <AnimatedSection>
         <h2 className="text-white text-3xl md:text-5xl font-bold mb-20 text-left">Thoughtful Designs With Real World Solutions</h2>
         <div className="mx-auto h-[1400px] lg:h-[700px] grid grid-cols-1 lg:grid-cols-12 grid-rows-36 lg:grid-rows-12 gap-4">
           {/* First Container - 5 columns */}
@@ -113,7 +115,7 @@ const ProjectSection = () => {
               backgroundPosition: 'center',
               backgroundRepeat: "no-repeat"
             }}
-            onClick={() => openModal(1)}
+              onClick={() => openModal(1)}
             >
             </div>
           </div>
@@ -136,7 +138,7 @@ const ProjectSection = () => {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
-            onClick={() => openModal(0)}
+              onClick={() => openModal(0)}
             >
             </div>
           </div>
@@ -156,10 +158,11 @@ const ProjectSection = () => {
             </div>
           </div>
         </div>
-        <div className="w-full max-w-[1332px] mx-auto mt-12 border-t border-b border-white/10 px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
+        </AnimatedSection>
+        <AnimatedSection className="w-full max-w-[1332px] mx-auto mt-12 border-t border-b border-white/10 px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
           <div className="flex items-center min-w-[220px] xl:w-auto xl:justify-start justify-center client-info-row">
             <div className="flex -space-x-3 justify-center w-full">
-              {[1,2,3,4,5].map((i) => (
+              {[1, 2, 3, 4, 5].map((i) => (
                 <Image
                   key={i}
                   src={`/images/client ${i}.png`}
@@ -180,7 +183,7 @@ const ProjectSection = () => {
           <button className="border border-white/30 rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer">
             Become One Of Them Today!
           </button>
-        </div>
+        </AnimatedSection>
         {showModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
             <div
@@ -198,17 +201,17 @@ const ProjectSection = () => {
                   className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
                   aria-label="Previous Slide"
                 >
-                  <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+                  <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
                 </button>
                 {/* Image */}
-                <Image src={slides[slide]} alt={`Slide ${slide+1}`} width={600} height={400} className="rounded-2xl object-contain max-h-[60vh]" />
+                <Image src={slides[slide]} alt={`Slide ${slide + 1}`} width={600} height={400} className="rounded-2xl object-contain max-h-[60vh]" />
                 {/* Next Button */}
                 <button
                   onClick={nextSlide}
                   className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
                   aria-label="Next Slide"
                 >
-                  <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                  <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
                 </button>
                 {/* Pagination Dots */}
                 <div className="absolute bottom-[20px] left-1/2 -translate-x-1/2 flex gap-3 z-10 bg-[#11111133] p-3 rounded-full">
@@ -228,7 +231,7 @@ const ProjectSection = () => {
                   <h2 className="text-3xl font-bold bg-[#FFFFFF0D] py-[16px] px-[20px] flex-1 rounded-[10px]">{currentProject?.title}</h2>
                   <div className="flex gap-2">
                     <a href={currentProject?.projectLink} target="_blank" rel="noopener noreferrer" className="w-[70px] h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white">
-                      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                      <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
                     </a>
                     <button onClick={closeModal} className="w-[70px] h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white text-[35px] cursor-pointer">&times;</button>
                   </div>

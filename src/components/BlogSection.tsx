@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { supabase } from '@/lib/supabase'
+import AnimatedSection from './AnimatedSection'
 
 interface BlogPost {
   id: number
@@ -62,7 +63,7 @@ export default function BlogSection() {
 
   return (
     <section className="w-full flex flex-col items-center py-30 bg-[#040508]">
-      <div className="relative mx-auto w-[90%] max-w-[1180px]" style={{
+      <AnimatedSection className="relative mx-auto w-[90%] max-w-[1180px]" style={{
         backgroundImage: 'url("/images/shiny bg blogs.png")',
         backgroundSize: 'cover',
         backgroundPosition: "center",
@@ -165,7 +166,7 @@ export default function BlogSection() {
             )}
           </div>
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   )
 } 

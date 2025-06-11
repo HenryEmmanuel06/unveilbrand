@@ -4,6 +4,7 @@ import ProjectSection from "@/components/ProjectSection";
 import ServicesSection from "@/components/ServicesSection";
 import BlogSection from "@/components/BlogSection";
 import ProductsSection from "@/components/ProductsSection";
+// import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (

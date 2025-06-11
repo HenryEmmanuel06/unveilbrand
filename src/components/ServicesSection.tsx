@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import AnimatedSection from "./AnimatedSection";
 
 const services = [
   { title: "Branding {Identity, Strategy & Positioning}", col: 1, row: 1 },
@@ -15,7 +16,7 @@ const services = [
 const ServicesSection = () => {
   return (
     <section className="services-section w-full flex flex-col items-center bg-[#040508]">
-      <div className="relative mx-auto w-[90%] max-w-[1180px] py-5 pt-10 md:py-30 md:pt-40" style={{
+      <AnimatedSection className="relative mx-auto w-[90%] max-w-[1180px] py-5 pt-10 md:py-30 md:pt-40" style={{
       backgroundImage: 'url("/images/shiny bg services.png")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -52,7 +53,7 @@ const ServicesSection = () => {
             Book a call with us
           </button>
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 };

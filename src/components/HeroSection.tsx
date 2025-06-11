@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import NavBar from "./NavBar";
+import AnimatedSection from "./AnimatedSection";
 
 const HeroSection = () => {
   
@@ -21,14 +22,12 @@ const HeroSection = () => {
   return (
     <section className="relative w-full flex flex-col items-center justify-center pt-16 bg-[#040508] overflow-hidden">
       {/* Main container */}
-      <div className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-2" style={{
+      <AnimatedSection className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-2" style={{
         backgroundImage: 'url("/images/shiny bg hero.png")',
         backgroundSize: 'cover',
         backgroundPositionY: '80px',
         // backgroundColor: "red",
     }}>
-        {/* Navbar */}
-        <NavBar />
         {/* Category Pills */}
         <div className="w-full flex justify-center lg:justify-end max-w-[945px] mx-auto mt-[20px] lg:mt-[150px]">
           <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-0 justify-center lg:justify-end w-full">
@@ -117,7 +116,7 @@ const HeroSection = () => {
         {/* End Clients and Logo Slider Section */}
 
        
-      </div>
+      </AnimatedSection>
     </section>
   );
 };
