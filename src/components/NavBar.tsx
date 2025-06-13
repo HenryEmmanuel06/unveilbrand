@@ -3,11 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleOurWorksClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -36,19 +37,19 @@ const NavBar = () => {
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center">
           <ul className="flex gap-8 text-white text-base font-medium">
-            <li className="hover:text-[#A212A8] transition cursor-pointer">
+            <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/">Home</Link>
             </li>
-            <li className="hover:text-[#A212A8] transition cursor-pointer">
+            <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/#projects' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/#projects" onClick={handleOurWorksClick}>Our Works</Link>
             </li>
-            <li className="hover:text-[#A212A8] transition cursor-pointer">
+            <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/about' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/about">About</Link>
             </li>
-            <li className="hover:text-[#A212A8] transition cursor-pointer">
+            <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/blog' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/blog">Blog</Link>
             </li>
-            <li className="hover:text-[#A212A8] transition cursor-pointer">
+            <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/products' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/products">Products</Link>
             </li>
           </ul>
@@ -80,19 +81,19 @@ const NavBar = () => {
             </div>
           </button>
           <ul className="flex flex-col gap-8 text-white text-2xl font-medium text-center">
-            <li className="hover:text-[#A212A8] transition cursor-pointer">
+            <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/">Home</Link>
             </li>
-            <li className="hover:text-[#A212A8] transition cursor-pointer">
+            <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/#projects' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/#projects" onClick={handleOurWorksClick}>Our Works</Link>
             </li>
-            <li className="hover:text-[#A212A8] transition cursor-pointer">
+            <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/about' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/about">About</Link>
             </li>
-            <li className="hover:text-[#A212A8] transition cursor-pointer">
+            <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/blog' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/blog">Blog</Link>
             </li>
-            <li className="hover:text-[#A212A8] transition cursor-pointer">
+            <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/products' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/products">Products</Link>
             </li>
           </ul>

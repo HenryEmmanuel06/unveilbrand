@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Image from 'next/image'
 import { supabase } from '@/lib/supabase'
+import Link from 'next/link'
 
 interface BlogPost {
   id: number
@@ -15,10 +16,19 @@ interface BlogPost {
   created_at: string
 }
 
+const toTitleCase = (phrase: string) => {
+  return phrase
+    .toLowerCase()
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
 export default function BlogDetail() {
   const params = useParams()
   const [blog, setBlog] = useState<BlogPost | null>(null)
   const [loading, setLoading] = useState(true)
+  const [recommendedBlogs, setRecommendedBlogs] = useState<BlogPost[]>([])
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -39,6 +49,29 @@ export default function BlogDetail() {
     }
     fetchBlog()
   }, [params.id])
+
+  useEffect(() => {
+    const fetchRecommendedBlogs = async () => {
+      if (blog) {
+        try {
+          const { data, error } = await supabase
+            .from('blogs')
+            .select('*')
+            .neq('id', blog.id) // Exclude the current blog
+            .limit(10) // Fetch more than 3 to ensure randomness
+
+          if (error) throw error
+          
+          // Shuffle the array to get random blogs
+          const shuffledBlogs = data.sort(() => 0.5 - Math.random());
+          setRecommendedBlogs(shuffledBlogs.slice(0, 3)); // Take the first 3 random blogs
+        } catch (error) {
+          console.error('Error fetching recommended blogs:', error)
+        }
+      }
+    }
+    fetchRecommendedBlogs()
+  }, [blog]) // Fetch recommendations once the main blog is loaded
 
   if (loading) {
     return (
@@ -79,6 +112,53 @@ export default function BlogDetail() {
             <p key={index} className="text-white mb-4 w-[90%] max-w-[1270px] text-center mx-auto">
               {paragraph}
             </p>
+          ))}
+        </div>
+      </div>
+
+      <div className="w-[90%] max-w-[1270px] mx-auto py-20">
+        <div className="flex justify-between items-center mb-10">
+          <h2 className="text-white text-3xl font-bold">Recommendations</h2>
+          <Link
+            href="/blog"
+            className="text-white border border-gray-600 px-6 py-2 rounded-full hover:bg-gray-700 transition duration-300"
+          >
+            View More Blogs
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {recommendedBlogs.map((recBlog) => (
+            <Link
+              href={`/blog/${recBlog.id}`}
+              key={recBlog.id}
+              className="bg-[#FFFFFF1A] p-[20px] pb-[30px] rounded-[20px] hover:bg-[#FFFFFF1A] transition"
+            >
+              {
+                recBlog.featured_image ? (
+                  <Image
+                    src={recBlog.featured_image}
+                    alt={recBlog.title}
+                    width={250}
+                    height={250}
+                    className="w-full h-48 object-cover rounded-tl-[10px] rounded-tr-[10px] mb-4"
+                  />
+                ) : (
+                  <div className="w-full h-48 bg-white rounded-tl-[10px] rounded-tr-[10px] mb-4 flex items-center justify-center text-gray-500">
+                    No Image
+                  </div>
+                )
+              }
+              <div className="p-6">
+                <h3 className="text-white text-lg font-semibold mb-[20px] w-[100%] h-[100px] md:w-[297px] md:h-[44px]">{recBlog.title}</h3>
+                <div className="text-white/80 space-y-2">
+                  <p className="flex gap-[20px]">
+                    <span className="italic text-sm">{toTitleCase(recBlog.author)}</span>
+                    <span className="text-sm">{new Date(recBlog.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: '2-digit' })}</span>
+                  </p>
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
