@@ -3,12 +3,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const router = useRouter();
+
+  const handleOurWorksClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // If we're not on the home page, navigate to home page first
+    if (window.location.pathname !== '/') {
+      router.push('/#projects');
+    } else {
+      // If we're already on home page, just scroll to the section
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
-      <nav className="fixed top-[20px] left-0 right-0 z-50 w-[90%] lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[15px]">
+      <nav className="fixed top-[20px] left-0 right-0 z-50 w-[90%] lg:w-[945px] mx-auto flex justify-between items-center py-[15px] px-[15px] border border-white/10 rounded-full bg-black/30 backdrop-blur-[5px]">
         <Link href="/">
           <Image
             src="/images/unveilbrand logo.png"
@@ -26,10 +40,7 @@ const NavBar = () => {
               <Link href="/">Home</Link>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
-              <Link href="#projects" onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-              }}>Our Works</Link>
+              <a href="/#projects" onClick={handleOurWorksClick}>Our Works</a>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
               <Link href="/about">About</Link>
@@ -73,10 +84,7 @@ const NavBar = () => {
               <Link href="/">Home</Link>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
-              <a href="#projects" onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-              }}>Our Works</a>
+              <a href="/#projects" onClick={handleOurWorksClick}>Our Works</a>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
               <Link href="/about">About</Link>

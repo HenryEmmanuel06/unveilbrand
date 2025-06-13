@@ -1,26 +1,37 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import AnimatedSection from './AnimatedSection';
 
 const Footer = () => {
+  const router = useRouter();
+
+  const handleOurWorksClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // If we're not on the home page, navigate to home page first
+    if (window.location.pathname !== '/') {
+      router.push('/#projects');
+    } else {
+      // If we're already on home page, just scroll to the section
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="relative bg-[#040508] text-white pt-20 pb-10 overflow-hidden">
       {/* Top section: Navigation links and subscription form */}
-      <AnimatedSection className="w-[90%] max-w-[1332px] mx-auto flex flex-col md:flex-row items-center justify-between pb-10">
+      <AnimatedSection className="w-[90%] max-w-[1332px] mx-auto flex flex-col md:flex-col lg:flex-row items-center justify-between pb-10">
         {/* Navigation Links */}
         <nav className="flex flex-col sm:justify-center sm:items-center md:flex-row gap-10 mb-4 md:mb-0">
           <Link href="/" className="hover:text-[#A212A8] transition cursor-pointer text-center">Home</Link>
           <Link href="/about" className="hover:text-[#A212A8] transition cursor-pointer text-center">About</Link>
-          <Link href="#projects" onClick={(e) => {
-            e.preventDefault();
-            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-          }} className="hover:text-[#A212A8] transition cursor-pointer text-center">Our Works</Link>
+          <a href="/#projects" onClick={handleOurWorksClick} className="hover:text-[#A212A8] transition cursor-pointer text-center">Our Works</a>
           <Link href="/marketplace" className="hover:text-[#A212A8] transition cursor-pointer text-center">Marketplace</Link>
           <Link href="/blog" className="hover:text-[#A212A8] transition cursor-pointer text-center">Blog</Link>
         </nav>
         {/* Subscription Form */}
-        <form className="flex items-center gap-3 w-[90%] md:w-auto flex-col md:flex-row">
+        <form className="flex items-center gap-3 w-[90%] md:w-auto flex-col md:flex-row mt-0 md:mt-10 lg:mt-0">
           <div className="flex items-center border border-[#ffffff] rounded-full px-4 py-2.5 w-[100%] md:w-auto">
             <input
               type="email"
@@ -93,7 +104,7 @@ const Footer = () => {
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center gap-2 border border-[#232323] rounded-full px-6 py-2 text-white hover:bg-[#232323] transition"
+            className="flex items-center gap-2 border border-[#232323] rounded-full px-6 py-2 text-white hover:bg-[#232323] transition mt-4 md:mt-0"
           >
             <Image src="/images/arrow up.svg" alt="Scroll Up" width={22} height={22} />
             <span className="font-medium">Scroll Up</span>

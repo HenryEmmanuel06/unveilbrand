@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase'
+import ProductsSection from '@/components/ProductsSection';
 
 const toTitleCase = (phrase: string) => {
   return phrase
@@ -25,25 +26,50 @@ interface BlogPost {
 export default function AllBlogs() {
   const [blogs, setBlogs] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
+  const [offset, setOffset] = useState(0)
+  const [hasMore, setHasMore] = useState(true)
+  const initialLimit = 6
+  const loadMoreLimit = 3
 
   useEffect(() => {
-    fetchAllBlogs()
+    fetchAllBlogs(initialLimit, 0)
   }, [])
 
-  const fetchAllBlogs = async () => {
+  const fetchAllBlogs = async (limit: number, currentOffset: number) => {
     try {
       const { data, error } = await supabase
         .from('blogs')
         .select('id, title, author, category, created_at, featured_image')
         .order('created_at', { ascending: false })
+        .range(currentOffset, currentOffset + limit - 1) // Supabase range is inclusive
 
       if (error) throw error
-      setBlogs(data || [])
+      
+      if (data) {
+        setBlogs((prevBlogs) => {
+          const newBlogs = [...prevBlogs]
+          data.forEach((newBlog) => {
+            if (!newBlogs.some((blog) => blog.id === newBlog.id)) {
+              newBlogs.push(newBlog)
+            }
+          })
+          return newBlogs
+        })
+        setHasMore(data.length === limit)
+      }
     } catch (error) {
       console.error('Error fetching blogs:', error)
     } finally {
       setLoading(false)
     }
+  }
+
+  const loadMoreBlogs = () => {
+    setOffset((prevOffset) => {
+      const newOffset = prevOffset + loadMoreLimit
+      fetchAllBlogs(loadMoreLimit, newOffset)
+      return newOffset
+    })
   }
 
   if (loading) {
@@ -76,17 +102,19 @@ export default function AllBlogs() {
             <Link
               href={`/blog/${blog.id}`}
               key={blog.id}
-              className="bg-[#FFFFFF1A] p-[20px] pb-[30px] rounded-lg hover:bg-[#FFFFFF1A] transition"
+              className="bg-[#FFFFFF1A] p-[20px] pb-[30px] rounded-[20px] hover:bg-[#FFFFFF1A] transition"
             >
               {
                 blog.featured_image ? (
                   <Image
                     src={blog.featured_image}
                     alt={blog.title}
-                    className="w-full h-48 object-cover rounded-md mb-4"
+                    width={250}
+                    height={250}
+                    className="w-full h-48 object-cover rounded-tl-[10px] rounded-tr-[10px] mb-4"
                   />
                 ) : (
-                  <div className="w-full h-48 bg-white rounded-md mb-4 flex items-center justify-center text-gray-500">
+                  <div className="w-full h-48 bg-white rounded-tl-[10px] rounded-tr-[10px] mb-4 flex items-center justify-center text-gray-500">
                     No Image
                   </div>
                 )
@@ -101,7 +129,19 @@ export default function AllBlogs() {
             </Link>
           ))}
         </div>
+        {hasMore && (
+          <div className="flex justify-center mt-16">
+            <button
+              onClick={loadMoreBlogs}
+              className="border border-white/30 rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer"
+            >
+              <span className="relative z-10">View More Blogs</span>
+              <span className="absolute inset-0 bg-[#A403F2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
+            </button>
+          </div>
+        )}
       </div>
+      <ProductsSection />
     </div>
   )
 } 

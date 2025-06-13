@@ -37,6 +37,38 @@ const projects = [
     ],
     modalBackground: "'/images/applibry modal background.png'", // Example background for another project
   },
+    {
+    id: 2,
+    title: "Homly",
+    company: "Creative Console",
+    year: "2023",
+    type: ["Web Design", "Development"],
+    description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad.\n\nI designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
+    projectLink: "https://www.gethomly.com",
+    images: [
+      '/images/homly modal slide 1.png',
+      '/images/homly modal slide 1.png',
+      '/images/homly modal slide 1.png',
+      '/images/homly modal slide 1.png'
+    ],
+    modalBackground: "'/images/homly modal background.png'", // Example background for another project
+  },
+  {
+    id: 3,
+    title: "lx engineering",
+    company: "Engineering Service",
+    year: "2023",
+    type: ["Web Design", "Development"],
+    description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad. \n\n I designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
+    projectLink: "https://www.lxengineeringservices.com",
+    images: [
+      '/images/lx slider 1.png',
+      '/images/lx slider 1.png',
+      '/images/lx slider 1.png',
+      '/images/lx slider 1.png'
+    ],
+    modalBackground: "'/images/lx modal background.png'", // Example background for another project
+  },
 ];
 
 const ProjectSection = () => {
@@ -89,6 +121,46 @@ const ProjectSection = () => {
 
   return (
     <section className="w-full py-2 bg-[#040508]" id='projects'>
+      <style jsx>{`
+        @keyframes gradient-move {
+          0% {
+            transform: translateX(-100%) translateY(-100%);
+          }
+          100% {
+            transform: translateX(100%) translateY(100%);
+          }
+        }
+
+        @keyframes gradient-move-reverse {
+          0% {
+            transform: translateX(100%) translateY(100%);
+          }
+          100% {
+            transform: translateX(-100%) translateY(-100%);
+          }
+        }
+
+        .animate-gradient-move {
+          animation: gradient-move 2s linear infinite;
+        }
+
+        .animate-gradient-move-reverse {
+          animation: gradient-move-reverse 2s linear infinite;
+        }
+
+        .animate-gradient-border {
+          animation: gradient-border 5s linear infinite;
+        }
+
+        @keyframes gradient-border {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
+        }
+      `}</style>
       <div className="relative mx-auto w-[90%] max-w-[1330px]" style={{
         backgroundImage: 'url("/images/shiny bg Projects.png")',
         backgroundSize: 'cover',
@@ -103,7 +175,7 @@ const ProjectSection = () => {
             <div className="row-span-3 lg:row-span-1 bg-[#FFFFFF05] rounded-[15px] h-full">
               <div className="">
                 <div className="flex items-center justify-between w-full px-[15px] py-[30px] pb-0">
-                  <span className="text-white font-extrabold text-3xl">Applibry</span>
+                  <span className="text-white font-extrabold text-[18px] md:text-3xl">Applibry</span>
                   <div className="flex gap-2">
                     <span className="border border-white/30 text-white/70 text-xs px-4 py-1 rounded-full bg-transparent">Branding | UI Kits | Interface Design</span>
                   </div>
@@ -121,12 +193,14 @@ const ProjectSection = () => {
             </div>
           </div>
           {/* Second Container - 4 columns */}
-          <div className="lg:col-span-4 row-span-12 lg:row-span-12 row-span-8 h-full grid grid-cols-2 gap-4">
+          <div className="lg:col-span-4 row-span-12 lg:row-span-12 row-span-8 h-full grid grid-cols-2 gap-4 cursor-pointer">
             <div className="col-span-1 row-span-8 lg:row-span-4 rounded-[20px] relative h-full" style={{
               backgroundImage: 'url("/images/project img 3.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-            }}>
+            }}
+            onClick={() => openModal(3)}
+            >
             </div>
             <div className="col-span-1 row-span-8 lg:row-span-4 rounded-[20px] relative h-full" style={{
               backgroundImage: 'url("/images/project img 2.png")',
@@ -151,11 +225,13 @@ const ProjectSection = () => {
               backgroundPosition: 'center',
             }}>
             </div>
-            <div className="row-span-12 lg:row-span-5 rounded-[20px] relative overflow-hidden h-full" style={{
+            <div className="row-span-12 lg:row-span-5 rounded-[20px] relative overflow-hidden h-full cursor-pointer" style={{
               backgroundImage: 'url("/images/project img 6.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-            }}>
+            }}
+            onClick={() => openModal(2)}
+            >
             </div>
           </div>
         </div>
@@ -181,9 +257,18 @@ const ProjectSection = () => {
               </span>
             </div>
           </div>
-          <button className="border border-white/30 rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer">
-            Become One Of Them Today!
-          </button>
+          {/* This outer div acts as the animated border container */}
+          <div className="relative rounded-full overflow-hidden" style={{ padding: '2px' }}>
+            {/* The animated gradients, filling the wrapper, always visible */}
+            <div className="absolute inset-0 rounded-full">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-[#A212A8]/50 to-transparent animate-gradient-move"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-l from-transparent via-[#A212A8]/50 to-transparent animate-gradient-move-reverse"></div>
+            </div>
+            {/* The actual button content with a solid background, covering the center */}
+            <button className="relative z-10 bg-black rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer w-full h-full border border-white/30">
+              Become One Of Them Today!
+            </button>
+          </div>
         </AnimatedSection>
         <AnimatePresence>
           {showModal && (

@@ -57,22 +57,14 @@ export default function BlogDetail() {
   }
 
   return (
-    <article className="min-h-screen bg-[#040508] py-20">
-      <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-white text-4xl md:text-5xl font-bold mb-6">{blog.title}</h1>
+    <section className="bg-[#040508] mx-auto py-20">
+      <div className="w-[90%] max-w-[1270px] mx-auto mt-30 px-4 bg-[#040508]">
+        <h1 className="w-[900px] text-center mx-auto text-white text-4xl md:text-5xl font-bold mb-10">{blog.title}</h1>
         
-        <div className="flex items-center gap-4 text-white/80 mb-8">
-          <span>By {blog.author}</span>
-          <span>•</span>
-          <span>{new Date(blog.created_at).toLocaleDateString()}</span>
-          <span>•</span>
-          <span className="bg-[#A212A8] px-3 py-1 rounded-full text-sm">
-            {blog.category}
-          </span>
-        </div>
+       
 
         {blog.featured_image && (
-          <div className="relative w-full h-[400px] mb-8 rounded-lg overflow-hidden">
+          <div className="relative w-full h-[600px] mb-8 rounded-lg overflow-hidden">
             <Image
               src={blog.featured_image}
               alt={blog.title}
@@ -82,14 +74,14 @@ export default function BlogDetail() {
           </div>
         )}
 
-        <div className="prose prose-invert max-w-none">
+        <div className="prose prose-invert max-w-none mt-15">
           {blog.content.split('\n').map((paragraph, index) => (
-            <p key={index} className="text-white/90 mb-4">
+            <p key={index} className="text-white mb-4 w-[90%] max-w-[1270px] text-center mx-auto">
               {paragraph}
             </p>
           ))}
         </div>
       </div>
-    </article>
+    </section>
   )
 } 

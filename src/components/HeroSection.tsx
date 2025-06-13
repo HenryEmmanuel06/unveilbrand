@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 
@@ -20,6 +21,46 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full flex flex-col items-center justify-center pt-16 bg-[#040508] overflow-hidden">
+      <style jsx>{`
+        @keyframes gradient-move {
+          0% {
+            transform: translateX(-100%) translateY(-100%);
+          }
+          100% {
+            transform: translateX(100%) translateY(100%);
+          }
+        }
+
+        @keyframes gradient-move-reverse {
+          0% {
+            transform: translateX(100%) translateY(100%);
+          }
+          100% {
+            transform: translateX(-100%) translateY(-100%);
+          }
+        }
+
+        .animate-gradient-move {
+          animation: gradient-move 2s linear infinite;
+        }
+
+        .animate-gradient-move-reverse {
+          animation: gradient-move-reverse 2s linear infinite;
+        }
+
+        .animate-gradient-border {
+          animation: gradient-border 5s linear infinite;
+        }
+
+        @keyframes gradient-border {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
+        }
+      `}</style>
       {/* Main container */}
       <AnimatedSection className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-2" style={{
         backgroundImage: 'url("/images/shiny bg hero.png")',
@@ -28,7 +69,7 @@ const HeroSection = () => {
         // backgroundColor: "red",
     }}>
         {/* Category Pills */}
-        <div className="w-full flex justify-center lg:justify-end max-w-[945px] mx-auto mt-[20px] lg:mt-[150px]">
+        <div className="w-full flex justify-center lg:justify-end max-w-[945px] mx-auto mt-[60px] lg:mt-[150px]">
           <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-0 justify-center lg:justify-end w-full">
             {['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat, idx) => {
               const isLeftSide = idx < 3;
@@ -69,9 +110,24 @@ const HeroSection = () => {
             <Image src="/images/cta logo.png" alt="CTA Logo" width={20} height={20} />
             Book a call with us
           </button>
-          <button className="border border-white/30 rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer">
-            See our works
-          </button>
+          <Link href="/#projects" scroll={false} onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+          }}>
+            {/* This outer div acts as the animated border container */}
+            <div className="relative rounded-full overflow-hidden" style={{ padding: '2px' }}>
+              {/* The animated gradients, filling the wrapper, always visible */}
+              <div className="absolute inset-0 rounded-full">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-[#A212A8]/50 to-transparent animate-gradient-move"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-l from-transparent via-[#A212A8]/50 to-transparent animate-gradient-move-reverse"></div>
+              </div>
+              {/* The actual button content with a solid background, covering the center */}
+              <button className="relative z-10 bg-black rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer w-full h-full border border-white/30">
+                See our works
+              </button>
+            </div>
+          </Link>
+          
         </div>
         {/* Clients and Logo Slider Section */}
         <div className="w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t border-b border-white/10 px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
