@@ -26,7 +26,7 @@ const Footer = () => {
         <nav className="flex flex-col sm:justify-center sm:items-center md:flex-row gap-10 mb-4 md:mb-0">
           <Link href="/" className="hover:text-[#A212A8] transition cursor-pointer text-center">Home</Link>
           <Link href="/about" className="hover:text-[#A212A8] transition cursor-pointer text-center">About</Link>
-          <a href="/#projects" onClick={handleOurWorksClick} className="hover:text-[#A212A8] transition cursor-pointer text-center">Our Works</a>
+          <Link href="/#projects" onClick={handleOurWorksClick} className="hover:text-[#A212A8] transition cursor-pointer text-center">Our Works</Link>
           <Link href="/marketplace" className="hover:text-[#A212A8] transition cursor-pointer text-center">Marketplace</Link>
           <Link href="/blog" className="hover:text-[#A212A8] transition cursor-pointer text-center">Blog</Link>
         </nav>

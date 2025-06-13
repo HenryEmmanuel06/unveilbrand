@@ -30,7 +30,7 @@ export default function AllBlogs() {
   const [hasMore, setHasMore] = useState(true)
   const initialLimit = 6
   const loadMoreLimit = 3
-
+  console.log(offset)
   useEffect(() => {
     fetchAllBlogs(initialLimit, 0)
   }, [])

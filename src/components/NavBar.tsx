@@ -40,7 +40,7 @@ const NavBar = () => {
               <Link href="/">Home</Link>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
-              <a href="/#projects" onClick={handleOurWorksClick}>Our Works</a>
+              <Link href="/#projects" onClick={handleOurWorksClick}>Our Works</Link>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
               <Link href="/about">About</Link>
@@ -84,7 +84,7 @@ const NavBar = () => {
               <Link href="/">Home</Link>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
-              <a href="/#projects" onClick={handleOurWorksClick}>Our Works</a>
+              <Link href="/#projects" onClick={handleOurWorksClick}>Our Works</Link>
             </li>
             <li className="hover:text-[#A212A8] transition cursor-pointer">
               <Link href="/about">About</Link>
