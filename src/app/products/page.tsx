@@ -7,7 +7,7 @@ export default function Products() {
   const categories = ['All', 'Themes', 'Templates', 'Merch', 'UI Kits', 'Recommendations'];
 
   return (
-    <main className="min-h-screen bg-[#040508] pt-20">
+    <main className="bg-[#040508] pt-20">
       <div className="w-[90%] max-w-[1270px] mx-auto mt-20 text-center">
         <h1 className="text-white text-4xl md:text-5xl font-bold mb-6">Amazing Products</h1>
         <p className="text-white/80 text-lg max-w-2xl mx-auto mb-12">
@@ -18,7 +18,7 @@ export default function Products() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full text-white font-medium transition duration-300 ${activeCategory === category ? 'bg-[#A403F2]' : 'border border-gray-600 hover:bg-gray-700'}`}
+              className={`px-6 py-3 rounded-full text-white font-medium transition duration-300 ${activeCategory === category ? 'bg-[#A212A8]' : 'border border-gray-600 hover:bg-gray-700'}`}
             >
               {category}
             </button>
