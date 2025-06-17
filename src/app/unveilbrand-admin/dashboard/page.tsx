@@ -27,6 +27,7 @@ export default function AdminDashboard() {
   const [editBlog, setEditBlog] = useState<BlogPost | null>(null)
   const [editLoading, setEditLoading] = useState(false)
   const [deleteLoading, setDeleteLoading] = useState<number | null>(null)
+  const [editFeaturedImage, setEditFeaturedImage] = useState<File | null>(null)
   const router = useRouter()
 
   useEffect(() => {
@@ -164,6 +165,29 @@ export default function AdminDashboard() {
     setEditLoading(true)
     setError('')
     try {
+      let imageUrl = editBlog.featured_image
+
+      if (editFeaturedImage) {
+        // Upload new image to Supabase Storage
+        const fileExt = editFeaturedImage.name.split('.').pop()
+        const fileName = `${Math.random()}.${fileExt}`
+        
+        const { error: uploadError } = await supabase.storage
+          .from('blog-images')
+          .upload(fileName, editFeaturedImage)
+
+        if (uploadError) {
+          throw new Error(`Failed to upload image: ${uploadError.message}`)
+        }
+        
+        // Get public URL
+        const { data: { publicUrl } } = supabase.storage
+          .from('blog-images')
+          .getPublicUrl(fileName)
+        
+        imageUrl = publicUrl
+      }
+
       const { error } = await supabase
         .from('blogs')
         .update({
@@ -171,15 +195,35 @@ export default function AdminDashboard() {
           content: editBlog.content,
           author: editBlog.author,
           category: editBlog.category,
+          featured_image: imageUrl,
         })
         .eq('id', editBlog.id)
       if (error) throw error
       setEditBlog(null)
+      setEditFeaturedImage(null)
       await fetchBlogs()
     } catch (error) {
       setError((error as Error).message || 'Failed to update blog')
     } finally {
       setEditLoading(false)
+    }
+  }
+
+  const handleEditImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setEditFeaturedImage(e.target.files[0])
+    }
+  }
+
+  const closeEditModal = () => {
+    setEditBlog(null)
+    setEditFeaturedImage(null)
+  }
+
+  const handleModalClick = (e: React.MouseEvent) => {
+    // Only close if clicking the backdrop (the outer div)
+    if (e.target === e.currentTarget) {
+      closeEditModal()
     }
   }
 
@@ -306,10 +350,13 @@ export default function AdminDashboard() {
         </div>
         {/* Edit Modal */}
         {editBlog && (
-          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+          <div 
+            className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+            onClick={handleModalClick}
+          >
             <div className="bg-[#18181b] p-8 rounded-lg w-full max-w-lg relative">
               <button
-                onClick={() => setEditBlog(null)}
+                onClick={closeEditModal}
                 className="absolute top-2 right-2 text-white text-xl"
               >
                 &times;
@@ -334,6 +381,28 @@ export default function AdminDashboard() {
                     className="w-full px-4 py-2 rounded bg-[#FFFFFF1A] text-white border border-[#FFFFFF33] h-32"
                     required
                   />
+                </div>
+                <div>
+                  <label className="block text-white mb-2">Featured Image</label>
+                  {editBlog.featured_image && !editFeaturedImage && (
+                    <div className="mb-4">
+                      <p className="text-white/80 mb-2">Current Image:</p>
+                      <img 
+                        src={editBlog.featured_image} 
+                        alt="Current featured" 
+                        className="w-32 h-32 object-cover rounded"
+                      />
+                    </div>
+                  )}
+                  <input
+                    type="file"
+                    onChange={handleEditImageChange}
+                    className="w-full text-white"
+                    accept="image/*"
+                  />
+                  <p className="text-white/60 text-sm mt-1">
+                    {editFeaturedImage ? 'New image selected' : 'Select a new image to replace the current one'}
+                  </p>
                 </div>
                 <div>
                   <label className="block text-white mb-2">Author</label>

@@ -13,12 +13,12 @@ export default function Products() {
         <p className="text-white/80 text-lg max-w-2xl mx-auto mb-12">
           We have many years of experience working for big brands both directly and indirectly through big Agencies. We partner with you and your team to deliver technology solutions.
         </p>
-        <div className="flex justify-center flex-wrap gap-4 mb-20">
+        <div className="flex justify-center rounded-full flex-wrap gap-4 mb-20 px-[25px] py-[20px] border border-[0.5px] border-[#232323] w-[90%] max-w-[800px] mx-auto">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-full text-white font-medium transition duration-300 ${activeCategory === category ? 'bg-[#A212A8]' : 'border border-gray-600 hover:bg-gray-700'}`}
+              className={`px-6 py-3 rounded-full text-white font-medium transition duration-300 ${activeCategory === category ? 'bg-[#A212A8]' : 'border border-[0.5px] border-[#232323] hover:bg-gray-700'}`}
             >
               {category}
             </button>

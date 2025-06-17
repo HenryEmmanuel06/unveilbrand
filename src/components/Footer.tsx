@@ -23,7 +23,7 @@ const Footer = () => {
       {/* Top section: Navigation links and subscription form */}
       <AnimatedSection className="w-[90%] max-w-[1332px] mx-auto flex flex-col md:flex-col lg:flex-row items-center justify-between pb-10">
         {/* Navigation Links */}
-        <nav className="flex flex-col sm:justify-center sm:items-center md:flex-row gap-10 mb-4 md:mb-0">
+        <nav className="hidden md:flex flex-col flex-row gap-10 mb-4 md:mb-0">
           <Link href="/" className="hover:text-[#A212A8] transition cursor-pointer text-center">Home</Link>
           <Link href="/about" className="hover:text-[#A212A8] transition cursor-pointer text-center">About</Link>
           <Link href="/#projects" onClick={handleOurWorksClick} className="hover:text-[#A212A8] transition cursor-pointer text-center">Our Works</Link>
@@ -52,7 +52,7 @@ const Footer = () => {
 
       <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col text-center gap-2">
         {/* Large background text */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none w-[90%] max-w-[1330px] mx-auto mt-60 md:mt-30">
+        <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none w-[90%] max-w-[1330px] mx-auto mt-10 md:mt-30">
          
           <Image src="/images/unveilbrand footer logo.png" alt="WhatsApp" width={1330} height={239} className='border-b border-[#7F7F7F] px-5'/>
         

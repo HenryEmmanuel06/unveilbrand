@@ -81,7 +81,7 @@ export default function AllBlogs() {
   }
 
   return (
-    <div className="bg-[#040508] py-20">
+    <div className="bg-[#040508] pt-20">
       <div className="w-[90%] max-w-[1332px] mx-auto mt-30">
         <h1 className="text-white text-4xl md:text-5xl font-bold mb-6 text-center">All Blog Posts</h1>
         <p className="text-white/80 text-lg max-w-2xl mx-auto mb-12 text-center">
@@ -119,7 +119,7 @@ export default function AllBlogs() {
                   </div>
                 )
               }
-              <h2 className="text-white text-lg font-semibold mb-[20px] w-[100%] h-[100px] md:w-[297px] md:h-[44px]">{blog.title}</h2>
+              <h2 className="text-white text-lg font-semibold mb-[20px] w-[100%] h-[100px] md:w-[297px] lg:w-full md:h-[44px]">{blog.title}</h2>
               <div className="text-white/80 space-y-2">
                 <p className="flex gap-[20px]">
                   <span className='italic text-sm'>{toTitleCase(blog.author)}</span>

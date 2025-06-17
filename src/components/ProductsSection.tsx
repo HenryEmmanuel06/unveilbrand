@@ -5,7 +5,7 @@ import AnimatedSection from './AnimatedSection';
 
 export default function ProductsSection() {
   return (
-    <section className="w-full bg-[#040508] flex flex-col items-center py-20 pb-0">
+    <section className="w-full bg-[#040508] flex flex-col items-center pt-20">
       <AnimatedSection className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 border-b border-[#7F7F7F] px-5" style={{
       backgroundImage: 'url("/images/shiny bg product.png")',
       backgroundSize: 'cover',
@@ -15,7 +15,7 @@ export default function ProductsSection() {
   }}>
         {/* Section Title */}
         <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">Ready-Made Tools You&apos;ll Love Using!</h2>
-        <p className="text-white/80 text-lg max-w-2xl mb-8">Hand-picked collections crafted to help you start, design & work smarter, all optimized for modern creators.</p>
+        <p className="text-white/80 text-lg w-[90%] max-w-2xl mb-8 mx-auto">Hand-picked collections crafted to help you start, design & work smarter, all optimized for modern creators.</p>
         {/* CTA Button */}
         <div className="mb-12 flex justify-center">
           <button className="flex items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#8d1091] transition cursor-pointer">

@@ -92,7 +92,7 @@ export default function BlogDetail() {
   return (
     <section className="bg-[#040508] mx-auto py-20">
       <div className="w-[90%] max-w-[1270px] mx-auto mt-30 px-4 bg-[#040508]">
-        <h1 className="w-[900px] text-center mx-auto text-white text-4xl md:text-5xl font-bold mb-10">{blog.title}</h1>
+        <h1 className="w-[100%] mx-auto lg:w-[900px] text-center mx-auto text-white text-4xl md:text-5xl font-bold mb-10">{blog.title}</h1>
         
        
 
@@ -109,7 +109,7 @@ export default function BlogDetail() {
 
         <div className="prose prose-invert max-w-none mt-15">
           {blog.content.split('\n').map((paragraph, index) => (
-            <p key={index} className="text-white mb-4 w-[90%] max-w-[1270px] text-center mx-auto">
+            <p key={index} className="text-white mb-4 mx-auto">
               {paragraph}
             </p>
           ))}
@@ -121,9 +121,13 @@ export default function BlogDetail() {
           <h2 className="text-white text-3xl font-bold">Recommendations</h2>
           <Link
             href="/blog"
-            className="text-white border border-gray-600 px-6 py-2 rounded-full hover:bg-gray-700 transition duration-300"
           >
-            View More Blogs
+             <button
+              className="border border-white/30 rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer"
+            >
+              <span className="relative z-10">View More Blogs</span>
+              <span className="absolute inset-0 bg-[#A403F2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
+            </button>
           </Link>
         </div>
 
@@ -149,8 +153,8 @@ export default function BlogDetail() {
                   </div>
                 )
               }
-              <div className="p-6">
-                <h3 className="text-white text-lg font-semibold mb-[20px] w-[100%] h-[100px] md:w-[297px] md:h-[44px]">{recBlog.title}</h3>
+              <div className="py-6">
+                <h3 className="text-white text-lg font-semibold mb-[20px] w-[100%] h-[100px] md:h-[44px]">{recBlog.title}</h3>
                 <div className="text-white/80 space-y-2">
                   <p className="flex gap-[20px]">
                     <span className="italic text-sm">{toTitleCase(recBlog.author)}</span>

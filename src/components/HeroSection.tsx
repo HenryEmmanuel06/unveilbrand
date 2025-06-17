@@ -45,7 +45,7 @@ const HeroSection = () => {
         }
 
         .animate-gradient-move-reverse {
-          animation: gradient-move-reverse 2s linear infinite;
+          animation: gradient-move-reverse 0s linear infinite;
         }
 
         .animate-gradient-border {

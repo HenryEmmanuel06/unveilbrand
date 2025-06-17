@@ -31,13 +31,13 @@ const AboutSection = () => {
           />
         </div>
 
-        <div className="w-[90%] max-w-[1332px] mx-auto flex flex-row items-stretch justify-center mt-30 rounded-xl overflow-hidden border border-[0.5px] border-[#FFFFFF33] border-opacity-10">
-          <div className="flex items-center justify-center w-[35%] min-w-[180px] p-8 border-r bg-[#FFFFFF0D] backdrop-blur-[1.5px] border-[0.5px] border-[#FFFFFF33] border-opacity-10">
-            <h2 className="text-2xl md:text-[45px] font-extrabold text-white leading-tight text-left">
+        <div className="w-[90%] max-w-[1332px] mx-auto flex md:flex-row flex-col items-stretch justify-center mt-30 rounded-xl overflow-hidden border border-[0.5px] border-[#FFFFFF33] border-opacity-10">
+          <div className="flex items-center justify-center w-[100%] min-w-auto md:w-[35%] md:min-w-[180px] p-8 border-r bg-[#FFFFFF0D] backdrop-blur-[1.5px] border-[0.5px] border-[#FFFFFF33] border-opacity-10">
+            <h2 className="text-2xl md:text-[30px] font-extrabold text-white leading-tight text-left">
               Technology for<br />profitability
             </h2>
           </div>
-          <div className="flex flex-col justify-center w-[65%] py-8 px-15 bg-[#FFFFFF0D] backdrop-blur-[1.5px] border border-[0.5px] border-[#FFFFFF33] border-opacity-10">
+          <div className="flex flex-col justify-center w-[100%] lg:w-[65%] py-8 px-15 bg-[#FFFFFF0D] backdrop-blur-[1.5px] border border-[0.5px] border-[#FFFFFF33] border-opacity-10">
             <p className="text-base md:text-lg text-[#E0E0E0] mb-2">
               When you work with us, we consider ourselves your partners and we do all that&apos;s required to help achieve your goals.
             </p>
@@ -48,9 +48,9 @@ const AboutSection = () => {
         </div>
 
         {/* New section for the three cards */}
-        <div className="w-[90%] max-w-[1332px] mx-auto mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mt-20">
+        <div className="w-[90%] max-w-[1332px] mx-auto mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
           {/* Card 1 */}
-          <div className="flex flex-col items-center p-4 pb-8 bg-[#FFFFFF1A] text-center rounded-[20px]">
+          <div className="flex flex-col items-center p-4 pb-8 bg-[#FFFFFF1A] text-center rounded-[20px] border border-white/10">
             <Image
               src="https://res.cloudinary.com/dddpexcfo/image/upload/v1749580761/about_section_gif_1_pqkwzz.gif"
               alt="People Over Technology"
@@ -66,7 +66,7 @@ const AboutSection = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="flex flex-col items-center p-4 pb-8 bg-[#FFFFFF1A] text-center rounded-[20px]">
+          <div className="flex flex-col items-center p-4 pb-8 bg-[#FFFFFF1A] text-center rounded-[20px] border border-white/10">
             <Image
               src="https://res.cloudinary.com/dddpexcfo/image/upload/v1749581878/about_section_gif_2_eakgyt.gif"
               alt="People Over Technology"
@@ -83,7 +83,7 @@ const AboutSection = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="flex flex-col items-center p-4 pb-8 bg-[#FFFFFF1A] text-center rounded-[20px]">
+          <div className="flex flex-col items-center p-4 pb-8 bg-[#FFFFFF1A] text-center rounded-[20px] border border-white/10">
             <Image
               src="https://res.cloudinary.com/dddpexcfo/image/upload/v1749582676/about_section_gif_3_wmplhu.gif"
               alt="People Over Technology"

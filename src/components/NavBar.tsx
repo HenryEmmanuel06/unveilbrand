@@ -12,6 +12,7 @@ const NavBar = () => {
 
   const handleOurWorksClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    setIsMobileMenuOpen(false); // Close mobile menu
     // If we're not on the home page, navigate to home page first
     if (window.location.pathname !== '/') {
       router.push('/#projects');
@@ -19,6 +20,10 @@ const NavBar = () => {
       // If we're already on home page, just scroll to the section
       document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleNavigation = () => {
+    setIsMobileMenuOpen(false);
   };
 
   return (
@@ -82,22 +87,22 @@ const NavBar = () => {
           </button>
           <ul className="flex flex-col gap-8 text-white text-2xl font-medium text-center">
             <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/' ? 'text-[#A212A8]' : ''}`}>
-              <Link href="/">Home</Link>
+              <Link href="/" onClick={handleNavigation}>Home</Link>
             </li>
             <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/#projects' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/#projects" onClick={handleOurWorksClick}>Our Works</Link>
             </li>
             <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/about' ? 'text-[#A212A8]' : ''}`}>
-              <Link href="/about">About</Link>
+              <Link href="/about" onClick={handleNavigation}>About</Link>
             </li>
             <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/blog' ? 'text-[#A212A8]' : ''}`}>
-              <Link href="/blog">Blog</Link>
+              <Link href="/blog" onClick={handleNavigation}>Blog</Link>
             </li>
             <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/products' ? 'text-[#A212A8]' : ''}`}>
-              <Link href="/products">Products</Link>
+              <Link href="/products" onClick={handleNavigation}>Products</Link>
             </li>
           </ul>
-          <button className="mt-8 border border-white/S30 rounded-full px-8 py-3 text-white font-medium hover:bg-white/10 transition">Contact</button>
+          <button className="mt-8 border border-white/S30 rounded-full px-8 py-3 text-white font-medium hover:bg-white/10 transition" onClick={handleNavigation}>Contact</button>
         </div>
       </div>
     </>

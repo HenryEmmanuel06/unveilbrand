@@ -145,7 +145,7 @@ const ProjectSection = () => {
         }
 
         .animate-gradient-move-reverse {
-          animation: gradient-move-reverse 2s linear infinite;
+          animation: gradient-move-reverse 0s linear infinite;
         }
 
         .animate-gradient-border {
@@ -169,7 +169,7 @@ const ProjectSection = () => {
       }}>
         <AnimatedSection>
         <h2 className="text-white text-3xl md:text-5xl font-bold mb-20 text-left">Thoughtful Designs With Real World Solutions</h2>
-        <div className="mx-auto h-[1400px] lg:h-[700px] grid grid-cols-1 lg:grid-cols-12 grid-rows-36 lg:grid-rows-12 gap-4">
+        <div className="mx-auto h-[1400px] md:h-[2500px] lg:h-[700px] grid grid-cols-1 lg:grid-cols-12 grid-rows-36 lg:grid-rows-12 gap-4">
           {/* First Container - 5 columns */}
           <div className="lg:col-span-5 row-span-12 lg:row-span-12 row-span-8 h-full grid gap-4 bg-[#121316] p-[10px] rounded-[20px]">
             <div className="row-span-3 lg:row-span-1 bg-[#FFFFFF05] rounded-[15px] h-full">
@@ -182,7 +182,7 @@ const ProjectSection = () => {
                 </div>
               </div>
             </div>
-            <div className="row-span-12 lg:row-span-11 rounded-[20px] relative h-full cursor-pointer" style={{
+            <div className="row-span-12 md:row-span-34 lg:row-span-11 rounded-[20px] relative h-full cursor-pointer" style={{
               backgroundImage: 'url("/images/project img 1.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -218,14 +218,14 @@ const ProjectSection = () => {
             </div>
           </div>
           {/* Third Container - 3 columns */}
-          <div className="lg:col-span-3 row-span-12 lg:row-span-12 row-span-8 h-full grid gap-4">
+          <div className="lg:col-span-3 md:row-span-36 row-span-12 lg:row-span-12 row-span-8 h-full grid gap-4">
             <div className="row-span-12 lg:row-span-7 rounded-[20px] relative overflow-hidden h-full" style={{
               backgroundImage: 'url("/images/project img 5.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}>
             </div>
-            <div className="row-span-12 lg:row-span-5 rounded-[20px] relative overflow-hidden h-full cursor-pointer" style={{
+            <div className="row-span-12 md:row-span-12 lg:row-span-5 rounded-[20px] relative overflow-hidden h-full cursor-pointer" style={{
               backgroundImage: 'url("/images/project img 6.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -283,10 +283,10 @@ const ProjectSection = () => {
                 animate={{ y: 0 }}
                 exit={{ y: "100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="relative rounded-3xl w-[90vw] h-[90vh] flex flex-row shadow-2xl overflow-hidden gap-4"
+                className="relative rounded-3xl w-[90vw] h-[90vh] flex flex-col lg:flex-row shadow-2xl overflow-y-auto lg:overflow-hidden gap-4 mb-10 lg:mb-0"
               >
                 {/* Left: Image Slide */}
-                <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative" style={{
+                <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative mt-10 lg:mt-0 min-h-[300px]" style={{
                   backgroundImage: `url(${currentProject?.modalBackground})`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -322,7 +322,7 @@ const ProjectSection = () => {
                   </div>
                 </div>
                 {/* Right: Controls */}
-                <div className="w-[40%] 2xl:w-[35%] max-w-full flex flex-col p-4 text-white rounded-[10px] shadow-lg bg-[#111111]">
+                <div className="w-[100%] lg:w-[40%] 2xl:w-[35%] max-w-full flex flex-col p-4 text-white rounded-[10px] shadow-lg bg-[#111111] min-h-[300px]">
                   {/* Header */}
                   <div className="flex justify-between gap-3 items-center mb-[10px]">
                     <h2 className="text-3xl font-bold bg-[#FFFFFF0D] py-[16px] px-[20px] flex-1 rounded-[10px]">{currentProject?.title}</h2>
