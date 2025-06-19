@@ -3,7 +3,7 @@ import React from 'react';
 const ContactPage = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white py-12 px-4">
-      <h1 className="text-4xl font-bold mb-2 text-center">Let's get started!</h1>
+      <h1 className="text-4xl font-bold mb-2 text-center">Let&apos;s get started!</h1>
       <p className="mb-8 text-center max-w-xl mx-auto">
         Book your first meeting time with us via filling the form or by chat.<br />
         We look forward to meeting you!

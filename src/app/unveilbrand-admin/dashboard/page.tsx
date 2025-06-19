@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
+import Image from 'next/image';
 
 interface BlogPost {
   id: number
@@ -389,7 +390,7 @@ export default function AdminDashboard() {
                   {editBlog.featured_image && !editFeaturedImage && (
                     <div className="mb-4">
                       <p className="text-white/80 mb-2">Current Image:</p>
-                      <img 
+                      <Image 
                         src={editBlog.featured_image} 
                         alt="Current featured" 
                         className="w-32 h-32 object-cover rounded"
