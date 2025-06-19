@@ -257,11 +257,12 @@ export default function AdminDashboard() {
               />
             </div>
             <div>
-              <label className="block text-white mb-2">Content</label>
+              <label className="block text-white mb-2">Content <span className='text-xs text-fuchsia-400'>(Write in HTML. Inline styles and &lt;img&gt; tags allowed)</span></label>
               <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                className="w-full px-4 py-2 rounded bg-[#FFFFFF1A] text-white border border-[#FFFFFF33] h-40"
+                className="w-full px-4 py-2 font-mono text-xs rounded bg-[#FFFFFF1A] text-white border border-[#FFFFFF33] h-40"
+                placeholder='<h2>Heading</h2>\n<p>Paragraph</p>\n<img src="..." alt="..." style="width:100%" />'
                 required
               />
             </div>
@@ -374,11 +375,12 @@ export default function AdminDashboard() {
                   />
                 </div>
                 <div>
-                  <label className="block text-white mb-2">Content</label>
+                  <label className="block text-white mb-2">Content <span className='text-xs text-fuchsia-400'>(Write in HTML. Inline styles and &lt;img&gt; tags allowed)</span></label>
                   <textarea
                     value={editBlog.content}
                     onChange={e => setEditBlog({ ...editBlog, content: e.target.value })}
-                    className="w-full px-4 py-2 rounded bg-[#FFFFFF1A] text-white border border-[#FFFFFF33] h-32"
+                    className="w-full px-4 py-2 font-mono text-xs rounded bg-[#FFFFFF1A] text-white border border-[#FFFFFF33] h-32"
+                    placeholder='<h2>Heading</h2>\n<p>Paragraph</p>\n<img src="..." alt="..." style="width:100%" />'
                     required
                   />
                 </div>

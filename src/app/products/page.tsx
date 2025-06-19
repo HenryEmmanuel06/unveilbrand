@@ -25,8 +25,8 @@ export default function Products() {
           ))}
         </div>
 
-        <div className="text-white text-2xl mt-10 p-10 border border-gray-700 rounded-lg">
-          Products Coming Soon!
+        <div className="w-[90%] max-w-[1270px] backdrop-blur-[1.5px] bg-[#FFFFFF1A] flex justify-center items-center mx-auto mt-20 text-center text-white py-[100px] px-[220px] rounded-lg">
+          <h1 className='text-8xl mx-auto text-center font-bold'>COMING SOON</h1>
         </div>
 
       </div>

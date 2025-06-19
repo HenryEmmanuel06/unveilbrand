@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
+import Link from "next/link";
 import AnimatedSection from './AnimatedSection';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -257,18 +258,20 @@ const ProjectSection = () => {
               </span>
             </div>
           </div>
-          {/* This outer div acts as the animated border container */}
-          <div className="relative rounded-full overflow-hidden" style={{ padding: '2px' }}>
-            {/* The animated gradients, filling the wrapper, always visible */}
-            <div className="absolute inset-0 rounded-full">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-[#A212A8]/50 to-transparent animate-gradient-move"></div>
-              <div className="absolute inset-0 rounded-full bg-gradient-to-l from-transparent via-[#A212A8]/50 to-transparent animate-gradient-move-reverse"></div>
-            </div>
-            {/* The actual button content with a solid background, covering the center */}
-            <button className="relative z-10 bg-black rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer w-full h-full border border-white/30">
+           <Link href="/#projects">
+            {/* This outer div acts as the animated border container */}
+            <div className="relative rounded-full overflow-hidden" style={{ padding: '2px' }}>
+              {/* The animated gradients, filling the wrapper, always visible */}
+              <div className="absolute inset-0 rounded-full">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-[#A212A8]/50 to-transparent animate-gradient-move"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-l from-transparent via-[#A212A8]/50 to-transparent animate-gradient-move-reverse"></div>
+              </div>
+              {/* The actual button content with a solid background, covering the center */}
+             <button className="relative z-10 bg-black rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer w-full h-full border border-white/30">
               Become One Of Them Today!
             </button>
-          </div>
+            </div>
+          </Link>
         </AnimatedSection>
         <AnimatePresence>
           {showModal && (

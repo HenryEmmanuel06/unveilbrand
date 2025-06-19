@@ -61,7 +61,7 @@ export default function BlogDetail() {
             .limit(10) // Fetch more than 3 to ensure randomness
 
           if (error) throw error
-          
+
           // Shuffle the array to get random blogs
           const shuffledBlogs = data.sort(() => 0.5 - Math.random());
           setRecommendedBlogs(shuffledBlogs.slice(0, 3)); // Take the first 3 random blogs
@@ -93,8 +93,8 @@ export default function BlogDetail() {
     <section className="bg-[#040508] mx-auto py-20">
       <div className="w-[90%] max-w-[1270px] mx-auto mt-30 px-4 bg-[#040508]">
         <h1 className="w-[100%] mx-auto lg:w-[900px] text-center mx-auto text-white text-4xl md:text-5xl font-bold mb-10">{blog.title}</h1>
-        
-       
+
+
 
         {blog.featured_image && (
           <div className="relative w-full h-[600px] mb-8 rounded-lg overflow-hidden">
@@ -108,30 +108,35 @@ export default function BlogDetail() {
         )}
 
         <div className="prose prose-invert max-w-none mt-15">
-          {blog.content.split('\n').map((paragraph, index) => (
-            <p key={index} className="text-white mb-4 mx-auto">
-              {paragraph}
-            </p>
-          ))}
+          {/* WARNING: This renders raw HTML from the database. Make sure only trusted users can write blog content! */}
+          <div
+            className="text-white mb-4 mx-auto"
+            style={{ fontSize: '18px' }}
+            dangerouslySetInnerHTML={{ __html: blog.content }}
+          />
         </div>
       </div>
-
-      <div className="w-[90%] max-w-[1270px] mx-auto py-20">
+      <div className='w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t-[0.5px] border-white/10'></div>
+      <div className="w-[90%] max-w-[1270px] mx-auto pt-10">
         <div className="flex justify-between items-center mb-10">
           <h2 className="text-white text-3xl font-bold">Recommendations</h2>
           <Link
             href="/blog"
           >
-             <button
+            <button
               className="border border-white/30 rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer"
             >
               <span className="relative z-10">View More Blogs</span>
               <span className="absolute inset-0 bg-[#A403F2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-x-0 group-hover:scale-x-100 origin-left"></span>
             </button>
           </Link>
+         </div>
         </div>
+           <div className='w-[90%] lg:w-full max-w-[1332px] mx-auto mb-10 border-t-[0.5px] border-white/10'></div>
+          <div className="w-[90%] max-w-[1270px] mx-auto py-20 pt-10">
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
           {recommendedBlogs.map((recBlog) => (
             <Link
               href={`/blog/${recBlog.id}`}

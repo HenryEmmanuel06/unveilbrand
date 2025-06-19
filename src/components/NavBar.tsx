@@ -41,7 +41,7 @@ const NavBar = () => {
         </Link>
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center">
-          <ul className="flex gap-8 text-white text-base font-medium">
+          <ul className="flex gap-8 text-white text-base font-medium items-center">
             <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/">Home</Link>
             </li>
@@ -57,8 +57,10 @@ const NavBar = () => {
             <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/products' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/products">Products</Link>
             </li>
+            <li className={`ml-10 border border-white/30 rounded-full px-6 py-2 text-white font-medium hover:bg-[#A212A8] transition cursor-pointer ${pathname === '/contact' ? 'bg-[#A212A8]' : ''}`}>
+              <Link href="/contact">Contact</Link>
+            </li>
           </ul>
-          <button className="ml-10 border border-white/30 rounded-full px-6 py-2 text-white font-medium hover:bg-[#A212A8] transition cursor-pointer">Contact</button>
         </div>
         {/* Mobile Menu Button */}
         <button 
@@ -101,8 +103,10 @@ const NavBar = () => {
             <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/products' ? 'text-[#A212A8]' : ''}`}>
               <Link href="/products" onClick={handleNavigation}>Products</Link>
             </li>
+            <li className={`mt-8 border border-white/30 rounded-full px-6 py-2 text-white font-medium hover:bg-[#A212A8] transition cursor-pointer ${pathname === '/contact' ? 'bg-[#A212A8]' : ''}`}>
+              <Link href="/contact" onClick={handleNavigation}>Contact</Link>
+            </li>
           </ul>
-          <button className="mt-8 border border-white/S30 rounded-full px-8 py-3 text-white font-medium hover:bg-white/10 transition" onClick={handleNavigation}>Contact</button>
         </div>
       </div>
     </>
