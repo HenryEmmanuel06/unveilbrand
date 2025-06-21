@@ -70,6 +70,35 @@ const projects = [
     ],
     modalBackground: "'/images/lx modal background.png'", // Example background for another project
   },
+   {
+    id: 4,
+    title: "Boustta",
+    company: "Travels",
+    year: "2024",
+    type: ["Branding", "UI Kits", "Interface Design"],
+    description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad. \n\n I designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
+    projectLink: "https://www.lxengineeringservices.com",
+    images: [
+      '/images/boustta slide 1.png',
+      '/images/boustta slide 1.png',
+      '/images/boustta slide 1.png',
+      '/images/boustta slide 1.png'
+    ],
+    modalBackground: "'/images/boustta modal bg.png'", // Example background for another project
+  },
+   {
+    id: 5,
+    title: "Boustta",
+    company: "Travels",
+    year: "2024",
+    type: ["Branding", "UI Kits", "Interface Design"],
+    description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad. \n\n I designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
+    projectLink: "https://www.lxengineeringservices.com",
+    images: [
+      
+    ],
+    modalBackground: "'/images/sharefood modal bg.png'", // Example background for another project
+  },
 ];
 
 const ProjectSection = () => {
@@ -207,7 +236,9 @@ const ProjectSection = () => {
               backgroundImage: 'url("/images/project img 2.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-            }}>
+            }}
+            onClick={() => openModal(4)}
+            >
             </div>
             <div className="col-span-2 row-span-12 lg:row-span-8 rounded-[20px] relative h-full cursor-pointer" style={{
               backgroundImage: 'url("/images/project img 4.png")',
@@ -220,11 +251,13 @@ const ProjectSection = () => {
           </div>
           {/* Third Container - 3 columns */}
           <div className="lg:col-span-3 md:row-span-36 row-span-12 lg:row-span-12 row-span-8 h-full grid gap-4">
-            <div className="row-span-12 lg:row-span-7 rounded-[20px] relative overflow-hidden h-full" style={{
+            <div className="row-span-12 lg:row-span-7 rounded-[20px] relative overflow-hidden h-full cursor-pointer" style={{
               backgroundImage: 'url("/images/project img 5.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-            }}>
+            }}
+            onClick={() => openModal(5)}
+            >
             </div>
             <div className="row-span-12 md:row-span-12 lg:row-span-5 rounded-[20px] relative overflow-hidden h-full cursor-pointer" style={{
               backgroundImage: 'url("/images/project img 6.png")',
@@ -304,7 +337,7 @@ const ProjectSection = () => {
                     <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
                   </button>
                   {/* Image */}
-                  <Image src={slides[slide]} alt={`Slide ${slide + 1}`} width={300} height={400} className="rounded-2xl object-contain max-h-[60vh] w-[300px] lg:w-[600px]" />
+                  {currentProject?.images[0] && <Image src={slides[slide]} alt={`Slide ${slide + 1}`} width={300} height={350} className={`rounded-2xl object-contain max-h-[50vh] w-[300px] lg:w-[600px]  ${currentProjectId === 4 ? '-mt-20' : ''}`} />}
                   {/* Next Button */}
                   <button
                     onClick={nextSlide}
