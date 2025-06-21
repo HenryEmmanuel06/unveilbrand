@@ -24,13 +24,9 @@ export default function Products() {
             </button>
           ))}
         </div>
-
+          <h1 className='text-8xl mx-auto text-center font-bold  backdrop-blur-[1.5px] bg-[#FFFFFF1A] mx-auto mt-20 text-center text-white py-[100px] px-[220px] rounded-lg'>COMING SOON</h1>
 
       </div>
-      
-        <div className="w-[90%] backdrop-blur-[1.5px] bg-[#FFFFFF1A] flex justify-center items-center mx-auto mt-20 text-center text-white py-[100px] px-[220px] rounded-lg">
-          <h1 className='text-8xl mx-auto text-center font-bold'>COMING SOON</h1>
-        </div>
     </main>
   );
 } 
