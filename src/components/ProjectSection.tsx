@@ -304,7 +304,7 @@ const ProjectSection = () => {
                     <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
                   </button>
                   {/* Image */}
-                  <Image src={slides[slide]} alt={`Slide ${slide + 1}`} width={600} height={400} className="rounded-2xl object-contain max-h-[60vh]" />
+                  <Image src={slides[slide]} alt={`Slide ${slide + 1}`} width={300} height={400} className="rounded-2xl object-contain max-h-[60vh] w-[300px] lg:w-[600px]" />
                   {/* Next Button */}
                   <button
                     onClick={nextSlide}
