@@ -7,10 +7,10 @@ const services = [
   { title: "Apps Development", col: 2, row: 1 },
   { title: "UI & Interface Design", col: 1, row: 2 },
   { title: "Product Design", col: 2, row: 2 },
-  { title: "CMS Solutions {Wordpress, Webflow, Shopify}", col: 1, row: 3 },
+  { title: "CMS Solutions {Wordpress, Webflow, Sho...}", col: 1, row: 3 },
   { title: "MVP Development for Startups", col: 2, row: 3 },
   { title: "Site Management & Optimization", col: 1, row: 4 },
-  { title: "Branding {Identity, Strategy & Positioning}", col: 2, row: 4 },
+  { title: "Branding {Identity, Strategy & Po...}", col: 2, row: 4 },
 ];
 
 const ServicesSection = () => {
@@ -37,7 +37,7 @@ const ServicesSection = () => {
           return (
             <div
               key={idx}
-              className={`bg-white/5 px-8 py-5 text-white text-[14px] md:text-[20px] font-normal flex items-center justify-start shadow-md border border-[0.5px] border-[#FFFFFF33] border-opacity-10 backdrop-blur-[1px] text-center md:text-left ${borderRadius}`}
+              className={`bg-[#121316CC] backdrop-blur-[1px] border border-[0.5px] border-[#FFFFFF33] border-opacity-10 backdrop-blur-[1px] px-8 py-7 md:py-5 text-white text-[14px] md:text-[20px] font-normal flex items-center justify-start shadow-md text-center md:text-left ${borderRadius}`}
               style={{
                 boxShadow: "0 0 10px rgba(0, 0, 0, 0.15)",
               }}

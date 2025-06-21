@@ -73,7 +73,7 @@ export default function BlogSection() {
         <h2 className="text-white text-3xl md:text-5xl font-bold mb-6 mx-auto text-center mb-20">Thoughtful Designs With Real World Solutions</h2>
         <div className="flex flex-col lg:flex-row gap-15">
           {/* Left: Most Features */}
-          <div className="bg-[#FFFFFF0D] backdrop-blur-[1.5px] shadow-md border border-[0.5px] border-[#FFFFFF33] border-opacity-10 rounded-2xl p-8 flex-1 flex w-[100%] md:min-w-[500px] md:max-w-[420px] flex-col justify-center align-center mx-auto">
+          <div className="bg-[#121316CC] backdrop-blur-[1.5px] shadow-md border border-[0.5px] border-[#FFFFFF33] border-opacity-10 rounded-2xl p-8 flex-1 flex w-[100%] md:min-w-[500px] md:max-w-[420px] flex-col justify-center align-center mx-auto">
             <div className="flex justify-between items-center mb-4">
               <span className="text-white/70 text-sm font-semibold tracking-widest">Most Features</span>
               <Link href="/blog" className="text-white/80 text-xs font-bold tracking-widest hover:text-[#A212A8]">SEE ALL BLOGS</Link>
