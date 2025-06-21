@@ -38,13 +38,13 @@ export default function ProductsSection() {
             />
          
           {/* Right: Stacked Product Images */}
-          <div className="flex-1 flex flex-col justify-end items-center md:items-center relative px-[0] backdrop-blur-[1.5px] rounded-[20px] top-10 product-rhs group" style={{
+          <div className="flex-1 flex flex-col justify-end items-center md:items-center relative px-[0] backdrop-blur-[1.5px] rounded-[20px] top-10 product-rhs group mt-30 lg:mt-0" style={{
             background: "linear-gradient(179.93deg, rgba(255, 255, 255, 0.1) 0.06%, rgba(255, 255, 255, 0.0285513) 59.94%, rgba(255, 255, 255, 0.015055) 76.91%, rgba(255, 255, 255, 0) 91.85%)",
           
           }}>
              {/* Gradient overlay at the bottom */}
-              <div className="pointer-events-none absolute w-min-[400px] w-full bottom-5 h-3/4 z-40" style={{
-                background: "linear-gradient(180deg, rgba(11, 12, 15, 0) 11.73%, rgba(11, 12, 15, 0.111839) 31.6%, rgba(11, 12, 15, 0.8) 71.64%, rgba(9, 10, 13, 0.9) 82.47%, #040508 100%)"
+              <div className="pointer-events-none absolute w-min-[600px] lg:w-min-[400px] w-[500px] lg:w-full bottom-5 h-3/4 z-40" style={{
+                background: "linear-gradient(180deg, rgba(11, 12, 15, 0) 11.73%, rgba(1, 1, 2, 0.11) 31.6%, rgba(11, 12, 15, 0.8) 71.64%, rgba(9, 10, 13, 0.9) 82.47%, #040508 100%)"
               }} />
             <div className="relative w-[320px] h-[420px] md:w-[320px] md:h-[420px] flex items-end justify-center left-[19px] -top-5 md:top-0 md:left-6">
              
