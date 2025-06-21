@@ -73,7 +73,7 @@ export default function BlogSection() {
         <h2 className="text-white text-3xl md:text-5xl font-bold mb-6 mx-auto text-center mb-20">Thoughtful Designs With Real World Solutions</h2>
         <div className="flex flex-col lg:flex-row gap-15">
           {/* Left: Most Features */}
-          <div className="bg-[#FFFFFF0D] backdrop-blur-[1.5px] shadow-md border border-[0.5px] border-[#FFFFFF33] border-opacity-10 rounded-2xl p-8 flex-1 flex w-[90%] md:min-w-[500px] md:max-w-[420px] flex-col justify-center align-center mx-auto">
+          <div className="bg-[#FFFFFF0D] backdrop-blur-[1.5px] shadow-md border border-[0.5px] border-[#FFFFFF33] border-opacity-10 rounded-2xl p-8 flex-1 flex w-[100%] md:min-w-[500px] md:max-w-[420px] flex-col justify-center align-center mx-auto">
             <div className="flex justify-between items-center mb-4">
               <span className="text-white/70 text-sm font-semibold tracking-widest">Most Features</span>
               <Link href="/blog" className="text-white/80 text-xs font-bold tracking-widest hover:text-[#A212A8]">SEE ALL BLOGS</Link>
@@ -109,7 +109,7 @@ export default function BlogSection() {
             </div>
           </div>
           {/* Right: Tech-education and Tech-stories */}
-          <div className="flex-1 flex flex-col gap-10 mt-10">
+          <div className="flex-1 flex flex-col gap-10 mt-10 hidden md:flex">
             {techEducation && (
               <Link href={`/blog/${techEducation.id}`} className="flex flex-row items-stretch p-0 min-h-[120px] overflow-hidden group border-t border-white/10">
                 {/* Rotated Category */}
@@ -122,7 +122,7 @@ export default function BlogSection() {
                 </div>
                 {/* Main Content */}
                 <div className="flex-1 flex flex-col justify-center p-6 pl-0 -ml-3">
-                  <h3 className="text-white md:text-[#333333] text-[16px] md:text-[27px] font-bold mb-2 md:group-hover:text-white transition">{techEducation.title}</h3>
+                  <h3 className="text-white md:text-[#333333] text-[16px] md:text-[27px] font-bold mb-2 md:group-hover:text-white transition">{techEducation.title.length > 60 ? `${techEducation.title.slice(0, 50)}...` : techEducation.title}</h3>
                   <div className="flex gap-4 text-[#A212A8] text-xs font-normal pt-1">
                     <span>{techEducation.author?.toUpperCase()}</span>
                     <span className="flex gap-4 text-white md:text-[#333333] text-xs md:group-hover:text-white">{new Date(techEducation.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })} GMT +1</span>
@@ -148,7 +148,7 @@ export default function BlogSection() {
                 </div>
                 {/* Main Content */}
                 <div className="flex-1 flex flex-col justify-center p-6 pl-0 -ml-3">
-                  <h3 className="text-white md:text-[#333333] text-[16px] md:text-[27px] font-bold mb-2 md:group-hover:text-white transition">{techStories.title}</h3>
+                  <h3 className="text-white md:text-[#333333] text-[16px] md:text-[27px] font-bold mb-2 md:group-hover:text-white transition">{techStories.title.length > 60 ? `${techStories.title.slice(0, 50)}...` : techStories.title}</h3>
                   <div className="flex gap-4 text-[#A212A8] text-xs font-normal pt-1">
                     <span>{techStories.author?.toUpperCase()}</span>
                     <span className="flex gap-4 text-white md:text-[#333333] text-xs md:group-hover:text-white">{new Date(techStories.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })} GMT +1</span>

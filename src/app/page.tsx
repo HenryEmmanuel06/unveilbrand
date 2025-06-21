@@ -10,11 +10,17 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-       <ProcessSection />
-      <ProjectSection />
-     <ServicesSection />
-     <BlogSection />
-     <ProductsSection />
+      <div className="flex flex-col">
+        <div className="order-2 md:order-1">
+          <ProcessSection />
+        </div>
+        <div className="order-1 md:order-2">
+          <ProjectSection />
+        </div>
+      </div>
+      <ServicesSection />
+      <BlogSection />
+      <ProductsSection />
     </>
   );
 }

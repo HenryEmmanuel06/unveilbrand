@@ -5,7 +5,7 @@ import AnimatedSection from './AnimatedSection';
 
 export default function ProductsSection() {
   return (
-    <section className="w-full bg-[#040508] flex flex-col items-center pt-20">
+    <section className="w-full bg-[#040508] flex flex-col items-center pt-0 md:pt-20">
       <AnimatedSection className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 border-b border-[#7F7F7F] px-5" style={{
       backgroundImage: 'url("/images/shiny bg product.png")',
       backgroundSize: 'cover',

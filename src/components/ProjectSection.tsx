@@ -11,7 +11,7 @@ const projects = [
     title: "Creative Console",
     company: "Creative Console",
     year: "2024",
-    type: ["Branding", "UI Kits", "Interface Design"],
+    type: ["Branding"],
     description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad.\n\nI designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\nWe've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
     projectLink: "https://www.creativeconsole.com", // Example link
     images: [
@@ -27,7 +27,7 @@ const projects = [
     title: "Applibry",
     company: "Creative Console",
     year: "2024",
-    type: ["Web Design", "Development"],
+    type: ["Web Design"],
     description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad. \n\n I designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
     projectLink: "https://www.anotherproject.com",
     images: [
@@ -43,7 +43,7 @@ const projects = [
     title: "Homly",
     company: "Creative Console",
     year: "2023",
-    type: ["Web Design", "Development"],
+    type: ["Web Design"],
     description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad.\n\nI designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
     projectLink: "https://www.gethomly.com",
     images: [
@@ -59,7 +59,7 @@ const projects = [
     title: "lx engineering",
     company: "Engineering Service",
     year: "2023",
-    type: ["Web Design", "Development"],
+    type: ["Web Design"],
     description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad. \n\n I designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
     projectLink: "https://www.lxengineeringservices.com",
     images: [
@@ -121,7 +121,7 @@ const ProjectSection = () => {
   const slides = currentProject ? currentProject.images : [];
 
   return (
-    <section className="w-full py-2 bg-[#040508]" id='projects'>
+    <section className="w-full py-2 pt-10 md:pt-0 bg-[#040508]" id='projects'>
       <style jsx>{`
         @keyframes gradient-move {
           0% {
@@ -286,7 +286,7 @@ const ProjectSection = () => {
                 animate={{ y: 0 }}
                 exit={{ y: "100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="relative rounded-3xl w-[90vw] h-[90vh] flex flex-col lg:flex-row shadow-2xl overflow-y-auto lg:overflow-hidden gap-4 mb-10 lg:mb-0"
+                className="relative rounded-3xl w-[90vw] h-[100vh] lg:h-[90vh] flex flex-col lg:flex-row shadow-2xl overflow-y-auto lg:overflow-hidden gap-4 mb-10 lg:mb-0"
               >
                 {/* Left: Image Slide */}
                 <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative mt-10 lg:mt-0 min-h-[300px]" style={{
@@ -328,27 +328,27 @@ const ProjectSection = () => {
                 <div className="w-[100%] lg:w-[40%] 2xl:w-[35%] max-w-full flex flex-col p-4 text-white rounded-[10px] shadow-lg bg-[#111111] min-h-[300px]">
                   {/* Header */}
                   <div className="flex justify-between gap-3 items-center mb-[10px]">
-                    <h2 className="text-3xl font-bold bg-[#FFFFFF0D] py-[16px] px-[20px] flex-1 rounded-[10px]">{currentProject?.title}</h2>
+                    <h2 className="text-[12px] h-[50px] md:h-auto md:text-3xl font-bold bg-[#FFFFFF0D] py-[16px] px-[20px] flex-1 rounded-[10px] flex items-center">{currentProject?.title}</h2>
                     <div className="flex gap-2">
-                      <a href={currentProject?.projectLink} target="_blank" rel="noopener noreferrer" className="w-[70px] h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white">
+                      <a href={currentProject?.projectLink} target="_blank" rel="noopener noreferrer" className="w-[55px] md:w-[70px] h-[50px] md:h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white">
                         <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
                       </a>
-                      <button onClick={closeModal} className="w-[70px] h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white text-[35px] cursor-pointer">&times;</button>
+                      <button onClick={closeModal} className="w-[55px] md:w-[70px] h-[50px] md:h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white text-[35px] cursor-pointer">&times;</button>
                     </div>
                   </div>
 
                   {/* Project Details */}
                   <div className="mb-[10px] bg-[#1a1a1a] rounded-2xl p-4">
-                    <div className="flex flex-row text-sm gap-10">
+                    <div className="flex flex-row text-sm gap-7 md:gap-10">
                       <div>
                         <p className="text-white text-[12px] font-normal">COMPANY</p>
-                        <p className="font-bold text-[16px] 2xl:text-[18px]">{currentProject?.company}</p>
+                        <p className="font-bold sm:text-[14px] md:text-[16px] 2xl:text-[18px]">{currentProject?.company}</p>
                       </div>
                       <div>
                         <p className="text-white text-[12px] font-normal">YEAR</p>
-                        <p className="font-bold text-lg">{currentProject?.year}</p>
+                        <p className="font-bold text-[14px] md:text-lg">{currentProject?.year}</p>
                       </div>
-                      <div>
+                      <div className='flex-1'>
                         <p className="text-white text-[12px] font-normal">TYPE</p>
                         <div className="flex flex-wrap gap-1 mt-1">
                           <span className="border border-white/30 text-white/70 text-[10px] xlg:text-[12px] px-2 py-1 rounded-full bg-transparent">

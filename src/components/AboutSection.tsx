@@ -8,7 +8,7 @@ const AboutSection = () => {
     <section className="w-full flex flex-col items-center justify-center pt-45 pb-20">
       <AnimatedSection className="w-[90%] lg:w-full max-w-[1332px] mx-auto">
         <div style={{
-         backgroundImage: 'url("/images/about section shinny bg.png")',
+          backgroundImage: 'url("/images/about section shinny bg.png")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: "no-repeat",

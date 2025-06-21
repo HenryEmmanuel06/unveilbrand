@@ -130,9 +130,9 @@ const HeroSection = () => {
           
         </div>
         {/* Clients and Logo Slider Section */}
-        <div className="w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t border-b border-white/10 px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
+        <div className="w-[90%] lg:w-full max-w-[1332px] mx-auto mt-15 md:mt-30 border-t border-b border-white/10 px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
           {/* Happy Clients */}
-          <div className="flex items-center min-w-[220px] xl:w-auto xl:justify-start justify-center client-info-row">
+          <div className="flex items-center min-w-[220px] xl:w-auto xl:justify-start justify-center client-info-row hidden md:flex">
                      <div className="flex -space-x-3 justify-center w-full">
                        {[1,2,3,4,5].map((i) => (
                          <Image
