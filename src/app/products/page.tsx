@@ -24,7 +24,7 @@ export default function Products() {
             </button>
           ))}
         </div>
-          <h1 className='text-8xl mx-auto text-center font-bold  backdrop-blur-[1.5px] bg-[#FFFFFF1A] mx-auto mt-20 text-center text-white py-[100px] px-[220px] rounded-lg'>COMING SOON</h1>
+          <h1 className='text-3xl md:text-8xl mx-auto text-center font-bold text-center text-white py-[100px] rounded-lg backdrop-blur-[1.5px] bg-[#FFFFFF1A]'>COMING SOON</h1>
 
       </div>
     </main>
