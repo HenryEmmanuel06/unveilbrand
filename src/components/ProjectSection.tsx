@@ -328,7 +328,7 @@ const ProjectSection = () => {
                 <div className="w-[100%] lg:w-[40%] 2xl:w-[35%] max-w-full flex flex-col p-4 text-white rounded-[10px] shadow-lg bg-[#111111] min-h-[300px]">
                   {/* Header */}
                   <div className="flex justify-between gap-3 items-center mb-[10px]">
-                    <h2 className="text-[12px] h-[50px] md:h-auto md:text-3xl font-bold bg-[#FFFFFF0D] py-[16px] px-[20px] flex-1 rounded-[10px] flex items-center">{currentProject?.title}</h2>
+                    <h2 className="text-[16px] h-[50px] md:h-auto md:text-3xl font-bold bg-[#FFFFFF0D] py-[16px] px-[20px] flex-1 rounded-[10px] flex items-center">{currentProject?.title}</h2>
                     <div className="flex gap-2">
                       <a href={currentProject?.projectLink} target="_blank" rel="noopener noreferrer" className="w-[55px] md:w-[70px] h-[50px] md:h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white">
                         <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
