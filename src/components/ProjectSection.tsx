@@ -286,7 +286,7 @@ const ProjectSection = () => {
                 animate={{ y: 0 }}
                 exit={{ y: "100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="relative rounded-3xl w-[90vw] h-[100vh] lg:h-[90vh] flex flex-col lg:flex-row shadow-2xl overflow-y-auto lg:overflow-hidden gap-4 mb-10 lg:mb-0"
+                className="relative rounded-3xl w-[90vw] h-[95vh] lg:h-[90vh] flex flex-col lg:flex-row shadow-2xl overflow-y-auto lg:overflow-hidden gap-4 mb-10 lg:mb-0"
               >
                 {/* Left: Image Slide */}
                 <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative mt-10 lg:mt-0 min-h-[300px]" style={{
