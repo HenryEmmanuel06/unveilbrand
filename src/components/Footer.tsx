@@ -19,7 +19,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-[#040508] text-white pt-20 pb-10 overflow-hidden">
+    <footer className="relative bg-[#040508] text-white pt-10 pb-10 md:pt-20 overflow-hidden">
       {/* Top section: Navigation links and subscription form */}
       <AnimatedSection className="w-[90%] max-w-[1332px] mx-auto flex flex-col md:flex-col lg:flex-row items-center justify-between pb-10">
         {/* Navigation Links */}
@@ -54,13 +54,13 @@ const Footer = () => {
         {/* Large background text */}
         <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none w-[90%] max-w-[1330px] mx-auto mt-10 md:mt-30">
          
-          <Image src="/images/unveilbrand footer logo.png" alt="WhatsApp" width={1330} height={239} className='border-b border-[#7F7F7F] px-5'/>
+          <Image src="/images/unveilbrand footer logo.png" alt="WhatsApp" width={1330} height={239} className='border-b border-[#7F7F7F] px-5 mb-20 md:mb-0'/>
         
           {/* <div className="border-t border-[#7F7F7F] relative z-10 w-[1775px] md:w-[1330px] mx-auto"></div> */}
         </div>
 
         {/* Content above the line (empty for spacing) */}
-        <div className="h-32 md:h-40 lg:h-48" />
+        <div className="h-12 md:h-40 lg:h-48" />
         {/* Horizontal line */}
         
 

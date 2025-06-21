@@ -178,7 +178,7 @@ const ProjectSection = () => {
                 <div className="flex items-center justify-between w-full px-[15px] py-[30px] pb-0">
                   <span className="text-white font-extrabold text-[18px] md:text-3xl">Applibry</span>
                   <div className="flex gap-2">
-                    <span className="border border-white/30 text-white/70 text-xs px-4 py-1 rounded-full bg-transparent">Branding | UI Kits | Interface Design</span>
+                    <span className="border border-white/30 text-white/70 text-xs px-4 py-1 rounded-full bg-transparent">Branding | UI Kits</span>
                   </div>
                 </div>
               </div>
