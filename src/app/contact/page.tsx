@@ -11,7 +11,7 @@ const testimonials = [
     image: '/images/client 1.png',
     name: 'Ferdinand Alfred',
     title: 'CEO, Wallet',
-    description: 'Working with them has been a game-changer for our company. Their dedication and creativity are unmatched. We saw a significant increase in our engagement and sales.',
+    description: 'Our success is interwoven with the success of the businesses we serve. We only grow when the businesses on our clientele grow, so we work extremely hard to help our clients grow. And we have a lot of fun in the process &apos;cos we love it.',
   },
   {
     image: '/images/client 2.png',
@@ -55,7 +55,7 @@ const ContactPage = () => {
       `}</style>
       <div className="w-[90%] max-w-[1332px] mx-auto flex flex-col items-center text-center gap-2">
         <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-6 leading-tight">
-          Let's get started!
+          Let&apos;s get started!
         </h1>
         <p className="text-base md:text-lg text-center text-[#E0E0E0] max-w-2xl mb-10 mx-auto">
           Book your first meeting time with us via filling the form or by chat.
