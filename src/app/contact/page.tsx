@@ -129,7 +129,7 @@ const ContactPage = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-[#121316CC] backdrop-blur-[1.5px] p-8 rounded-2xl flex flex-col justify-between border border-[#FFFFFF1A] h-[270px] cursor-grab active:cursor-grabbing">
+              <div className="bg-[#121316CC] backdrop-blur-[1.5px] p-8 rounded-2xl flex flex-col justify-between border border-[#FFFFFF1A] h-[320px] md:h-[270px] cursor-grab active:cursor-grabbing">
                 <p className="text-white/80 mb-6 text-left">{testimonial.description}</p>
                 <div className="flex items-center">
                   <Image
