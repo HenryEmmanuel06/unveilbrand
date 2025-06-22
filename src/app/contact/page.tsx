@@ -1,7 +1,37 @@
 'use client'
 import React from 'react';
 import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
 
+const testimonials = [
+  {
+    image: '/images/client 1.png',
+    name: 'Ferdinand Alfred',
+    title: 'CEO, Wallet',
+    description: 'Our success is interwoven with the success of the businesses we serve. We only grow when the businesses on our clientele grow, so we work extremely hard to help our clients grow. And we have a lot of fun in the process \\\'cos we love it.',
+  },
+  {
+    image: '/images/client 2.png',
+    name: 'Jane Doe',
+    title: 'COO, Example Inc.',
+    description: 'Working with them has been a game-changer for our company. Their dedication and creativity are unmatched. We saw a significant increase in our engagement and sales.',
+  },
+  {
+    image: '/images/client 3.png',
+    name: 'John Smith',
+    title: 'CTO, Tech Solutions',
+    description: 'The team is professional, responsive, and delivered a product that exceeded our expectations. I highly recommend them to anyone looking for top-tier design and development.',
+  },
+  {
+    image: '/images/client 4.png',
+    name: 'Sarah Wilson',
+    title: 'Marketing Head, Innovate Co.',
+    description: 'From the initial concept to the final launch, the process was seamless and collaborative. They truly understood our vision and brought it to life beautifully.',
+  }
+];
 
 const ContactPage = () => {
   return (
@@ -14,9 +44,18 @@ const ContactPage = () => {
         outline: none;
         }
       `}</style>
+      <style jsx global>{`
+        .testimonial-pagination .swiper-pagination-bullet {
+          background-color: white;
+          opacity: 1;
+        }
+        .testimonial-pagination .swiper-pagination-bullet-active {
+          background-color: #A212A8;
+        }
+      `}</style>
       <div className="w-[90%] max-w-[1332px] mx-auto flex flex-col items-center text-center gap-2">
         <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-6 leading-tight">
-          Let’s get started!
+          Let's get started!
         </h1>
         <p className="text-base md:text-lg text-center text-[#E0E0E0] max-w-2xl mb-10 mx-auto">
           Book your first meeting time with us via filling the form or by chat.
@@ -58,6 +97,57 @@ const ContactPage = () => {
             </button>
           </div>
         </form>
+      </div>
+
+      <div className="w-full max-w-[1332px] mx-auto mt-20 px-4">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-12 text-white">
+          What our customers are saying:
+        </h2>
+        <Swiper
+          modules={[Pagination]}
+          spaceBetween={30}
+          pagination={{ 
+            clickable: true,
+            el: '.testimonial-pagination'
+           }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+          }}
+          className="mySwiper"
+        >
+          {testimonials.map((testimonial, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-[#1C1C1C] p-8 rounded-2xl flex flex-col justify-between border border-[#FFFFFF1A] h-[250px] cursor-grab active:cursor-grabbing">
+                <p className="text-white/80 mb-6 text-left">{testimonial.description}</p>
+                <div className="flex items-center">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    width={50}
+                    height={50}
+                    className="rounded-full"
+                  />
+                  <div className="ml-4 text-left">
+                    <p className="font-bold text-white">{testimonial.name}</p>
+                    <p className="text-white/60">{testimonial.title}</p>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className="testimonial-pagination text-center mt-8"></div>
       </div>
     </section>
   );
