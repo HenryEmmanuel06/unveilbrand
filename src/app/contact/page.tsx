@@ -62,7 +62,7 @@ const ContactPage = () => {
           We look forward to meeting you!
         </p>
         <button className="mb-8 px-6 py-2 border border-white rounded-full hover:bg-white hover:text-black transition">Whatsapp Chat</button>
-        <form className="w-[100%] max-w-[900px] bg-transparent md:bg-[#FFFFFF0D] block md:grid backdrop-blur-[1.5px] border-none md:border border-[0.5px] border-[#FFFFFF33] border-opacity-10 rounded-[15px] shadow-lg p-8 gap-6 p-[0px] pt-[0px] md:p-[30px] pb-[60px]">
+        <form className="w-[100%] max-w-[900px] bg-transparent md:bg-[#121316CC] block md:grid backdrop-blur-[1.5px] border-none md:border border-[0.5px] border-[#FFFFFF33] border-opacity-10 rounded-[15px] shadow-lg p-8 gap-6 p-[0px] pt-[0px] md:p-[30px] pb-[60px]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4 md:mb-0">
             <input type="text" placeholder="First Name:" className="p-3 rounded bg-[#FFFFFFE5] text-black col-span-12 md:col-span-6 contact-input h-[58px]" />
             <input type="text" placeholder="Surname:" className="p-3 rounded bg-[#FFFFFFE5] text-black col-span-12 md:col-span-6 contact-input h-[58px]" />
@@ -128,7 +128,7 @@ const ContactPage = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-[#1C1C1C] p-8 rounded-2xl flex flex-col justify-between border border-[#FFFFFF1A] h-[250px] cursor-grab active:cursor-grabbing">
+              <div className="bg-[#121316CC] backdrop-blur-[1.5px] p-8 rounded-2xl flex flex-col justify-between border border-[#FFFFFF1A] h-[270px] cursor-grab active:cursor-grabbing">
                 <p className="text-white/80 mb-6 text-left">{testimonial.description}</p>
                 <div className="flex items-center">
                   <Image
