@@ -35,7 +35,7 @@ const testimonials = [
 
 const ContactPage = () => {
   return (
-    <section className='w-full bg-[#040508] flex flex-col items-center pt-45 pb-20'>
+    <section className='w-full bg-[#040508] flex flex-col items-center pt-45'>
       <style jsx>{`
         .contact-input::placeholder {
         color: #111111;
@@ -98,8 +98,9 @@ const ContactPage = () => {
           </div>
         </form>
       </div>
+      <div className='w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t-[0.5px] border-white/10'></div>
 
-      <div className="w-full max-w-[1332px] mx-auto mt-20 px-4">
+      <div className="w-[90%] max-w-[1332px] mx-auto mt-20 px-4">
         <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-12 text-white">
           What our customers are saying:
         </h2>
@@ -149,6 +150,7 @@ const ContactPage = () => {
         </Swiper>
         <div className="testimonial-pagination text-center mt-8"></div>
       </div>
+      <div className='w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t-[0.5px] border-white/10'></div>
     </section>
   );
 };
