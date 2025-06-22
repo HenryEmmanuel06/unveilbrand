@@ -11,7 +11,7 @@ const testimonials = [
     image: '/images/client 1.png',
     name: 'Ferdinand Alfred',
     title: 'CEO, Wallet',
-    description: 'Our success is interwoven with the success of the businesses we serve. We only grow when the businesses on our clientele grow, so we work extremely hard to help our clients grow. And we have a lot of fun in the process \\\'cos we love it.',
+    description: 'Our success is interwoven with the success of the businesses we serve. We only grow when the businesses on our clientele grow, so we work extremely hard to help our clients grow. And we have a lot of fun in the process &apos;cos we love it.',
   },
   {
     image: '/images/client 2.png',
