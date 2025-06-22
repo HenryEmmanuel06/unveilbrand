@@ -150,7 +150,7 @@ const ContactPage = () => {
         </Swiper>
         <div className="testimonial-pagination text-center mt-8"></div>
       </div>
-      <div className='w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t-[0.5px] border-white/10'></div>
+      <div className='w-[90%] lg:w-full max-w-[1332px] mx-auto mt-15 border-t-[0.5px] border-white/10'></div>
     </section>
   );
 };
