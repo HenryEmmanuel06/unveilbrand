@@ -28,7 +28,6 @@ const HeroSection = () => {
   const row1X = useMotionValue(0);
   const row2X = useMotionValue(0);
   const idleSpeed = 0.5; // px per frame (adjust for default loop speed)
-  const fastSpeed = 2.5; // px per frame (adjust for scroll boost)
   const rowLength = 6 * 180 * 2; // 6 pills * pill+gap width * 2 (for double loop)
 
   // Track if user is actively scrolling
@@ -37,9 +36,9 @@ const HeroSection = () => {
 
   useAnimationFrame((t, delta) => {
     // Get current velocity (positive = scroll down, negative = up)
-    let v = velocitySpring.get();
-    let absV = Math.abs(v);
-    let now = Date.now();
+    const v = velocitySpring.get();
+    const absV = Math.abs(v);
+    const now = Date.now();
     // If velocity is significant, treat as scrolling
     if (absV > 10) {
       isScrollingRef.current = true;
@@ -55,24 +54,24 @@ const HeroSection = () => {
       // Map velocity to speed (clamp for sanity)
       let speed = Math.max(Math.min(v / 10, 30), -30); // px/frame
       // Row 1
-      let prev1 = row1X.get();
+      const prev1 = row1X.get();
       let next1 = prev1 - speed * (delta / 16.67);
       if (next1 < -rowLength / 2) next1 += rowLength / 2;
       if (next1 > 0) next1 -= rowLength / 2;
       row1X.set(next1);
       // Row 2
-      let prev2 = row2X.get();
+      const prev2 = row2X.get();
       let next2 = prev2 + speed * (delta / 16.67);
       if (next2 > 0) next2 -= rowLength / 2;
       if (next2 < -rowLength / 2) next2 += rowLength / 2;
       row2X.set(next2);
     } else {
       // Idle: slow loop
-      let prev1 = row1X.get();
+      const prev1 = row1X.get();
       let next1 = prev1 - idleSpeed * (delta / 16.67);
       if (next1 < -rowLength / 2) next1 += rowLength / 2;
       row1X.set(next1);
-      let prev2 = row2X.get();
+      const prev2 = row2X.get();
       let next2 = prev2 + idleSpeed * (delta / 16.67);
       if (next2 > 0) next2 -= rowLength / 2;
       row2X.set(next2);
@@ -231,7 +230,7 @@ const HeroSection = () => {
               style={{ x: row1X }}
             >
               {[...Array(2)].map((_, repeatIdx) => (
-                ['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat, idx) => (
+                ['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat) => (
                   <span
                     key={cat + repeatIdx}
                     className={`border ${theme === 'dark' ? 'border-white/20' : 'border-black/20'} rounded-full px-[30px] py-[15px] ${theme === 'dark' ? 'text-[#cccccc] bg-black/30' : 'text-[#333333] bg-white/70'} tracking-widest text-xs font-[100] backdrop-blur-[7px] transition cursor-pointer whitespace-nowrap mx-2`}
@@ -249,7 +248,7 @@ const HeroSection = () => {
               style={{ x: row2X }}
             >
               {[...Array(2)].map((_, repeatIdx) => (
-                ['UI Kits', 'Templates', 'Dashboards', 'Mobile Apps', 'Websites', 'Branding'].map((cat, idx) => (
+                ['UI Kits', 'Templates', 'Dashboards', 'Mobile Apps', 'Websites', 'Branding'].map((cat) => (
                   <span
                     key={cat + repeatIdx}
                     className={`border ${theme === 'dark' ? 'border-white/20' : 'border-black/20'} rounded-full px-[30px] py-[15px] ${theme === 'dark' ? 'text-[#cccccc] bg-black/30' : 'text-[#333333] bg-white/70'} tracking-widest text-xs font-[100] backdrop-blur-[7px] transition cursor-pointer whitespace-nowrap mx-2`}
