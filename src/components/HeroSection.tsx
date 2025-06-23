@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useVelocity, useMotionValue, useSpring, useAnimationFrame } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const HeroSection = () => {
   const [theme, setTheme] = useState('dark');
@@ -19,6 +19,65 @@ const HeroSection = () => {
   const rightPillsX = useTransform(scrollY, [0, 200, 800], [0, 60, 300]);
   const rightPillsRotate = useTransform(scrollY, [0, 200, 800], [0, 10, 45]);
   const rightPillsOpacity = useTransform(scrollY, [0, 800, 1000], [1, 1, 0]);
+
+  // --- Mobile Pills Scroll Animation Logic ---
+  const scrollVelocity = useVelocity(scrollY);
+  const velocitySpring = useSpring(scrollVelocity, { damping: 40, stiffness: 400 });
+
+  // For both rows, use motion values for x
+  const row1X = useMotionValue(0);
+  const row2X = useMotionValue(0);
+  const idleSpeed = 0.5; // px per frame (adjust for default loop speed)
+  const fastSpeed = 2.5; // px per frame (adjust for scroll boost)
+  const rowLength = 6 * 180 * 2; // 6 pills * pill+gap width * 2 (for double loop)
+
+  // Track if user is actively scrolling
+  const isScrollingRef = useRef(false);
+  const lastScrollTimeRef = useRef(Date.now());
+
+  useAnimationFrame((t, delta) => {
+    // Get current velocity (positive = scroll down, negative = up)
+    let v = velocitySpring.get();
+    let absV = Math.abs(v);
+    let now = Date.now();
+    // If velocity is significant, treat as scrolling
+    if (absV > 10) {
+      isScrollingRef.current = true;
+      lastScrollTimeRef.current = now;
+    } else {
+      // If no scroll for 200ms, treat as idle
+      if (now - lastScrollTimeRef.current > 200) {
+        isScrollingRef.current = false;
+      }
+    }
+    // Row 1: normal direction, Row 2: reverse
+    if (isScrollingRef.current) {
+      // Map velocity to speed (clamp for sanity)
+      let speed = Math.max(Math.min(v / 10, 30), -30); // px/frame
+      // Row 1
+      let prev1 = row1X.get();
+      let next1 = prev1 - speed * (delta / 16.67);
+      if (next1 < -rowLength / 2) next1 += rowLength / 2;
+      if (next1 > 0) next1 -= rowLength / 2;
+      row1X.set(next1);
+      // Row 2
+      let prev2 = row2X.get();
+      let next2 = prev2 + speed * (delta / 16.67);
+      if (next2 > 0) next2 -= rowLength / 2;
+      if (next2 < -rowLength / 2) next2 += rowLength / 2;
+      row2X.set(next2);
+    } else {
+      // Idle: slow loop
+      let prev1 = row1X.get();
+      let next1 = prev1 - idleSpeed * (delta / 16.67);
+      if (next1 < -rowLength / 2) next1 += rowLength / 2;
+      row1X.set(next1);
+      let prev2 = row2X.get();
+      let next2 = prev2 + idleSpeed * (delta / 16.67);
+      if (next2 > 0) next2 -= rowLength / 2;
+      row2X.set(next2);
+    }
+  });
 
   useEffect(() => {
     // Get initial theme
@@ -41,7 +100,7 @@ const HeroSection = () => {
   const ThemeToggle = () => (
     <button
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-50 p-2 rounded-full transition-colors duration-200 group"
+      className="fixed bottom-4 right-4 z-50 p-2 rounded-full transition-colors duration-200 group"
       style={{
         backgroundColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
       }}
@@ -104,6 +163,22 @@ const HeroSection = () => {
             opacity: 0.5;
           }
         }
+
+        /* Pills scroll animation keyframes for mobile pills */
+        @keyframes pills-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes pills-scroll-reverse {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        .animate-pills-scroll {
+          animation: pills-scroll 12s linear infinite;
+        }
+        .animate-pills-scroll-reverse {
+          animation: pills-scroll-reverse 12s linear infinite;
+        }
       `}</style>
       <ThemeToggle />
       {/* Main container */}
@@ -115,8 +190,8 @@ const HeroSection = () => {
           backgroundPositionY: '80px',
           backgroundColor: theme === 'light' ? '#ffffff' : 'transparent',
       }}>
-        {/* Category Pills */}
-        <div className="w-full flex justify-center lg:justify-end max-w-[945px] mx-auto mt-[60px] lg:mt-[150px]">
+        {/* Category Pills - Desktop & Tablet Only */}
+        <div className="w-full flex justify-center lg:justify-end max-w-[945px] mx-auto mt-[60px] lg:mt-[150px] hidden sm:flex">
           <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-0 justify-center lg:justify-end w-full">
             {['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat, idx) => {
               const isLeftSide = idx < 3;
@@ -145,6 +220,45 @@ const HeroSection = () => {
                 </motion.span>
               );
             })}
+          </div>
+        </div>
+        {/* Category Pills - Mobile Only, Infinite Horizontal Scroll */}
+        <div className="w-full flex flex-col gap-0 sm:hidden mt-8">
+          {/* First Row: Normal Order */}
+          <div className="relative w-full overflow-x-hidden h-[50px]">
+            <motion.div
+              className="absolute left-0 top-0 flex items-center h-full min-w-full"
+              style={{ x: row1X }}
+            >
+              {[...Array(2)].map((_, repeatIdx) => (
+                ['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat, idx) => (
+                  <span
+                    key={cat + repeatIdx}
+                    className={`border ${theme === 'dark' ? 'border-white/20' : 'border-black/20'} rounded-full px-[30px] py-[15px] ${theme === 'dark' ? 'text-[#cccccc] bg-black/30' : 'text-[#333333] bg-white/70'} tracking-widest text-xs font-[100] backdrop-blur-[7px] transition cursor-pointer whitespace-nowrap mx-2`}
+                  >
+                    {cat}
+                  </span>
+                ))
+              ))}
+            </motion.div>
+          </div>
+          {/* Second Row: Reverse Order */}
+          <div className="relative w-full overflow-x-hidden h-[50px] mt-2">
+            <motion.div
+              className="absolute left-0 top-0 flex items-center h-full min-w-full"
+              style={{ x: row2X }}
+            >
+              {[...Array(2)].map((_, repeatIdx) => (
+                ['UI Kits', 'Templates', 'Dashboards', 'Mobile Apps', 'Websites', 'Branding'].map((cat, idx) => (
+                  <span
+                    key={cat + repeatIdx}
+                    className={`border ${theme === 'dark' ? 'border-white/20' : 'border-black/20'} rounded-full px-[30px] py-[15px] ${theme === 'dark' ? 'text-[#cccccc] bg-black/30' : 'text-[#333333] bg-white/70'} tracking-widest text-xs font-[100] backdrop-blur-[7px] transition cursor-pointer whitespace-nowrap mx-2`}
+                  >
+                    {cat}
+                  </span>
+                ))
+              ))}
+            </motion.div>
           </div>
         </div>
         {/* Headline */}
@@ -181,7 +295,7 @@ const HeroSection = () => {
           </Link>
         </div>
         {/* Clients and Logo Slider Section */}
-        <div className={`w-[90%] lg:w-full max-w-[1332px] mx-auto mt-15 md:mt-30 border-t border-b ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0`}>
+        <div className={`w-[90%] lg:w-full max-w-[1332px] mx-auto mt-15 md:mt-30 border-t border-b ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} px-2 py-2 md:py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0`}>
           {/* Happy Clients */}
           <div className="flex items-center min-w-[220px] xl:w-auto xl:justify-start justify-center client-info-row hidden md:flex">
             <div className="flex -space-x-3 justify-center w-full">
