@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import { useState, useEffect } from "react";
 
 const HeroSection = () => {
-  
+  const [theme, setTheme] = useState('dark');
   const { scrollY } = useScroll();
   
   // Multi-stage transform values for pills
@@ -19,8 +20,51 @@ const HeroSection = () => {
   const rightPillsRotate = useTransform(scrollY, [0, 200, 800], [0, 10, 45]);
   const rightPillsOpacity = useTransform(scrollY, [0, 800, 1000], [1, 1, 0]);
 
+  useEffect(() => {
+    // Get initial theme
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(currentTheme);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    // Dispatch storage event for other components
+    window.dispatchEvent(new StorageEvent('storage', {
+      key: 'theme',
+      newValue: newTheme,
+    }));
+  };
+
+  // Fixed position theme toggle button
+  const ThemeToggle = () => (
+    <button
+      onClick={toggleTheme}
+      className="fixed top-4 right-4 z-50 p-2 rounded-full transition-colors duration-200 group"
+      style={{
+        backgroundColor: theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
+      }}
+      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+    >
+      <Image
+        src={theme === 'dark' ? '/sun.svg' : '/moon.svg'}
+        alt={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+        width={24}
+        height={24}
+        style={{ filter: theme === 'dark' ? 'invert(1)' : 'none' }}
+        className={`transition-transform duration-300 ease-in-out ${theme === 'dark' ? 'text-white' : 'text-black'} group-hover:scale-110 group-hover:rotate-180 group-active:scale-95 cursor-pointer`}
+      />
+      <style jsx>{`
+        .group:hover img, .group:active img {
+          will-change: transform;
+        }
+      `}</style>
+    </button>
+  );
+
   return (
-    <section className="relative w-full flex flex-col items-center justify-center pt-16 bg-[#040508] overflow-hidden">
+    <section className={`relative w-full flex flex-col items-center justify-center pt-16 ${theme === 'dark' ? 'bg-[#040508]' : 'bg-white'} overflow-hidden transition-colors duration-300`}>
       <style jsx>{`
         @keyframes gradient-move {
           0% {
@@ -61,13 +105,16 @@ const HeroSection = () => {
           }
         }
       `}</style>
+      <ThemeToggle />
       {/* Main container */}
-      <AnimatedSection className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-2" style={{
-        backgroundImage: 'url("/images/shiny bg hero.png")',
-        backgroundSize: 'cover',
-        backgroundPositionY: '80px',
-        // backgroundColor: "red",
-    }}>
+      <AnimatedSection 
+        className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-2" 
+        style={{
+          backgroundImage: theme === 'dark' ? 'url("/images/shiny bg hero.png")' : 'none',
+          backgroundSize: 'cover',
+          backgroundPositionY: '80px',
+          backgroundColor: theme === 'light' ? '#ffffff' : 'transparent',
+      }}>
         {/* Category Pills */}
         <div className="w-full flex justify-center lg:justify-end max-w-[945px] mx-auto mt-[60px] lg:mt-[150px]">
           <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-0 justify-center lg:justify-end w-full">
@@ -84,10 +131,15 @@ const HeroSection = () => {
                     position: 'relative',
                     zIndex: 10 + idx
                   }}
-                  className={
-                    `border border-white/20 rounded-full px-[30px] py-[15px] text-[#cccccc] tracking-widest text-xs font-[100] bg-black/30 backdrop-blur-[7px] hover:bg-white/10 transition cursor-pointer whitespace-nowrap ` +
-                    `${idx !== 0 ? '-ml-7 ' : ''}`
-                  }
+                  className={`
+                    border ${theme === 'dark' ? 'border-white/20' : 'border-black/20'} 
+                    rounded-full px-[30px] py-[15px] 
+                    ${theme === 'dark' ? 'text-[#cccccc] bg-black/30' : 'text-[#333333] bg-white/70'} 
+                    tracking-widest text-xs font-[100] backdrop-blur-[7px] 
+                    hover:bg-${theme === 'dark' ? 'white/10' : 'black/10'} 
+                    transition cursor-pointer whitespace-nowrap 
+                    ${idx !== 0 ? '-ml-7' : ''}
+                  `}
                 >
                   {cat}
                 </motion.span>
@@ -96,12 +148,12 @@ const HeroSection = () => {
           </div>
         </div>
         {/* Headline */}
-        <h1 className="text-white text-[40px] md:text-[70px] xl:text-[90px] font-normal leading-[90%] mx-auto text-center">
-          We build <span className="font-bold text-white">digital products </span><br className="hidden md:block" />
-          with <span className="font-bold text-white">emphasis!</span>
+        <h1 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-[40px] md:text-[70px] xl:text-[90px] font-normal leading-[90%] mx-auto text-center transition-colors duration-300`}>
+          We build <span className={`font-bold ${theme === 'dark' ? 'text-white' : 'text-black'}`}>digital products </span><br className="hidden md:block" />
+          with <span className={`font-bold ${theme === 'dark' ? 'text-white' : 'text-black'}`}>emphasis!</span>
         </h1>
         {/* Subheadline */}
-        <p className="text-white text-lg max-w-xl mx-auto my-4">
+        <p className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-lg max-w-xl mx-auto my-4 transition-colors duration-300`}>
           More than just great design, we craft strategic solutions that fuel your brand&apos;s growth, attract the right customers, and turn attention into sales.
         </p>
         {/* CTA Buttons */}
@@ -122,36 +174,35 @@ const HeroSection = () => {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-l from-transparent via-[#A212A8]/50 to-transparent animate-gradient-move-reverse"></div>
               </div>
               {/* The actual button content with a solid background, covering the center */}
-              <button className="relative z-10 bg-black rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer w-full h-full border border-white/30">
+              <button className={`relative z-10 ${theme === 'dark' ? 'bg-black' : 'bg-white'} rounded-full px-8 py-3 ${theme === 'dark' ? 'text-white' : 'text-black'} font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer w-full h-full border ${theme === 'dark' ? 'border-white/30' : 'border-black/30'}`}>
                 See our works
               </button>
             </div>
           </Link>
-          
         </div>
         {/* Clients and Logo Slider Section */}
-        <div className="w-[90%] lg:w-full max-w-[1332px] mx-auto mt-15 md:mt-30 border-t border-b border-white/10 px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
+        <div className={`w-[90%] lg:w-full max-w-[1332px] mx-auto mt-15 md:mt-30 border-t border-b ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0`}>
           {/* Happy Clients */}
           <div className="flex items-center min-w-[220px] xl:w-auto xl:justify-start justify-center client-info-row hidden md:flex">
-                     <div className="flex -space-x-3 justify-center w-full">
-                       {[1,2,3,4,5].map((i) => (
-                         <Image
-                           key={i}
-                           src={`/images/client ${i}.png`}
-                           alt={`Client ${i}`}
-                           width={40}
-                           height={40}
-                           className="rounded-full border-2 border-black"
-                         />
-                       ))}
-                     </div>
-                     <div className="flex flex-col items-center ml-4 client-info-text">
-                       <span className="text-white text-sm font-semibold text-left min-w-[200px]">★★★★★</span>
-                       <span className="text-white text-sm font-semibold text-left min-w-[200px]">
-                         20+ Happy Clients
-                       </span>
-                     </div>
-                   </div>
+            <div className="flex -space-x-3 justify-center w-full">
+              {[1,2,3,4,5].map((i) => (
+                <Image
+                  key={i}
+                  src={`/images/client ${i}.png`}
+                  alt={`Client ${i}`}
+                  width={40}
+                  height={40}
+                  className="rounded-full border-2 border-black"
+                />
+              ))}
+            </div>
+            <div className="flex flex-col items-center ml-4 client-info-text">
+              <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-sm font-semibold text-left min-w-[200px]`}>★★★★★</span>
+              <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-sm font-semibold text-left min-w-[200px]`}>
+                20+ Happy Clients
+              </span>
+            </div>
+          </div>
           {/* Logo Slider */}
           <div className="relative w-full sm:max-w-[100%] md:max-w-[67%] overflow-hidden h-[40px] xl:h-[40px] lg:h-[32px] md:h-[28px]">
             <div className="absolute left-0 top-0 flex items-center h-full animate-logo-scroll min-w-full">
@@ -168,9 +219,6 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-        {/* End Clients and Logo Slider Section */}
-
-       
       </AnimatedSection>
     </section>
   );

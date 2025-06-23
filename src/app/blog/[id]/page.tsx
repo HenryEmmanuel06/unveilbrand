@@ -97,7 +97,7 @@ export default function BlogDetail() {
 
 
         {blog.featured_image && (
-          <div className="relative w-full h-[600px] mb-8 rounded-lg overflow-hidden">
+          <div className="relative w-full h-[300px] md:h-[600px] mb-8 rounded-lg overflow-hidden">
             <Image
               src={blog.featured_image}
               alt={blog.title}
@@ -119,7 +119,7 @@ export default function BlogDetail() {
       <div className='w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t-[0.5px] border-white/10'></div>
       <div className="w-[90%] max-w-[1270px] mx-auto pt-10">
         <div className="flex justify-between items-center mb-10">
-          <h2 className="text-white text-3xl font-bold">Recommendations</h2>
+          <h2 className="text-white text-[16px] md:text-3xl font-bold">Recommendations</h2>
           <Link
             href="/blog"
           >
@@ -159,7 +159,7 @@ export default function BlogDetail() {
                 )
               }
               <div className="py-6">
-                <h3 className="text-white text-lg font-semibold mb-[20px] w-[100%] h-[100px] md:h-[44px]">{recBlog.title}</h3>
+                <h3 className="text-white text-lg font-semibold mb-[20px] w-[100%] h-[50px] md:h-[44px]">{recBlog.title}</h3>
                 <div className="text-white/80 space-y-2">
                   <p className="flex gap-[20px]">
                     <span className="italic text-sm">{toTitleCase(recBlog.author)}</span>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 const testimonials = [
   {
@@ -107,10 +107,10 @@ const ContactPage = () => {
         <Swiper
           modules={[Pagination]}
           spaceBetween={30}
-          pagination={{ 
+          pagination={{
             clickable: true,
             el: '.testimonial-pagination'
-           }}
+          }}
           breakpoints={{
             640: {
               slidesPerView: 1,

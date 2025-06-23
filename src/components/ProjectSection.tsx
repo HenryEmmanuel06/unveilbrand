@@ -106,34 +106,43 @@ const ProjectSection = () => {
   const [slide, setSlide] = useState(0);
   const [currentProjectId, setCurrentProjectId] = useState<number | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [theme, setTheme] = useState('dark');
+
+  // Sync theme with localStorage
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'theme') {
+        setTheme(e.newValue || 'dark');
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(currentTheme);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   const openModal = (projectId: number) => {
-    // Save current scroll position
     setScrollPosition(window.scrollY);
-    // Prevent scrolling
     document.body.style.overflow = 'hidden';
     document.body.style.position = 'fixed';
     document.body.style.top = `-${window.scrollY}px`;
     document.body.style.width = '100%';
-
     setCurrentProjectId(projectId);
     setShowModal(true);
     setSlide(0);
   };
 
   const closeModal = () => {
-    // Re-enable scrolling
     document.body.style.overflow = '';
     document.body.style.position = '';
     document.body.style.top = '';
     document.body.style.width = '';
-    // Restore scroll position
     window.scrollTo(0, scrollPosition);
-
     setShowModal(false);
   };
 
-  // Cleanup on component unmount
   useEffect(() => {
     return () => {
       document.body.style.overflow = '';
@@ -143,14 +152,14 @@ const ProjectSection = () => {
     };
   }, []);
 
-  const nextSlide = () => setSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setSlide((prev) => (prev - 1 + slides.length) % slides.length);
-
   const currentProject = projects.find(project => project.id === currentProjectId);
   const slides = currentProject ? currentProject.images : [];
 
+  const nextSlide = () => setSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setSlide((prev) => (prev - 1 + slides.length) % slides.length);
+
   return (
-    <section className="w-full py-2 pt-10 md:pt-0 bg-[#040508]" id='projects'>
+    <section className={`w-full py-2 pt-10 md:pt-0 ${theme === 'dark' ? 'bg-[#040508]' : 'bg-white'} transition-colors duration-300`} id='projects'>
       <style jsx>{`
         @keyframes gradient-move {
           0% {
@@ -160,7 +169,6 @@ const ProjectSection = () => {
             transform: translateX(100%) translateY(100%);
           }
         }
-
         @keyframes gradient-move-reverse {
           0% {
             transform: translateX(100%) translateY(100%);
@@ -169,19 +177,15 @@ const ProjectSection = () => {
             transform: translateX(-100%) translateY(-100%);
           }
         }
-
         .animate-gradient-move {
           animation: gradient-move 2s linear infinite;
         }
-
         .animate-gradient-move-reverse {
           animation: gradient-move-reverse 0s linear infinite;
         }
-
         .animate-gradient-border {
           animation: gradient-border 5s linear infinite;
         }
-
         @keyframes gradient-border {
           0%, 100% {
             opacity: 1;
@@ -192,22 +196,23 @@ const ProjectSection = () => {
         }
       `}</style>
       <div className="relative mx-auto w-[90%] max-w-[1330px]" style={{
-        backgroundImage: 'url("/images/shiny bg Projects.png")',
+        backgroundImage: theme === 'dark' ? 'url("/images/shiny bg Projects.png")' : 'none',
         backgroundSize: 'cover',
         backgroundPositionY: '-100px',
-        backgroundRepeat: "no-repeat"
+        backgroundRepeat: "no-repeat",
+        backgroundColor: theme === 'light' ? '#fff' : 'transparent',
       }}>
         <AnimatedSection>
-        <h2 className="text-white text-3xl md:text-5xl font-bold mb-20 text-left">Thoughtful Designs With Real World Solutions</h2>
+        <h2 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-3xl md:text-5xl font-bold mb-20 text-left transition-colors duration-300`}>Thoughtful Designs With Real World Solutions</h2>
         <div className="mx-auto h-[1400px] md:h-[2500px] lg:h-[700px] grid grid-cols-1 lg:grid-cols-12 grid-rows-36 lg:grid-rows-12 gap-4">
           {/* First Container - 5 columns */}
-          <div className="lg:col-span-5 row-span-12 lg:row-span-12 row-span-8 h-full grid gap-4 bg-[#121316] p-[10px] rounded-[20px]">
-            <div className="row-span-3 lg:row-span-1 bg-[#FFFFFF05] rounded-[15px] h-full">
+          <div className={`${theme === 'dark' ? 'bg-[#121316]' : 'bg-white/80'} lg:col-span-5 row-span-12 lg:row-span-12 row-span-8 h-full grid gap-4 p-[10px] rounded-[20px] transition-colors duration-300`}>
+            <div className={`${theme === 'dark' ? 'bg-[#FFFFFF05]' : 'bg-black/5'} row-span-3 lg:row-span-1 rounded-[15px] h-full transition-colors duration-300`}>
               <div className="">
                 <div className="flex items-center justify-between w-full px-[15px] py-[30px] pb-0">
-                  <span className="text-white font-extrabold text-[18px] md:text-3xl">Applibry</span>
+                  <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} font-extrabold text-[18px] md:text-3xl transition-colors duration-300`}>Applibry</span>
                   <div className="flex gap-2">
-                    <span className="border border-white/30 text-white/70 text-xs px-4 py-1 rounded-full bg-transparent">Branding | UI Kits</span>
+                    <span className={`${theme === 'dark' ? 'border border-white/30 text-white/70' : 'border border-black/30 text-black/70'} text-xs px-4 py-1 rounded-full bg-transparent`}>Branding | UI Kits</span>
                   </div>
                 </div>
               </div>
@@ -270,7 +275,7 @@ const ProjectSection = () => {
           </div>
         </div>
         </AnimatedSection>
-        <AnimatedSection className="w-full max-w-[1332px] mx-auto mt-12 border-t border-b border-white/10 px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0">
+        <AnimatedSection className={`w-full max-w-[1332px] mx-auto mt-12 border-t border-b ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0`}>
           <div className="flex items-center min-w-[220px] xl:w-auto xl:justify-start justify-center client-info-row">
             <div className="flex -space-x-3 justify-center w-full">
               {[1, 2, 3, 4, 5].map((i) => (
@@ -285,8 +290,8 @@ const ProjectSection = () => {
               ))}
             </div>
             <div className="flex flex-col items-center ml-4 client-info-text">
-              <span className="text-white text-sm font-semibold text-left min-w-[200px]">★★★★★</span>
-              <span className="text-white text-sm font-semibold text-left min-w-[200px]">
+              <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-sm font-semibold text-left min-w-[200px]`}>★★★★★</span>
+              <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-sm font-semibold text-left min-w-[200px]`}>
                 20+ Happy Clients
               </span>
             </div>
@@ -300,7 +305,7 @@ const ProjectSection = () => {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-l from-transparent via-[#A212A8]/50 to-transparent animate-gradient-move-reverse"></div>
               </div>
               {/* The actual button content with a solid background, covering the center */}
-             <button className="relative z-10 bg-black rounded-full px-8 py-3 text-white font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer w-full h-full border border-white/30">
+             <button className={`relative z-10 ${theme === 'dark' ? 'bg-black text-white border-white/30' : 'bg-white text-black border-black/30'} rounded-full px-8 py-3 font-medium hover:bg-[#fff] hover:text-black transition cursor-pointer w-full h-full border`}>
               Become One Of Them Today!
             </button>
             </div>
@@ -319,7 +324,7 @@ const ProjectSection = () => {
                 animate={{ y: 0 }}
                 exit={{ y: "100%" }}
                 transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                className="relative rounded-3xl w-[90vw] h-[95vh] lg:h-[90vh] flex flex-col lg:flex-row shadow-2xl overflow-y-auto lg:overflow-hidden gap-4 mb-10 lg:mb-0"
+                className={`relative rounded-3xl w-[90vw] h-[95vh] lg:h-[90vh] flex flex-col lg:flex-row shadow-2xl overflow-y-auto lg:overflow-hidden gap-4 mb-10 lg:mb-0`}
               >
                 {/* Left: Image Slide */}
                 <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative mt-10 lg:mt-0 min-h-[300px]" style={{
@@ -358,33 +363,33 @@ const ProjectSection = () => {
                   </div>
                 </div>
                 {/* Right: Controls */}
-                <div className="w-[100%] lg:w-[40%] 2xl:w-[35%] max-w-full flex flex-col p-4 text-white rounded-[10px] shadow-lg bg-[#111111] min-h-[300px]">
+                <div className={`w-[100%] lg:w-[40%] 2xl:w-[35%] max-w-full flex flex-col p-4 rounded-[10px] shadow-lg min-h-[300px] ${theme === 'dark' ? 'bg-[#111111] text-white' : 'bg-white text-black'}`}>
                   {/* Header */}
                   <div className="flex justify-between gap-3 items-center mb-[10px]">
-                    <h2 className="text-[16px] h-[50px] md:h-auto md:text-3xl font-bold bg-[#FFFFFF0D] py-[16px] px-[20px] flex-1 rounded-[10px] flex items-center">{currentProject?.title}</h2>
+                    <h2 className={`text-[16px] h-[50px] md:h-auto md:text-3xl font-bold py-[16px] px-[20px] flex-1 rounded-[10px] flex items-center ${theme === 'dark' ? 'bg-[#FFFFFF0D] text-white' : 'bg-black/5 text-black'}`}>{currentProject?.title}</h2>
                     <div className="flex gap-2">
-                      <a href={currentProject?.projectLink} target="_blank" rel="noopener noreferrer" className="w-[55px] md:w-[70px] h-[50px] md:h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white">
+                      <a href={currentProject?.projectLink} target="_blank" rel="noopener noreferrer" className={`w-[55px] md:w-[70px] h-[50px] md:h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] transition ${theme === 'dark' ? 'bg-[#FFFFFF0D] hover:bg-[#555555] text-white' : 'bg-black/5 hover:bg-black/20 text-black'}`}>
                         <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" /></svg>
                       </a>
-                      <button onClick={closeModal} className="w-[55px] md:w-[70px] h-[50px] md:h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] bg-[#FFFFFF0D] hover:bg-[#555555] transition text-white text-[35px] cursor-pointer">&times;</button>
+                      <button onClick={closeModal} className={`w-[55px] md:w-[70px] h-[50px] md:h-[65px] py-[16px] px-[20px] flex items-center justify-center rounded-[10px] transition text-[35px] cursor-pointer ${theme === 'dark' ? 'bg-[#FFFFFF0D] hover:bg-[#555555] text-white' : 'bg-black/5 hover:bg-black/20 text-black'}`}>&times;</button>
                     </div>
                   </div>
 
                   {/* Project Details */}
-                  <div className="mb-[10px] bg-[#1a1a1a] rounded-2xl p-4">
+                  <div className={`mb-[10px] rounded-2xl p-4 ${theme === 'dark' ? 'bg-[#1a1a1a] text-white' : 'bg-black/5 text-black'}`}>
                     <div className="flex flex-row text-sm gap-7 md:gap-10">
                       <div>
-                        <p className="text-white text-[12px] font-normal">COMPANY</p>
+                        <p className="text-[12px] font-normal">COMPANY</p>
                         <p className="font-bold sm:text-[14px] md:text-[16px] 2xl:text-[18px]">{currentProject?.company}</p>
                       </div>
                       <div>
-                        <p className="text-white text-[12px] font-normal">YEAR</p>
+                        <p className="text-[12px] font-normal">YEAR</p>
                         <p className="font-bold text-[14px] md:text-lg">{currentProject?.year}</p>
                       </div>
                       <div className='flex-1'>
-                        <p className="text-white text-[12px] font-normal">TYPE</p>
+                        <p className="text-[12px] font-normal">TYPE</p>
                         <div className="flex flex-wrap gap-1 mt-1">
-                          <span className="border border-white/30 text-white/70 text-[10px] xlg:text-[12px] px-2 py-1 rounded-full bg-transparent">
+                          <span className={`${theme === 'dark' ? 'border border-white/30 text-white/70' : 'border border-black/30 text-black/70'} text-[10px] xlg:text-[12px] px-2 py-1 rounded-full bg-transparent`}>
                             {currentProject?.type.join(' | ')}
                           </span>
                         </div>
@@ -393,9 +398,9 @@ const ProjectSection = () => {
                   </div>
 
                   {/* Overview */}
-                  <div className="bg-[#1a1a1a] rounded-2xl p-4 flex-1 overflow-y-auto">
-                    <h3 className="text-white text-[12px] font-normal mb-2">OVERVIEW</h3>
-                    <p className="text-white/90 text-sm leading-relaxed whitespace-pre-line">{currentProject?.description}</p>
+                  <div className={`rounded-2xl p-4 flex-1 overflow-y-auto ${theme === 'dark' ? 'bg-[#1a1a1a] text-white' : 'bg-black/5 text-black'}`}>
+                    <h3 className="text-[12px] font-normal mb-2">OVERVIEW</h3>
+                    <p className={`${theme === 'dark' ? 'text-white/90' : 'text-black/90'} text-sm leading-relaxed whitespace-pre-line`}>{currentProject?.description}</p>
                   </div>
                 </div>
               </motion.div>
