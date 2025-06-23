@@ -52,7 +52,7 @@ const HeroSection = () => {
     // Row 1: normal direction, Row 2: reverse
     if (isScrollingRef.current) {
       // Map velocity to speed (clamp for sanity)
-      let speed = Math.max(Math.min(v / 10, 30), -30); // px/frame
+      const speed = Math.max(Math.min(v / 10, 30), -30); // px/frame
       // Row 1
       const prev1 = row1X.get();
       let next1 = prev1 - speed * (delta / 16.67);
