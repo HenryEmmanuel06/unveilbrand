@@ -59,7 +59,7 @@ const ProcessSection = () => {
         <h2 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-3xl md:text-5xl font-bold transition-colors duration-300`}>
           Excellence in 3 Distinct Abilities
         </h2>
-        <p className={`${theme === 'dark' ? 'text-white/80' : 'text-black/80'} text-lg max-w-900px mb-12 transition-colors duration-300`}>
+        <p className={`${theme === 'dark' ? 'text-white/80' : 'text-black/80'} text-[15px] md:text-lg max-w-900px mb-12 transition-colors duration-300`}>
           Here at Unveilbrand, we deliver solutions that save time, cut complexity, and fit your budget.
         </p>
         {/* Steps */}

@@ -32,7 +32,7 @@ export default function ProductsSection() {
   }}>
         {/* Section Title */}
         <h2 className={`${theme === 'dark' ? 'text-white' : 'text-gray-900'} text-3xl md:text-5xl font-bold mb-4 transition-colors duration-300`}>Ready-Made Tools You&apos;ll Love Using!</h2>
-        <p className={`${theme === 'dark' ? 'text-white/80' : 'text-gray-600'} text-lg w-[90%] max-w-2xl mb-8 mx-auto transition-colors duration-300`}>Hand-picked collections crafted to help you start, design & work smarter, all optimized for modern creators.</p>
+        <p className={`${theme === 'dark' ? 'text-white/80' : 'text-gray-600'} text-[15px] md:text-lg w-[90%] max-w-2xl mb-8 mx-auto transition-colors duration-300`}>Hand-picked collections crafted to help you start, design & work smarter, all optimized for modern creators.</p>
         {/* CTA Button */}
         <div className="mb-12 flex justify-center">
           <button className="flex items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#8d1091] transition cursor-pointer">

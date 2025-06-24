@@ -203,7 +203,7 @@ const ProjectSection = () => {
         backgroundColor: theme === 'light' ? '#fff' : 'transparent',
       }}>
         <AnimatedSection>
-        <h2 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-3xl md:text-5xl font-bold mb-20 text-left transition-colors duration-300`}>Thoughtful Designs With Real World Solutions</h2>
+        <h2 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-3xl md:text-5xl font-bold mb-10 md:mb-20 text-left transition-colors duration-300`}>Thoughtful Designs With Real World Solutions</h2>
         <div className="mx-auto h-[1400px] md:h-[2500px] lg:h-[700px] grid grid-cols-1 lg:grid-cols-12 grid-rows-36 lg:grid-rows-12 gap-4">
           {/* First Container - 5 columns */}
           <div className={`${theme === 'dark' ? 'bg-[#121316]' : 'bg-white/80'} lg:col-span-5 row-span-12 lg:row-span-12 row-span-8 h-full grid gap-4 p-[10px] rounded-[20px] transition-colors duration-300`}>
@@ -276,7 +276,7 @@ const ProjectSection = () => {
         </div>
         </AnimatedSection>
         <AnimatedSection className={`w-full max-w-[1332px] mx-auto mt-12 border-t border-b ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} px-2 py-6 flex items-center justify-between gap-8 xl:flex-row flex-col xl:border-t xl:border-b border-0`}>
-          <div className="flex items-center min-w-[220px] xl:w-auto xl:justify-start justify-center client-info-row">
+          <div className="flex items-end min-w-[220px] xl:w-auto xl:justify-start md:justify-center client-info justify-between hidden md:flex">
             <div className="flex -space-x-3 justify-center w-full">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Image
@@ -292,6 +292,28 @@ const ProjectSection = () => {
             <div className="flex flex-col items-center ml-4 client-info-text">
               <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-sm font-semibold text-left min-w-[200px]`}>★★★★★</span>
               <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-sm font-semibold text-left min-w-[200px]`}>
+                20+ Happy Clients
+              </span>
+            </div>
+          </div>
+          <div className="flex md:hidden w-[100%]" style={{
+            justifyContent: "space-between",
+          }}>
+            <div className="flex -space-x-3 justify-start w-full w-[70%]">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <Image
+                  key={i}
+                  src={`/images/client ${i}.png`}
+                  alt={`Client ${i}`}
+                  width={40}
+                  height={40}
+                  className="rounded-full border-2 border-black"
+                />
+              ))}
+            </div>
+            <div className="flex flex-col justify-end w-[30%]">
+              <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-[10px] font-semibold text-left`}>★★★★★</span>
+              <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-[10px] font-semibold text-left`}>
                 20+ Happy Clients
               </span>
             </div>
@@ -327,7 +349,7 @@ const ProjectSection = () => {
                 className={`relative rounded-3xl w-[90vw] h-[95vh] lg:h-[90vh] flex flex-col lg:flex-row shadow-2xl overflow-y-auto lg:overflow-hidden gap-4 mb-10 lg:mb-0`}
               >
                 {/* Left: Image Slide */}
-                <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative mt-10 lg:mt-0 min-h-[300px]" style={{
+                <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative mt-10 lg:mt-0 min-h-[220px] md:min-h-[300px]" style={{
                   backgroundImage: `url(${currentProject?.modalBackground})`,
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",
@@ -342,7 +364,7 @@ const ProjectSection = () => {
                     <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
                   </button>
                   {/* Image */}
-                  {currentProject?.images[0] && <Image src={slides[slide]} alt={`Slide ${slide + 1}`} width={300} height={350} className={`rounded-2xl object-contain max-h-[50vh] w-[300px] lg:w-[600px]  ${currentProjectId === 4 ? '-mt-20' : ''}`} />}
+                  {currentProject?.images[0] && <Image src={slides[slide]} alt={`Slide ${slide + 1}`} width={300} height={350} className={`rounded-2xl object-contain max-h-[50vh] w-[200px] lg:w-[600px]  ${currentProjectId === 4 ? '-mt-10 md:-mt-20 h-[150px]' : ''}`} />}
                   {/* Next Button */}
                   <button
                     onClick={nextSlide}
@@ -352,12 +374,12 @@ const ProjectSection = () => {
                     <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
                   </button>
                   {/* Pagination Dots */}
-                  <div className="absolute bottom-[20px] left-1/2 -translate-x-1/2 flex gap-3 z-10 bg-[#11111133] p-3 rounded-full">
+                  <div className="absolute bottom-[5px] md:bottom-[20px] left-1/2 -translate-x-1/2 flex gap-3 z-10 bg-[#11111133] p-2 rounded-full">
                     {slides.map((_, idx) => (
                       <span
                         key={idx}
                         onClick={() => setSlide(idx)}
-                        className={`cursor-pointer w-[10px] h-[10px] rounded-full ${idx === slide ? 'bg-white' : 'bg-[#FFFFFF80]'} transition-all duration-300 hover:bg-white`}
+                        className={`cursor-pointer w-[7px] h-[7px] rounded-full ${idx === slide ? 'bg-white' : 'bg-[#FFFFFF80]'} transition-all duration-300 hover:bg-white`}
                       ></span>
                     ))}
                   </div>

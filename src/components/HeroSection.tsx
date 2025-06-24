@@ -28,7 +28,7 @@ const HeroSection = () => {
   const row1X = useMotionValue(0);
   const row2X = useMotionValue(0);
   const idleSpeed = 0.5; // px per frame (adjust for default loop speed)
-  const rowLength = 6 * 180 * 2; // 6 pills * pill+gap width * 2 (for double loop)
+  const rowLength = 6 * 120 * 2; // 6 pills * (pill width + gap) * 2 (for double loop)
 
   // Track if user is actively scrolling
   const isScrollingRef = useRef(false);
@@ -51,8 +51,8 @@ const HeroSection = () => {
     }
     // Row 1: normal direction, Row 2: reverse
     if (isScrollingRef.current) {
-      // Map velocity to speed (clamp for sanity)
-      const speed = Math.max(Math.min(v / 10, 30), -30); // px/frame
+      // Map velocity to speed (clamp for sanity) - reduced speed
+      const speed = Math.max(Math.min(v / 60, 7.5), -7.5); // px/frame (reduced from /30 to /60 and max from 15 to 7.5)
       // Row 1
       const prev1 = row1X.get();
       let next1 = prev1 - speed * (delta / 16.67);
@@ -222,7 +222,7 @@ const HeroSection = () => {
           </div>
         </div>
         {/* Category Pills - Mobile Only, Infinite Horizontal Scroll */}
-        <div className="w-full flex flex-col gap-0 sm:hidden mt-8">
+        <div className="w-full flex flex-col gap-0 sm:hidden mt-12">
           {/* First Row: Normal Order */}
           <div className="relative w-full overflow-x-hidden h-[50px]">
             <motion.div
@@ -233,7 +233,7 @@ const HeroSection = () => {
                 ['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat) => (
                   <span
                     key={cat + repeatIdx}
-                    className={`border ${theme === 'dark' ? 'border-white/20' : 'border-black/20'} rounded-full px-[30px] py-[15px] ${theme === 'dark' ? 'text-[#cccccc] bg-black/30' : 'text-[#333333] bg-white/70'} tracking-widest text-xs font-[100] backdrop-blur-[7px] transition cursor-pointer whitespace-nowrap mx-2`}
+                    className={`border ${theme === 'dark' ? 'border-white/20' : 'border-black/20'} -ml-7 rounded-full px-[25px] py-[12px] ${theme === 'dark' ? 'text-[#cccccc] bg-black/30' : 'text-[#333333] bg-white/70'} tracking-widest text-xs font-[100] backdrop-blur-[7px] transition cursor-pointer whitespace-nowrap mx-2`}
                   >
                     {cat}
                   </span>
@@ -242,7 +242,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
           {/* Second Row: Reverse Order */}
-          <div className="relative w-full overflow-x-hidden h-[50px] mt-2">
+          <div className="relative w-full overflow-x-hidden h-[50px]">
             <motion.div
               className="absolute left-0 top-0 flex items-center h-full min-w-full"
               style={{ x: row2X }}
@@ -251,7 +251,7 @@ const HeroSection = () => {
                 ['UI Kits', 'Templates', 'Dashboards', 'Mobile Apps', 'Websites', 'Branding'].map((cat) => (
                   <span
                     key={cat + repeatIdx}
-                    className={`border ${theme === 'dark' ? 'border-white/20' : 'border-black/20'} rounded-full px-[30px] py-[15px] ${theme === 'dark' ? 'text-[#cccccc] bg-black/30' : 'text-[#333333] bg-white/70'} tracking-widest text-xs font-[100] backdrop-blur-[7px] transition cursor-pointer whitespace-nowrap mx-2`}
+                    className={`border ${theme === 'dark' ? 'border-white/20' : 'border-black/20'} -ml-7 rounded-full px-[25px] py-[12px] ${theme === 'dark' ? 'text-[#cccccc] bg-black/30' : 'text-[#333333] bg-white/70'} tracking-widest text-xs font-[100] backdrop-blur-[7px] transition cursor-pointer whitespace-nowrap mx-2`}
                   >
                     {cat}
                   </span>
@@ -266,7 +266,7 @@ const HeroSection = () => {
           with <span className={`font-bold ${theme === 'dark' ? 'text-white' : 'text-black'}`}>emphasis!</span>
         </h1>
         {/* Subheadline */}
-        <p className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-lg max-w-xl mx-auto my-4 transition-colors duration-300`}>
+        <p className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-[15px] md:text-lg max-w-xl mx-auto my-4 transition-colors duration-300`}>
           More than just great design, we craft strategic solutions that fuel your brand&apos;s growth, attract the right customers, and turn attention into sales.
         </p>
         {/* CTA Buttons */}

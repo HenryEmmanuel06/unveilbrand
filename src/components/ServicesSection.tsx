@@ -42,7 +42,7 @@ const ServicesSection = () => {
           backgroundColor: theme === 'light' ? '#fff' : 'transparent',
       }}>
       <h2 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-3xl md:text-5xl font-bold mx-auto text-center transition-colors duration-300`}>Solutions We&apos;re Really Good At</h2>
-      <p className={`${theme === 'dark' ? 'text-white/80' : 'text-black/80'} text-lg max-w-900px mb-12 text-center transition-colors duration-300`}>
+      <p className={`${theme === 'dark' ? 'text-white/80' : 'text-black/80'} text-[15px] md:ext-lg max-w-900px mb-12 text-center transition-colors duration-300`}>
         From development to Result. We deliver skills crafted to position your brand for long-term impact.
       </p>
       <div className="grid grid-cols-2 gap-6 w-full max-w-5xl mb-10 mx-auto w-[90%] max-w-[1180px]">
