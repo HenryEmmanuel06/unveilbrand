@@ -299,7 +299,7 @@ const ProjectSection = () => {
           <div className="flex md:hidden w-[100%]" style={{
             justifyContent: "space-between",
           }}>
-            <div className="flex -space-x-3 justify-start w-full w-[70%]">
+            <div className="flex -space-x-3 justify-start">
               {[1, 2, 3, 4, 5].map((i) => (
                 <Image
                   key={i}
@@ -311,9 +311,9 @@ const ProjectSection = () => {
                 />
               ))}
             </div>
-            <div className="flex flex-col justify-end w-[30%]">
-              <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-[10px] font-semibold text-left`}>★★★★★</span>
-              <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-[10px] font-semibold text-left`}>
+            <div className="flex flex-col justify-end">
+              <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-[12px] font-semibold text-left`}>★★★★★</span>
+              <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-[12px] font-semibold text-left`}>
                 20+ Happy Clients
               </span>
             </div>
