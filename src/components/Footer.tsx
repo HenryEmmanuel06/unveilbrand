@@ -9,6 +9,7 @@ const Footer = () => {
   const router = useRouter();
 
   const [theme, setTheme] = React.useState<'dark' | 'light'>('dark');
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   React.useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -20,6 +21,15 @@ const Footer = () => {
     };
     window.addEventListener('storage', handleThemeChange);
     return () => window.removeEventListener('storage', handleThemeChange);
+  }, []);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleOurWorksClick = (e: React.MouseEvent) => {
@@ -63,30 +73,39 @@ const Footer = () => {
           </button>
         </form>
       </AnimatedSection>
-
+      <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col">
+          <Image src="/images/unveilbrand footer logo.png" alt="WhatsApp" width={1330} height={239} className={`border-b px-5 mb-5 md:mb-0 transition-colors duration-300 mx-auto ${theme === 'dark' ? 'border-[#7F7F7F]' : 'border-black'}`}/>
+      </div>
       <div className="w-[90%] max-w-[1330px] mx-auto flex flex-col text-center gap-2">
         {/* Large background text */}
         <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none select-none w-[90%] max-w-[1330px] mx-auto mt-10 md:mt-30">
          
-          <Image src="/images/unveilbrand footer logo.png" alt="WhatsApp" width={1330} height={239} className={`border-b px-5 mb-20 md:mb-0 transition-colors duration-300 ${theme === 'dark' ? 'border-[#7F7F7F]' : 'border-black'}`}/>
         
           {/* <div className="border-t border-[#7F7F7F] relative z-10 w-[1775px] md:w-[1330px] mx-auto"></div> */}
         </div>
 
         {/* Content above the line (empty for spacing) */}
-        <div className="h-12 md:h-40 lg:h-48" />
+        {/* <div className="h-12 md:h-40 lg:h-48" /> */}
         {/* Horizontal line */}
         
 
         {/* Footer main row */}
-        <div className="z-10 flex flex-col md:flex-row items-center justify-between w-full mx-auto pt-20">
+        <div className="z-10 flex flex-col md:flex-row items-center justify-center w-full mx-auto pt-5 md:pt-20">
           {/* Chat Us Button */}
           <Link
             href="https://wa.me/your-number"
-            className={`flex items-center gap-2 border rounded-full px-6 py-2 transition mb-4 md:mb-0 ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-[#232323]' : 'border-black text-black hover:bg-black hover:text-white'}`}
+            className={`fixed bottom-4 left-4 z-50 flex items-center gap-2 border rounded-full pl-4 px-2 hover:px-6 py-4 transition mb-4 md:mb-0 ring-animate group ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-[#232323]' : 'border-black text-black hover:bg-black hover:text-white'}`}
+            style={{
+              animation: 'ringy-shake 1.5s infinite',
+              animationPlayState: 'running'
+            }}
+            onMouseEnter={e => { e.currentTarget.style.animationPlayState = 'paused'; }}
+            onMouseLeave={e => { e.currentTarget.style.animationPlayState = 'running'; }}
           >
             <Image src="/images/whatsapp logo.svg" alt="WhatsApp" width={22} height={22} style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {}} />
-            <span className="font-medium">Chat Us!</span>
+            <span className="font-medium m-0 max-w-0 overflow-hidden group-hover:max-w-xs group-hover:pl-2 group-hover:overflow-visible transition-all duration-300 ease-in-out relative" style={{whiteSpace: 'nowrap'}}>
+              Chat Us!
+            </span>
           </Link>
 
           {/* Social Icons */}
@@ -117,13 +136,33 @@ const Footer = () => {
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className={`flex items-center gap-2 border rounded-full px-6 py-2 transition mt-4 md:mt-0 ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-[#232323]' : 'border-black text-black hover:bg-black hover:text-white'}`}
+            className={`fixed bottom-4 right-4 z-50 flex items-center gap-2 border rounded-full p-2 transition mt-4 md:mt-0 ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-[#232323]' : 'border-black text-black hover:bg-black hover:text-white'} ${isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
+            style={{
+              transition: 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out'
+            }}
           >
             <Image src="/images/arrow up.svg" alt="Scroll Up" width={22} height={22} style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {}} />
-            <span className="font-medium">Scroll Up</span>
+            {/* <span className="font-medium">Scroll Up</span> */}
           </button>
         </div>
       </div>
+
+      {/* Custom CSS for shake animation */}
+      <style jsx>{`
+        @keyframes ringy-shake {
+          0% { transform: translateY(0) rotate(0deg); }
+          10% { transform: translateY(-4px) rotate(-8deg); }
+          20% { transform: translateY(4px) rotate(6deg); }
+          30% { transform: translateY(-4px) rotate(-6deg); }
+          40% { transform: translateY(4px) rotate(4deg); }
+          50% { transform: translateY(-2px) rotate(-2deg); }
+          60% { transform: translateY(2px) rotate(2deg); }
+          70% { transform: translateY(-1px) rotate(-1deg); }
+          80% { transform: translateY(1px) rotate(1deg); }
+          90% { transform: translateY(0) rotate(0deg); }
+          100% { transform: translateY(0) rotate(0deg); }
+        }
+      `}</style>
     </footer>
   );
 };

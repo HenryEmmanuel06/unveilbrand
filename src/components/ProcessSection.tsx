@@ -45,7 +45,7 @@ const ProcessSection = () => {
   }, []);
 
   return (
-    <section className={`w-full ${theme === 'dark' ? 'bg-[#040508]' : 'bg-white'} pb-20 flex flex-col items-center transition-colors duration-300`}>
+    <section className={`w-full ${theme === 'dark' ? 'bg-[#040508]' : 'bg-white'} pb-5 md:pb-20 flex flex-col items-center transition-colors duration-300`}>
       <AnimatedSection 
         className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 py-5 pt-10 md:py-30 md:pt-40" 
         style={{
@@ -59,11 +59,11 @@ const ProcessSection = () => {
         <h2 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-3xl md:text-5xl font-bold transition-colors duration-300`}>
           Excellence in 3 Distinct Abilities
         </h2>
-        <p className={`${theme === 'dark' ? 'text-white/80' : 'text-black/80'} text-[15px] md:text-lg max-w-900px mb-12 transition-colors duration-300`}>
+        <p className={`${theme === 'dark' ? 'text-white/80' : 'text-black/80'} text-[15px] md:text-lg max-w-900px mb-0 md:mb-12 transition-colors duration-300`}>
           Here at Unveilbrand, we deliver solutions that save time, cut complexity, and fit your budget.
         </p>
         {/* Steps */}
-        <div className="flex flex-col lg:flex-row gap-12 md:gap-8 w-full justify-center items-stretch pt-10">
+        <div className="flex flex-col lg:flex-row gap-12 md:gap-8 w-full justify-center items-stretch pt-5 md:pt-10">
           {processSteps.map((step, idx) => (
             <div 
               key={idx} 
@@ -75,7 +75,7 @@ const ProcessSection = () => {
                 <h3 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-xl font-semibold pl-[40px] pt-[35px] text-left text-[32px] transition-colors duration-300`}>
                   {step.title}
                 </h3>
-                <p className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-base text-left text-[15px] px-[40px] pt-[10px] transition-colors duration-300`}>
+                <p className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-base text-left text-[14px] md:text-[15px] px-[40px] pt-[10px] transition-colors duration-300`}>
                   {step.desc}
                 </p>
               </div>

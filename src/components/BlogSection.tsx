@@ -77,7 +77,7 @@ export default function BlogSection() {
   }
 
   return (
-    <section className={`w-full flex flex-col items-center py-30 ${theme === 'dark' ? 'bg-[#040508]' : 'bg-white'} transition-colors duration-300`}>
+    <section className={`w-full flex flex-col items-center py-10 pb-12 md:pb-30 md:py-30 ${theme === 'dark' ? 'bg-[#040508]' : 'bg-white'} transition-colors duration-300`}>
       <AnimatedSection 
         className="relative mx-auto w-[90%] max-w-[1180px]" 
         style={{
@@ -87,7 +87,7 @@ export default function BlogSection() {
           backgroundRepeat: "no-repeat",
           backgroundColor: theme === 'light' ? '#fff' : 'transparent',
     }}>
-        <h2 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-3xl md:text-5xl font-bold mb-6 mx-auto text-center mb-20 transition-colors duration-300`}>
+        <h2 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-3xl md:text-5xl font-bold mx-auto text-center mb-10 md:mb-20 transition-colors duration-300`}>
           Thoughtful Designs With Real World Solutions
         </h2>
         <div className="flex flex-col lg:flex-row gap-15">
