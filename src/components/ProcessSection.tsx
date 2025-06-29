@@ -5,17 +5,17 @@ import { useState, useEffect } from "react";
 
 const processSteps = [
   {
-    img: "/images/process img 1.png",
+    img: "/images/process img 1.svg",
     title: "Swift",
     desc: "We move fast—because your time is money. From idea to launch, our turnaround is built for speed without compromising quality.",
   },
   {
-    img: "/images/process img 2.png",
+    img: "/images/process img 2.svg",
     title: "Effortless",
     desc: "We handle it, so you don't have to. Seamless processes, clear communication, & intuitive design making everything feel smooth.",
   },
   {
-    img: "/images/process img 3.png",
+    img: "/images/process img 3.svg",
     title: "Affordable",
     desc: "Premium doesn't have to be pricey. We deliver top results that match your budget; no hidden costs, no bloated packages.",
   },

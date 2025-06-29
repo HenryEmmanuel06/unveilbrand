@@ -42,19 +42,19 @@ const NavBar = () => {
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center">
             <ul className="flex gap-8 text-white text-base font-medium items-center">
-              <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/' ? 'text-[#A212A8]' : ''}`}>
+              <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/' ? 'text-[#A212A8] font-semibold' : ''}`}>
                 <Link href="/">Home</Link>
               </li>
-              <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/#projects' ? 'text-[#A212A8]' : ''}`}>
+              <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/#projects' ? 'text-[#A212A8] font-semibold' : ''}`}>
                 <Link href="/#projects" onClick={handleOurWorksClick}>Our Works</Link>
               </li>
-              <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/about' ? 'text-[#A212A8]' : ''}`}>
+              <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/about' ? 'text-[#A212A8] font-semibold' : ''}`}>
                 <Link href="/about">About</Link>
               </li>
-              <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/blog' ? 'text-[#A212A8]' : ''}`}>
+              <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/blog' ? 'text-[#A212A8] font-semibold' : ''}`}>
                 <Link href="/blog">Blog</Link>
               </li>
-              <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/products' ? 'text-[#A212A8]' : ''}`}>
+              <li className={`hover:text-[#A212A8] transition cursor-pointer ${pathname === '/products' ? 'text-[#A212A8] font-semibold' : ''}`}>
                 <Link href="/products">Products</Link>
               </li>
               <li className="ml-10">
