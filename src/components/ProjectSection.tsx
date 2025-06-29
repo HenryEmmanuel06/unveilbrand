@@ -374,7 +374,7 @@ const ProjectSection = () => {
                     <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
                   </button>
                   {/* Pagination Dots */}
-                  <div className="absolute bottom-[5px] md:bottom-[20px] left-1/2 -translate-x-1/2 flex gap-3 z-10 bg-[#11111133] p-2 rounded-full">
+                  <div className="absolute bottom-[5px] md:bottom-[20px] left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-[#11111133] p-2 rounded-full">
                     {slides.map((_, idx) => (
                       <span
                         key={idx}

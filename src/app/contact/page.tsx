@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -34,8 +34,53 @@ const testimonials = [
 ];
 
 const ContactPage = () => {
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'theme') {
+        setTheme(e.newValue || 'dark');
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(currentTheme);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    window.dispatchEvent(new StorageEvent('storage', { key: 'theme', newValue: newTheme }));
+  };
+
+  const ThemeToggle = () => (
+    <button
+      onClick={toggleTheme}
+      className="fixed bottom-16 right-4 z-50 p-2 rounded-full transition-colors duration-200 group"
+      style={{ backgroundColor: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)' }}
+      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+    >
+      <Image
+        src={theme === 'dark' ? '/sun.svg' : '/moon.svg'}
+        alt={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+        width={24}
+        height={24}
+        style={{ filter: theme === 'dark' ? 'invert(1)' : 'none' }}
+        className={`transition-transform duration-300 ease-in-out ${theme === 'dark' ? 'text-white' : 'text-black'} group-hover:scale-110 group-hover:rotate-180 group-active:scale-95 cursor-pointer`}
+      />
+      <style jsx>{`
+        .group:hover img, .group:active img {
+          will-change: transform;
+        }
+      `}</style>
+    </button>
+  );
+
   return (
-    <section className='w-full bg-[#040508] flex flex-col items-center pt-45'>
+    <section className={`w-full ${theme === 'dark' ? 'bg-[#040508]' : 'bg-white'} flex flex-col items-center pt-45 transition-colors duration-300`}>
+      <ThemeToggle />
       <style jsx>{`
         .contact-input::placeholder {
         color: #111111;
@@ -46,23 +91,24 @@ const ContactPage = () => {
       `}</style>
       <style jsx global>{`
         .testimonial-pagination .swiper-pagination-bullet {
-          background-color: white;
+          background-color: ${theme === 'dark' ? 'white' : 'black'};
           opacity: 1;
+          margin: 0 5px !important;
         }
         .testimonial-pagination .swiper-pagination-bullet-active {
           background-color: #A212A8;
         }
       `}</style>
       <div className="w-[90%] max-w-[1332px] mx-auto flex flex-col items-center text-center gap-2">
-        <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-6 leading-tight">
+        <h1 className={`text-3xl md:text-5xl font-extrabold text-center mb-6 leading-tight ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>
           Let&apos;s get started!
         </h1>
-        <p className="text-base md:text-lg text-center text-[#E0E0E0] max-w-2xl mb-10 mx-auto">
+        <p className={`text-base md:text-lg text-center max-w-2xl mb-10 mx-auto ${theme === 'dark' ? 'text-[#E0E0E0]' : 'text-gray-700'} transition-colors duration-300`}>
           Book your first meeting time with us via filling the form or by chat.
           We look forward to meeting you!
         </p>
-        <button className="mb-8 px-6 py-2 border border-white rounded-full hover:bg-white hover:text-black transition">Whatsapp Chat</button>
-        <form className="w-[100%] max-w-[900px] bg-transparent md:bg-[#121316CC] block md:grid backdrop-blur-[1.5px] border-none md:border border-[0.5px] border-[#FFFFFF33] border-opacity-10 rounded-[15px] shadow-lg p-8 gap-6 p-[0px] pt-[0px] md:p-[30px] pb-[60px]">
+        <button className={`mb-8 px-6 py-2 border rounded-full transition ${theme === 'dark' ? 'border-white text-white hover:bg-white hover:text-black' : 'border-black text-black hover:bg-black hover:text-white'}`}>Whatsapp Chat</button>
+        <form className={`w-[100%] max-w-[900px] bg-transparent md:block md:grid backdrop-blur-[1.5px] border-none md:border border-[0.5px] border-opacity-10 rounded-[15px] shadow-lg p-8 gap-6 p-[0px] pt-[0px] md:p-[30px] pb-[60px] ${theme === 'dark' ? 'md:bg-[#121316CC] md:border-[#FFFFFF33]' : 'md:bg-white/50 md:border-black/20'} transition-colors duration-300`}>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4 md:mb-0">
             <input type="text" placeholder="First Name:" className="p-3 rounded bg-[#FFFFFFE5] text-black col-span-12 md:col-span-6 contact-input h-[58px]" />
             <input type="text" placeholder="Surname:" className="p-3 rounded bg-[#FFFFFFE5] text-black col-span-12 md:col-span-6 contact-input h-[58px]" />
@@ -98,10 +144,10 @@ const ContactPage = () => {
           </div>
         </form>
       </div>
-      <div className='w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t-[0.5px] border-white/10'></div>
+      <div className={`w-[90%] lg:w-full max-w-[1332px] mx-auto mt-30 border-t-[0.5px] ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} transition-colors duration-300`}></div>
 
       <div className="w-[90%] max-w-[1332px] mx-auto mt-20 px-4">
-        <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-12 text-white">
+        <h2 className={`text-3xl md:text-5xl font-extrabold text-center mb-12 ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>
           What our customers are saying:
         </h2>
         <Swiper
@@ -129,8 +175,8 @@ const ContactPage = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-[#121316CC] backdrop-blur-[1.5px] p-8 rounded-2xl flex flex-col justify-between border border-[#FFFFFF1A] h-[320px] md:h-[270px] cursor-grab active:cursor-grabbing">
-                <p className="text-white/80 mb-6 text-left">{testimonial.description}</p>
+              <div className={`backdrop-blur-[1.5px] p-8 rounded-2xl flex flex-col justify-between border h-[320px] md:h-[270px] cursor-grab active:cursor-grabbing transition-colors duration-300 ${theme === 'dark' ? 'bg-[#121316CC] border-[#FFFFFF1A]' : 'bg-white/50 border-black/20'}`}>
+                <p className={`mb-6 text-left ${theme === 'dark' ? 'text-white/80' : 'text-gray-700'} transition-colors duration-300`}>{testimonial.description}</p>
                 <div className="flex items-center">
                   <Image
                     src={testimonial.image}
@@ -140,8 +186,8 @@ const ContactPage = () => {
                     className="rounded-full"
                   />
                   <div className="ml-4 text-left">
-                    <p className="font-bold text-white">{testimonial.name}</p>
-                    <p className="text-white/60">{testimonial.title}</p>
+                    <p className={`font-bold ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>{testimonial.name}</p>
+                    <p className={`${theme === 'dark' ? 'text-white/60' : 'text-gray-600'} transition-colors duration-300`}>{testimonial.title}</p>
                   </div>
                 </div>
               </div>
@@ -150,7 +196,7 @@ const ContactPage = () => {
         </Swiper>
         <div className="testimonial-pagination text-center mt-8"></div>
       </div>
-      <div className='w-[90%] lg:w-full max-w-[1332px] mx-auto mt-15 border-t-[0.5px] border-white/10'></div>
+      <div className={`w-[90%] lg:w-full max-w-[1332px] mx-auto mt-15 border-t-[0.5px] ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} transition-colors duration-300`}></div>
     </section>
   );
 };

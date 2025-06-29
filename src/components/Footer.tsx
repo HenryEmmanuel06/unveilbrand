@@ -52,7 +52,7 @@ const Footer = () => {
           <Link href="/" className={`transition cursor-pointer text-center ${theme === 'dark' ? 'text-white hover:text-[#A212A8]' : 'text-gray-900 hover:text-black'}`}>Home</Link>
           <Link href="/about" className={`transition cursor-pointer text-center ${theme === 'dark' ? 'text-white hover:text-[#A212A8]' : 'text-gray-900 hover:text-black'}`}>About</Link>
           <Link href="/#projects" onClick={handleOurWorksClick} className={`transition cursor-pointer text-center ${theme === 'dark' ? 'text-white hover:text-[#A212A8]' : 'text-gray-900 hover:text-black'}`}>Our Works</Link>
-          <Link href="/marketplace" className={`transition cursor-pointer text-center ${theme === 'dark' ? 'text-white hover:text-[#A212A8]' : 'text-gray-900 hover:text-black'}`}>Marketplace</Link>
+          <Link href="/products" className={`transition cursor-pointer text-center ${theme === 'dark' ? 'text-white hover:text-[#A212A8]' : 'text-gray-900 hover:text-black'}`}>Marketplace</Link>
           <Link href="/blog" className={`transition cursor-pointer text-center ${theme === 'dark' ? 'text-white hover:text-[#A212A8]' : 'text-gray-900 hover:text-black'}`}>Blog</Link>
         </nav>
         {/* Subscription Form */}
@@ -94,7 +94,7 @@ const Footer = () => {
           {/* Chat Us Button */}
           <Link
             href="https://wa.me/your-number"
-            className={`fixed bottom-4 left-4 z-50 flex items-center gap-2 border rounded-full pl-4 px-2 hover:px-6 py-4 transition mb-4 md:mb-0 ring-animate group ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-[#232323]' : 'border-black text-black hover:bg-black hover:text-white'}`}
+            className={`fixed bottom-4 left-4 z-50 flex items-center gap-2 border rounded-full pl-4 px-2 hover:px-3 py-3 transition mb-4 md:mb-0 ring-animate group ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-[#232323]' : 'border-black text-black hover:bg-none hover:text-black'}`}
             style={{
               animation: 'ringy-shake 1.5s infinite',
               animationPlayState: 'running'
@@ -102,8 +102,8 @@ const Footer = () => {
             onMouseEnter={e => { e.currentTarget.style.animationPlayState = 'paused'; }}
             onMouseLeave={e => { e.currentTarget.style.animationPlayState = 'running'; }}
           >
-            <Image src="/images/whatsapp logo.svg" alt="WhatsApp" width={22} height={22} style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {}} />
-            <span className="font-medium m-0 max-w-0 overflow-hidden group-hover:max-w-xs group-hover:pl-2 group-hover:overflow-visible transition-all duration-300 ease-in-out relative" style={{whiteSpace: 'nowrap'}}>
+            <Image src="/images/whatsapp logo.svg" alt="WhatsApp" width={18} height={18} style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : { filter: 'none' }} />
+            <span className="m-0 max-w-0 overflow-hidden group-hover:max-w-xs group-hover:pl-2 group-hover:overflow-visible transition-all duration-300 ease-in-out relative" style={{whiteSpace: 'nowrap'}}>
               Chat Us!
             </span>
           </Link>
@@ -136,12 +136,12 @@ const Footer = () => {
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className={`fixed bottom-4 right-4 z-50 flex items-center gap-2 border rounded-full p-2 transition mt-4 md:mt-0 ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-[#232323]' : 'border-black text-black hover:bg-black hover:text-white'} ${isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
+            className={`fixed bottom-4 right-4 z-50 flex items-center gap-2 border rounded-full p-2 transition mt-4 md:mt-0 ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-none' : 'border-black text-black hover:bg-none hover:text-white'} ${isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'} cursor-pointer`}
             style={{
               transition: 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out'
             }}
           >
-            <Image src="/images/arrow up.svg" alt="Scroll Up" width={22} height={22} style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {}} />
+            <Image src="/images/arrow up.svg" alt="Scroll Up" width={22} height={22} style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {filter: 'none'}} />
             {/* <span className="font-medium">Scroll Up</span> */}
           </button>
         </div>

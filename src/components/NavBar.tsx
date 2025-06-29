@@ -30,7 +30,7 @@ const NavBar = () => {
         <div className="w-full flex justify-between items-center">
           <Link href="/">
             <Image
-              src="/images/unveilbrand logo.png"
+              src="/images/unveilbrand logo.svg"
               alt="Unveilbrand Logo"
               width={135}
               height={40}
