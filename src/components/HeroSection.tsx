@@ -272,7 +272,7 @@ const HeroSection = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
           <button className="flex items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#A212A8] transition cursor-pointer">
-            <Image src="/images/cta logo.png" alt="CTA Logo" width={20} height={20} />
+            <Image src="/images/cta logo.svg" alt="CTA Logo" width={20} height={20} />
             Book a call with us
           </button>
           <Link href="/#projects" scroll={false} onClick={(e) => {
@@ -322,11 +322,13 @@ const HeroSection = () => {
               {[...Array(10)].map((_, i) => (
                 <Image
                   key={i}
-                  src={`/images/hero slide img ${(i % 5) + 1}.png`}
+                  src={`/images/hero slide img ${(i % 5) + 1}.svg`}
                   alt={`Hero Slide Image ${(i % 5) + 1}`}
-                  width={160}
+                  width={100}
                   height={40}
                   className="object-contain mx-8 xl:w-[160px] lg:w-[140px] md:w-[120px]"
+                  style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {}}
+
                 />
               ))}
             </div>

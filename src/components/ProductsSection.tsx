@@ -36,7 +36,7 @@ export default function ProductsSection() {
         {/* CTA Button */}
         <div className="mb-12 flex justify-center">
           <button className="flex items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#8d1091] transition cursor-pointer">
-            <Image src="/images/cta logo.png" alt="CTA Logo" width={20} height={20} />
+            <Image src="/images/cta logo.svg" alt="CTA Logo" width={20} height={20} />
             Preview Available Products
           </button>
         </div>
