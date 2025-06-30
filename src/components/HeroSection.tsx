@@ -324,9 +324,9 @@ const HeroSection = () => {
                   key={i}
                   src={`/images/hero slide img ${(i % 5) + 1}.svg`}
                   alt={`Hero Slide Image ${(i % 5) + 1}`}
-                  width={100}
+                  width={90}
                   height={40}
-                  className="object-contain mx-8 xl:w-[160px] lg:w-[140px] md:w-[120px]"
+                  className="object-contain mx-8 w-[60px] xl:w-[140px] lg:w-[120px] md:w-[100px]"
                   style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {}}
 
                 />
