@@ -140,7 +140,6 @@ export default function AllBlogs() {
             height={48}
             className="w-10 h-10 md:w-12 md:h-12 animate-bounce cursor-pointer"
             onClick={() => window.scrollBy({ top: 400, left: 0, behavior: 'smooth' })}
-            style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {}}
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-25">
@@ -148,7 +147,7 @@ export default function AllBlogs() {
             <Link
               href={`/blog/${blog.id}`}
               key={blog.id}
-              className={`${theme === 'dark' ? 'bg-[#FFFFFF1A] hover:bg-[#FFFFFF1A]' : 'bg-white/80 hover:bg-white border border-black/10'} p-[20px] pb-[30px] rounded-[20px] transition-colors duration-300`}
+              className={`${theme === 'dark' ? 'bg-[#FFFFFF1A] hover:bg-[#FFFFFF1A]' : 'bg-black/5 hover:bg-black/5 border border-black/10'} p-[20px] pb-[30px] rounded-[20px] transition-colors duration-300`}
             >
               {
                 blog.featured_image ? (
@@ -160,7 +159,7 @@ export default function AllBlogs() {
                     className="w-full h-48 object-cover rounded-tl-[10px] rounded-tr-[10px] mb-4"
                   />
                 ) : (
-                  <div className={`w-full h-48 rounded-tl-[10px] rounded-tr-[10px] mb-4 flex items-center justify-center ${theme === 'dark' ? 'bg-white text-gray-500' : 'bg-gray-100 text-gray-500'}`}>
+                  <div className={`w-full h-48 rounded-tl-[10px] rounded-tr-[10px] mb-4 flex items-center justify-center ${theme === 'dark' ? 'bg-white text-gray-500' : 'bg-white text-gray-500'}`}>
                     No Image
                   </div>
                 )

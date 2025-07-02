@@ -2,6 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import AnimatedSection from './AnimatedSection';
+import Link from 'next/link';
 
 export default function ProductsSection() {
   const [theme, setTheme] = React.useState<'dark' | 'light'>('dark');
@@ -35,10 +36,10 @@ export default function ProductsSection() {
         <p className={`${theme === 'dark' ? 'text-white/80' : 'text-gray-600'} text-[15px] md:text-lg w-[90%] max-w-2xl mb-8 mx-auto transition-colors duration-300`}>Hand-picked collections crafted to help you start, design & work smarter, all optimized for modern creators.</p>
         {/* CTA Button */}
         <div className="mb-12 flex justify-center">
-          <button className="flex items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#8d1091] transition cursor-pointer">
+           <Link href="/products" className="flex z-50 items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#8d1091] transition cursor-pointer">
             <Image src="/images/cta logo.svg" alt="CTA Logo" width={20} height={20} />
             Preview Available Products
-          </button>
+          </Link>
         </div>
         {/* Main Content: Images */}
         <div className="flex flex-col-reverse md:flex-row justify-center items-center w-full gap-10 lg:gap-12 -mt-32 md:pt-20 min-h-[300px] md:min-h-[540px] overflow-hidden product-image-display-desktop">
@@ -64,7 +65,8 @@ export default function ProductsSection() {
                 ? "linear-gradient(180deg, rgba(11, 12, 15, 0) 11.73%, rgba(1, 1, 2, 0.11) 31.6%, rgba(11, 12, 15, 0.8) 71.64%, rgba(9, 10, 13, 0.9) 82.47%, #040508 100%)"
                 : "linear-gradient(180deg, rgba(255, 255, 255, 0) 11.73%, rgba(255, 255, 255, 0.11) 31.6%, rgba(255, 255, 255, 0.8) 71.64%, rgba(255, 255, 255, 0.9) 82.47%, #ffffff 100%)"
               }} />
-            <div className="relative w-[320px] h-[420px] md:w-[320px] md:h-[420px] flex items-end justify-center left-[19px] -top-5 md:top-0 md:left-6">
+              <Link href="/products">
+              <div className="relative w-[320px] h-[420px] md:w-[320px] md:h-[420px] flex items-end justify-center left-[19px] -top-5 md:top-0 md:left-6">
              
               {/* Back Image (img 4, left, tilted) */}
 
@@ -98,6 +100,8 @@ export default function ProductsSection() {
                     boxShadow: "0px 1px 50px 0px #00000059"
                   }}/>
             </div>
+              </Link>
+            
           </div>
         </div>
       </AnimatedSection>

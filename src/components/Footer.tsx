@@ -61,7 +61,7 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter Your Email Address"
-              className={`bg-transparent outline-none px-2 w-[100%] md:w-auto h-full transition-colors duration-300 ${theme === 'dark' ? 'text-white placeholder-[#FFFFFF33]' : 'text-gray-900 placeholder-black/60'}`}
+              className={`bg-transparent outline-none px-2 w-[100%] md:w-auto h-full transition-colors duration-300 ${theme === 'dark' ? 'text-white placeholder-[#FFFFFF33]' : 'text-gray-900 placeholder-black/30'}`}
             />
             <Image src="/images/email logo.svg" alt="Email" width={22} height={22} style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {}} />
           </div>
@@ -92,21 +92,21 @@ const Footer = () => {
         {/* Footer main row */}
         <div className="z-10 flex flex-col md:flex-row items-center justify-center w-full mx-auto pt-5 md:pt-20">
           {/* Chat Us Button */}
-          <Link
-            href="https://wa.me/your-number"
-            className={`fixed bottom-4 left-4 z-50 flex items-center gap-2 border rounded-full pl-4 px-2 hover:px-3 py-3 transition mb-4 md:mb-0 ring-animate group ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-[#232323]' : 'border-black text-black hover:bg-none hover:text-black'}`}
+          <a
+             href="https://wa.me/2347046036398" target="_blank" rel="noopener noreferrer"
+            className={`fixed bottom-4 left-4 z-50 flex items-center gap-2 border rounded-full pl-4 px-2 hover:px-3 py-3 transition mb-4 md:mb-0 ringy-animate group ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-[#232323]' : 'border-black text-black hover:bg-none hover:text-black'}`}
             style={{
-              animation: 'ringy-shake 1.5s infinite',
-              animationPlayState: 'running'
+              animationName: 'ringy-shake',
+              animationDuration: '1.5s',
+              animationIterationCount: 'infinite',
+              animationTimingFunction: 'linear',
             }}
-            onMouseEnter={e => { e.currentTarget.style.animationPlayState = 'paused'; }}
-            onMouseLeave={e => { e.currentTarget.style.animationPlayState = 'running'; }}
           >
             <Image src="/images/whatsapp logo.svg" alt="WhatsApp" width={18} height={18} style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : { filter: 'none' }} />
             <span className="m-0 max-w-0 overflow-hidden group-hover:max-w-xs group-hover:pl-2 group-hover:overflow-visible transition-all duration-300 ease-in-out relative" style={{whiteSpace: 'nowrap'}}>
               Chat Us!
             </span>
-          </Link>
+          </a>
 
           {/* Social Icons */}
           <div className={`flex items-center gap-7 border rounded-full px-[20px] py-[10px] transition-colors duration-300 ${theme === 'dark' ? 'border-[#232323]' : 'border-black'}`}
@@ -161,6 +161,16 @@ const Footer = () => {
           80% { transform: translateY(1px) rotate(1deg); }
           90% { transform: translateY(0) rotate(0deg); }
           100% { transform: translateY(0) rotate(0deg); }
+        }
+        .ringy-animate {
+          animation-name: ringy-shake;
+          animation-duration: 1.5s;
+          animation-iteration-count: infinite;
+          animation-timing-function: linear;
+        }
+        .ringy-animate:hover, .ringy-animate:focus {
+          animation-play-state: paused !important;
+          transform: none !important;
         }
       `}</style>
     </footer>

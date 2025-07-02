@@ -92,7 +92,7 @@ export default function BlogSection() {
         </h2>
         <div className="flex flex-col lg:flex-row gap-15">
           {/* Left: Most Features */}
-          <div className={`${theme === 'dark' ? 'bg-[#121316CC] border-[#FFFFFF33]' : 'bg-white/80 border-black/10'} backdrop-blur-[1.5px] shadow-md border border-[0.5px] border-opacity-10 rounded-2xl p-8 flex-1 flex w-[100%] md:min-w-[500px] md:max-w-[420px] flex-col justify-center align-center mx-auto transition-colors duration-300`}>
+          <div className={`${theme === 'dark' ? 'bg-[#121316CC] border-[#FFFFFF33]' : 'bg-black/5 border-black/10'} backdrop-blur-[1.5px] shadow-md border border-[0.5px] border-opacity-10 rounded-2xl p-8 flex-1 flex w-[100%] md:min-w-[500px] md:max-w-[420px] flex-col justify-center align-center mx-auto transition-colors duration-300`}>
             <div className="flex justify-between items-center mb-4">
               <span className={`${theme === 'dark' ? 'text-white/70' : 'text-black/70'} text-sm font-semibold tracking-widest transition-colors duration-300`}>Most Features</span>
               <Link href="/blog" className={`${theme === 'dark' ? 'text-white/80' : 'text-black/80'} text-xs font-bold tracking-widest hover:text-[#A212A8] transition-colors duration-300`}>SEE ALL BLOGS</Link>
@@ -136,7 +136,7 @@ export default function BlogSection() {
                 <div className="flex items-center font-normal justify-end bg-transparent -ml-7" style={{
                   marginLeft: "-40px",
                 }}>
-                  <span className="block text-xs font tracking-widest rotate-[-90deg] whitespace-nowrap border-b-1 border-[#A212A8] pb-1" style={{}}>
+                  <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} block text-xs font tracking-widest rotate-[-90deg] whitespace-nowrap border-b-1 border-[#A212A8] pb-1`} style={{}}>
                     TECH-EDUCATION
                   </span>
                 </div>
@@ -166,7 +166,7 @@ export default function BlogSection() {
               <Link href={`/blog/${techStories.id}`} className={`flex flex-row items-stretch p-0 min-h-[120px] overflow-hidden group border-t ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} transition-colors duration-300`}>
                 {/* Rotated Category */}
                 <div className="flex items-center font-normal justify-end bg-transparent -ml-7">
-                  <span className="block text-xs font tracking-widest rotate-[-90deg] whitespace-nowrap border-b-1 border-[#A212A8] pb-1" style={{}}>
+                  <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} block text-xs font tracking-widest rotate-[-90deg] whitespace-nowrap border-b-1 border-[#A212A8] pb-1`} style={{}}>
                     TECH-STORIES
                   </span>
                 </div>

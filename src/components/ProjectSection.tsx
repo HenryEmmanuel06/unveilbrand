@@ -318,7 +318,7 @@ const ProjectSection = () => {
               </span>
             </div>
           </div>
-           <Link href="/#projects">
+           <Link href="/contact">
             {/* This outer div acts as the animated border container */}
             <div className="relative rounded-full overflow-hidden" style={{ padding: '2px' }}>
               {/* The animated gradients, filling the wrapper, always visible */}

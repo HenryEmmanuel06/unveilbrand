@@ -2,10 +2,11 @@
 import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const processSteps = [
   {
-    img: "/images/process img 1.svg",
+    img: "/images/process img 3.svg",
     title: "Swift",
     desc: "We move fast—because your time is money. From idea to launch, our turnaround is built for speed without compromising quality.",
   },
@@ -15,7 +16,7 @@ const processSteps = [
     desc: "We handle it, so you don't have to. Seamless processes, clear communication, & intuitive design making everything feel smooth.",
   },
   {
-    img: "/images/process img 3.svg",
+    img: "/images/process img 1.svg",
     title: "Affordable",
     desc: "Premium doesn't have to be pricey. We deliver top results that match your budget; no hidden costs, no bloated packages.",
   },
@@ -68,7 +69,7 @@ const ProcessSection = () => {
             <div 
               key={idx} 
               className={`flex-1 flex flex-col rounded-2xl shadow-lg ${
-                theme === 'dark' ? 'border border-white/10 bg-[#121316CC]' : 'border border-black/10 bg-white/70'
+                theme === 'dark' ? 'border border-white/10 bg-[#121316CC]' : 'border border-black/10 bg-black/5'
               } w-[90%] md:w-[410px] h-[330px] mx-auto backdrop-blur-[1px] transition-colors duration-300`}
             >
               <div className="flex flex-col flex-grow">
@@ -93,10 +94,12 @@ const ProcessSection = () => {
         </div>
         {/* Book Now Button */}
         <div className="mt-12 flex justify-center">
+          <Link href="/contact">
           <button className="flex items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#A212A8] transition cursor-pointer">
             <Image src="/images/cta logo.svg" alt="CTA Logo" width={20} height={20} />
             Book a call with us
           </button>
+          </Link>
         </div>
       </AnimatedSection>
     </section>

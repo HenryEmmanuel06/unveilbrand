@@ -271,10 +271,12 @@ const HeroSection = () => {
         </p>
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+          <Link href="/contact">
           <button className="flex items-center gap-4 bg-[#A212A8] text-white font-medium px-8 py-3 rounded-full shadow-lg hover:bg-[#A212A8] transition cursor-pointer">
             <Image src="/images/cta logo.svg" alt="CTA Logo" width={20} height={20} />
             Book a call with us
           </button>
+          </Link>
           <Link href="/#projects" scroll={false} onClick={(e) => {
             e.preventDefault();
             document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
