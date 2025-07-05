@@ -394,6 +394,8 @@ export default function AdminDashboard() {
                         src={editBlog.featured_image} 
                         alt="Current featured" 
                         className="w-32 h-32 object-cover rounded"
+                        width={128}
+                        height={128}
                       />
                     </div>
                   )}

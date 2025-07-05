@@ -178,6 +178,15 @@ const HeroSection = () => {
         .animate-pills-scroll-reverse {
           animation: pills-scroll-reverse 12s linear infinite;
         }
+
+        /* Logo slider seamless scroll */
+        @keyframes logo-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-logo-scroll {
+          animation: logo-scroll 800s linear infinite;
+        }
       `}</style>
       <ThemeToggle />
       {/* Main container */}
@@ -192,7 +201,7 @@ const HeroSection = () => {
         {/* Category Pills - Desktop & Tablet Only */}
         <div className="w-full flex justify-center lg:justify-end max-w-[945px] mx-auto mt-[60px] lg:mt-[150px] hidden sm:flex">
           <div className="flex flex-wrap sm:flex-nowrap gap-y-2 gap-x-0 justify-center lg:justify-end w-full">
-            {['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat, idx) => {
+            {['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits',].map((cat, idx) => {
               const isLeftSide = idx < 3;
               return (
                 <motion.span
@@ -222,7 +231,7 @@ const HeroSection = () => {
           </div>
         </div>
         {/* Category Pills - Mobile Only, Infinite Horizontal Scroll */}
-        <div className="w-full flex flex-col gap-0 sm:hidden mt-12">
+        <div className="w-full flex flex-col gap-0 sm:hidden mt-20">
           {/* First Row: Normal Order */}
           <div className="relative w-full overflow-x-hidden h-[50px]">
             <motion.div
@@ -230,7 +239,7 @@ const HeroSection = () => {
               style={{ x: row1X }}
             >
               {[...Array(2)].map((_, repeatIdx) => (
-                ['Branding', 'Websites', 'Mobile Apps', 'Dashboards', 'Templates', 'UI Kits'].map((cat) => (
+                ['Branding', 'UI Kits',  'Dashboards', 'Mobile Apps', 'Templates', 'Websites'].map((cat) => (
                   <span
                     key={cat + repeatIdx}
                     className={`border ${theme === 'dark' ? 'border-white/20' : 'border-black/20'} -ml-7 rounded-full px-[25px] py-[12px] ${theme === 'dark' ? 'text-[#cccccc] bg-black/30' : 'text-[#333333] bg-white/70'} tracking-widest text-xs font-[100] backdrop-blur-[7px] transition cursor-pointer whitespace-nowrap mx-2`}
@@ -320,19 +329,20 @@ const HeroSection = () => {
           </div>
           {/* Logo Slider */}
           <div className="relative w-full sm:max-w-[100%] md:max-w-[67%] overflow-hidden h-[40px] xl:h-[40px] lg:h-[32px] md:h-[28px]">
-            <div className="absolute left-0 top-0 flex items-center h-full animate-logo-scroll min-w-full">
-              {[...Array(10)].map((_, i) => (
-                <Image
-                  key={i}
-                  src={`/images/hero slide img ${(i % 5) + 1}.svg`}
-                  alt={`Hero Slide Image ${(i % 5) + 1}`}
-                  width={90}
-                  height={40}
-                  className="object-contain mx-8 w-[60px] xl:w-[140px] lg:w-[120px] md:w-[100px]"
-                  style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {}}
-
-                />
-              ))}
+            <div className="absolute left-0 top-0 flex items-center h-full animate-logo-scroll min-w-full" style={{ width: '20000%' }}>
+              {Array.from({ length: 100 }).flatMap((_, repeatIdx) =>
+                Array.from({ length: 5 }).map((_, i) => (
+                  <Image
+                    key={repeatIdx * 5 + i}
+                    src={`/images/hero slide img ${(i % 5) + 1}.svg`}
+                    alt={`Hero Slide Image ${(i % 5) + 1}`}
+                    width={90}
+                    height={40}
+                    className="object-contain mx-8 w-[70px] xl:w-[140px] lg:w-[120px] md:w-[100px] -ml-2 md:-ml-0"
+                    style={theme === 'light' ? { filter: 'invert(0) brightness(0)' } : {}}
+                  />
+                ))
+              )}
             </div>
           </div>
         </div>

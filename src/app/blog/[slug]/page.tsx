@@ -24,6 +24,14 @@ const toTitleCase = (phrase: string) => {
     .join(' ');
 };
 
+// Utility to slugify a string
+function slugify(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '');
+}
+
 export default function BlogDetail() {
   const params = useParams()
   const [blog, setBlog] = useState<BlogPost | null>(null)
@@ -73,25 +81,27 @@ export default function BlogDetail() {
     </button>
   );
 
+  // Fetch blog by slug (title)
   useEffect(() => {
     const fetchBlog = async () => {
       try {
+        const slug = typeof params.slug === 'string' ? params.slug : Array.isArray(params.slug) ? params.slug[0] : '';
+        // Fetch all blogs, then find the one whose slugified title matches the slug
         const { data, error } = await supabase
           .from('blogs')
-          .select('*')
-          .eq('id', params.id)
-          .single()
-
-        if (error) throw error
-        setBlog(data)
+          .select('*');
+        if (error) throw error;
+        const found = (data || []).find((b: any) => slugify(b.title) === slug);
+        setBlog(found || null);
       } catch (error) {
-        console.error('Error fetching blog:', error)
+        console.error('Error fetching blog:', error);
+        setBlog(null);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
-    fetchBlog()
-  }, [params.id])
+    };
+    fetchBlog();
+  }, [params.slug]);
 
   useEffect(() => {
     const fetchRecommendedBlogs = async () => {
@@ -100,21 +110,18 @@ export default function BlogDetail() {
           const { data, error } = await supabase
             .from('blogs')
             .select('*')
-            .neq('id', blog.id) // Exclude the current blog
-            .limit(10) // Fetch more than 3 to ensure randomness
-
-          if (error) throw error
-
-          // Shuffle the array to get random blogs
+            .neq('id', blog.id)
+            .limit(10);
+          if (error) throw error;
           const shuffledBlogs = data.sort(() => 0.5 - Math.random());
-          setRecommendedBlogs(shuffledBlogs.slice(0, 3)); // Take the first 3 random blogs
+          setRecommendedBlogs(shuffledBlogs.slice(0, 3));
         } catch (error) {
-          console.error('Error fetching recommended blogs:', error)
+          console.error('Error fetching recommended blogs:', error);
         }
       }
-    }
-    fetchRecommendedBlogs()
-  }, [blog]) // Fetch recommendations once the main blog is loaded
+    };
+    fetchRecommendedBlogs();
+  }, [blog]);
 
   if (loading) {
     return (
@@ -181,7 +188,7 @@ export default function BlogDetail() {
           
           {recommendedBlogs.map((recBlog) => (
             <Link
-              href={`/blog/${recBlog.id}`}
+              href={`/blog/${slugify(recBlog.title)}`}
               key={recBlog.id}
               className={`${theme === 'dark' ? 'bg-[#FFFFFF1A] hover:bg-[#FFFFFF1A]' : 'bg-white/80 hover:bg-white border border-black/10'} p-[20px] pb-[30px] rounded-[20px] transition-colors duration-300`}
             >

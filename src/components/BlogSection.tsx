@@ -23,6 +23,13 @@ function formatDate(dateString: string) {
   return `${day} ${month} ${year}`
 }
 
+function slugify(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '');
+}
+
 export default function BlogSection() {
   const [latestBlogs, setLatestBlogs] = useState<BlogPost[]>([])
   const [techEducation, setTechEducation] = useState<BlogPost | null>(null)
@@ -98,7 +105,7 @@ export default function BlogSection() {
               <Link href="/blog" className={`${theme === 'dark' ? 'text-white/80' : 'text-black/80'} text-xs font-bold tracking-widest hover:text-[#A212A8] transition-colors duration-300`}>SEE ALL BLOGS</Link>
             </div>
             {latestBlogs[0] && (
-              <Link href={`/blog/${latestBlogs[0].id}`} className="block mb-6">
+              <Link href={`/blog/${slugify(latestBlogs[0].title)}`} className="block mb-6">
                 <div className={`border-l-2 ${theme === 'dark' ? 'border-white' : 'border-black'} pl-7 mt-5 transition-colors duration-300`}>
                   <h3 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-[27px] md:text-[40px] font-semibold italic leading-tight mb-2 transition-colors duration-300`}>
                     {latestBlogs[0].title.length > 35 ? `${latestBlogs[0].title.slice(0, 35)}...` : latestBlogs[0].title}
@@ -114,7 +121,7 @@ export default function BlogSection() {
             <div className="flex flex-col gap-4 w-[90%] md:w-[400px]">
               <div className={`border-t ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} my-0 ml-6 transition-colors duration-300`} />
               {latestBlogs.slice(1).map((blog, idx) => (
-                <Link key={blog.id} href={`/blog/${blog.id}`} className="flex flex-col gap-1 group">
+                <Link key={blog.id} href={`/blog/${slugify(blog.title)}`} className="flex flex-col gap-1 group">
                   <div className="flex items-center gap-6">
                     <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-sm transition-colors duration-300`}>●</span>
                     <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} font-semibold group-hover:text-[#A212A8] transition-colors duration-300`}>{blog.title}</span>
@@ -131,7 +138,7 @@ export default function BlogSection() {
           {/* Right: Tech-education and Tech-stories */}
           <div className="flex-1 flex flex-col gap-10 mt-10 hidden md:flex">
             {techEducation && (
-              <Link href={`/blog/${techEducation.id}`} className={`flex flex-row items-stretch p-0 min-h-[120px] overflow-hidden group border-t ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} transition-colors duration-300`}>
+              <Link href={`/blog/${slugify(techEducation.title)}`} className={`flex flex-row items-stretch p-0 min-h-[120px] overflow-hidden group border-t ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} transition-colors duration-300`}>
                 {/* Rotated Category */}
                 <div className="flex items-center font-normal justify-end bg-transparent -ml-7" style={{
                   marginLeft: "-40px",
@@ -163,7 +170,7 @@ export default function BlogSection() {
               </Link>
             )}
             {techStories && (
-              <Link href={`/blog/${techStories.id}`} className={`flex flex-row items-stretch p-0 min-h-[120px] overflow-hidden group border-t ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} transition-colors duration-300`}>
+              <Link href={`/blog/${slugify(techStories.title)}`} className={`flex flex-row items-stretch p-0 min-h-[120px] overflow-hidden group border-t ${theme === 'dark' ? 'border-white/10' : 'border-black/10'} transition-colors duration-300`}>
                 {/* Rotated Category */}
                 <div className="flex items-center font-normal justify-end bg-transparent -ml-7">
                   <span className={`${theme === 'dark' ? 'text-white' : 'text-black'} block text-xs font tracking-widest rotate-[-90deg] whitespace-nowrap border-b-1 border-[#A212A8] pb-1`} style={{}}>

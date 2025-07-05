@@ -106,7 +106,7 @@ export default function ProductsSection() {
         </div>
       </AnimatedSection>
 
-       <div className={`w-[90%] max-w-[1330px] h-[400px] mx-auto flex flex-col items-center text-center gap-2 product-img-mobile ${theme === 'light' ? 'opacity-90' : ''} transition-opacity duration-300`}>
+       <div className={`w-[90%] max-w-[1330px] max-h-[400px] mx-auto flex flex-col items-center text-center gap-2 product-img-mobile ${theme === 'light' ? 'opacity-90' : ''} transition-opacity duration-300`}>
                 <Image 
                   src="/images/product-img-5-mobile.png"
                   alt="Product 4"

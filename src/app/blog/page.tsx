@@ -23,6 +23,13 @@ interface BlogPost {
   featured_image: string | null
 }
 
+function slugify(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '');
+}
+
 export default function AllBlogs() {
   const [blogs, setBlogs] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
@@ -145,7 +152,7 @@ export default function AllBlogs() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-25">
           {blogs.map((blog) => (
             <Link
-              href={`/blog/${blog.id}`}
+              href={`/blog/${slugify(blog.title)}`}
               key={blog.id}
               className={`${theme === 'dark' ? 'bg-[#FFFFFF1A] hover:bg-[#FFFFFF1A]' : 'bg-black/5 hover:bg-black/5 border border-black/10'} p-[20px] pb-[30px] rounded-[20px] transition-colors duration-300`}
             >
