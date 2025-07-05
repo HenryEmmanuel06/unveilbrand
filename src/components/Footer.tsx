@@ -93,7 +93,7 @@ const Footer = () => {
         <div className="z-10 flex flex-col md:flex-row items-center justify-center w-full mx-auto pt-5 md:pt-20">
           {/* Chat Us Button */}
           <a
-             href="https://wa.me/2347046036398" target="_blank" rel="noopener noreferrer"
+             href="https://wa.me/2348111742948" target="_blank" rel="noopener noreferrer"
             className={`fixed bottom-4 left-4 z-50 flex items-center gap-2 border rounded-full pl-4 px-2 hover:px-3 py-3 transition mb-4 md:mb-0 ringy-animate group ${theme === 'dark' ? 'border-[#232323] text-white hover:bg-[#232323]' : 'border-black text-black hover:bg-none hover:text-black'}`}
             style={{
               animationName: 'ringy-shake',

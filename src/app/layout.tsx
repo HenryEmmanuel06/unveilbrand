@@ -15,6 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+      </head>
       <body className="antialiased">
         <NavBar />
         {children}

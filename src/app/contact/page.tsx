@@ -107,7 +107,7 @@ const ContactPage = () => {
           Book your first meeting time with us via filling the form or by chat.
           We look forward to meeting you!
         </p>
-       <a href="https://wa.me/2347046036398" target="_blank" rel="noopener noreferrer"> <button className={`mb-8 px-6 py-2 border rounded-full transition ${theme === 'dark' ? 'border-white text-white hover:bg-white hover:text-black' : 'border-black text-black hover:bg-black hover:text-white'}`}>Whatsapp Chat</button></a>
+       <a href="https://wa.me/2348111742948" target="_blank" rel="noopener noreferrer"> <button className={`mb-8 px-6 py-2 border rounded-full transition ${theme === 'dark' ? 'border-white text-white hover:bg-white hover:text-black' : 'border-black text-black hover:bg-black hover:text-white'}`}>Whatsapp Chat</button></a>
         <form className={`w-[100%] max-w-[900px] bg-transparent md:block md:grid backdrop-blur-[1.5px] border-none md:border border-[0.5px] border-opacity-10 rounded-[15px] shadow-lg p-8 gap-6 p-[0px] pt-[0px] md:p-[30px] pb-[60px] ${theme === 'dark' ? 'md:bg-[#121316CC] md:border-[#FFFFFF33]' : 'md:bg-black/10 md:border-black/20'} transition-colors duration-300`}>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4 md:mb-0">
             <input type="text" placeholder="First Name:" className="p-3 rounded bg-[#FFFFFFE5] text-black col-span-12 md:col-span-6 contact-input h-[58px]" />
