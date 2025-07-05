@@ -91,7 +91,7 @@ export default function BlogDetail() {
           .from('blogs')
           .select('*');
         if (error) throw error;
-        const found = (data || []).find((b: any) => slugify(b.title) === slug);
+        const found = (data || []).find((b: BlogPost) => slugify(b.title) === slug);
         setBlog(found || null);
       } catch (error) {
         console.error('Error fetching blog:', error);
