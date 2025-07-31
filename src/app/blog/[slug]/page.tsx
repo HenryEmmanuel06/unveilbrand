@@ -146,21 +146,28 @@ export default function BlogDetail() {
         <h1 className={`w-[100%] mx-auto lg:w-[900px] text-center mx-auto text-4xl md:text-5xl font-bold mb-10 ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>{blog.title}</h1>
 
         {blog.featured_image && (
-          <div className="relative w-full h-[300px] md:h-[600px] mb-8 rounded-lg overflow-hidden">
-            <Image
+          <div className="relative w-full h-[300px] md:h-[600px] mb-8 rounded-lg overflow-hidden" style={{
+            backgroundImage: `url(${blog.featured_image})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}>
+          
+          
+            {/* <Image
               src={blog.featured_image}
               alt={blog.title}
               fill
               className="object-cover"
-            />
+            /> */}
           </div>
         )}
 
         <div className="prose max-w-none mt-15">
           {/* WARNING: This renders raw HTML from the database. Make sure only trusted users can write blog content! */}
           <div
-            className={`${theme === 'dark' ? 'text-white' : 'text-black'} mb-4 mx-auto transition-colors duration-300`}
-            style={{ fontSize: '18px' }}
+            className={`${theme === 'dark' ? 'text-white' : 'text-black'} w-[100%] lg:w-[945px] mb-4 mx-auto transition-colors duration-300`}
+            style={{ fontSize: '16px' }}
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
         </div>
