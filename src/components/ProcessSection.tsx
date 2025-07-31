@@ -3,6 +3,7 @@ import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import React from "react";
 
 const processSteps = [
   {
@@ -21,6 +22,63 @@ const processSteps = [
     desc: "Premium doesn't have to be pricey. We deliver top results that match your budget; no hidden costs, no bloated packages.",
   },
 ];
+
+const ProcessCard = ({ step, theme }: { step: { img: string; title: string; desc: string }; theme: string }) => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const cardRef = React.useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const spotlightColor =
+    theme === 'dark'
+      ? '#A212A840'
+      : '#A212A840';
+
+  return (
+    <div
+      ref={cardRef}
+      className={`flex-1 flex flex-col rounded-2xl shadow-lg ${
+        theme === 'dark'
+          ? 'border border-white/10 bg-[#121316CC]'
+          : 'border border-black/10 bg-black/5'
+      } w-[90%] md:w-[410px] h-[330px] mx-auto backdrop-blur-[1px] transition-all duration-500 cursor-pointer`}
+      style={{
+        background: isHovering
+          ? `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, ${spotlightColor}, transparent 80%)`
+          : undefined,
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <div className="flex flex-col flex-grow">
+        <h3 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-xl font-semibold pl-[40px] pt-[35px] text-left text-[32px] transition-colors duration-300`}>
+          {step.title}
+        </h3>
+        <p className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-base text-left text-[14px] md:text-[15px] px-[40px] pt-[10px] transition-colors duration-300`}>
+          {step.desc}
+        </p>
+      </div>
+      <div className="w-full flex justify-center">
+        <Image
+          src={step.img}
+          alt={step.title}
+          width={320}
+          height={180}
+          className="rounded-xl object-cover w-full h-auto"
+        />
+      </div>
+    </div>
+  );
+};
 
 const ProcessSection = () => {
   const [theme, setTheme] = useState('dark');
@@ -66,30 +124,7 @@ const ProcessSection = () => {
         {/* Steps */}
         <div className="flex flex-col lg:flex-row gap-12 md:gap-8 w-full justify-center items-stretch pt-5 md:pt-10">
           {processSteps.map((step, idx) => (
-            <div 
-              key={idx} 
-              className={`flex-1 flex flex-col rounded-2xl shadow-lg ${
-                theme === 'dark' ? 'border border-white/10 bg-[#121316CC]' : 'border border-black/10 bg-black/5'
-              } w-[90%] md:w-[410px] h-[330px] mx-auto backdrop-blur-[1px] transition-colors duration-300`}
-            >
-              <div className="flex flex-col flex-grow">
-                <h3 className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-xl font-semibold pl-[40px] pt-[35px] text-left text-[32px] transition-colors duration-300`}>
-                  {step.title}
-                </h3>
-                <p className={`${theme === 'dark' ? 'text-white' : 'text-black'} text-base text-left text-[14px] md:text-[15px] px-[40px] pt-[10px] transition-colors duration-300`}>
-                  {step.desc}
-                </p>
-              </div>
-              <div className="w-full flex justify-center">
-                <Image 
-                  src={step.img} 
-                  alt={step.title} 
-                  width={320} 
-                  height={180} 
-                  className="rounded-xl object-cover w-full h-auto" 
-                />
-              </div>
-            </div>
+            <ProcessCard key={idx} step={step} theme={theme} />
           ))}
         </div>
         {/* Book Now Button */}
