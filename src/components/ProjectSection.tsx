@@ -29,7 +29,7 @@ const projects = [
     year: "2024",
     type: ["Web Design"],
     description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad. \n\n I designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
-    projectLink: "https://www.anotherproject.com",
+    projectLink: "https://www.applibry.com",
     images: [
       '/images/applibry slide 1.png',
       '/images/applibry slide 1.png',
