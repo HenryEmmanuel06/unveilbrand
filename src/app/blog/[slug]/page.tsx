@@ -146,7 +146,7 @@ export default function BlogDetail() {
         <h1 className={`w-[100%] mx-auto lg:w-[900px] text-center mx-auto text-4xl md:text-5xl font-bold mb-10 ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>{blog.title}</h1>
 
         {blog.featured_image && (
-          <div className="relative w-full h-[300px] md:h-[600px] mb-8 rounded-lg overflow-hidden" style={{
+          <div className="relative w-[100%] lg:w-[945px] h-[300px] md:h-[600px] mb-8 rounded-lg overflow-hidden mx-auto" style={{
             backgroundImage: `url(${blog.featured_image})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',

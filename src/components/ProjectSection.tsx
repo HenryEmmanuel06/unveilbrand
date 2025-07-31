@@ -28,7 +28,10 @@ const projects = [
     company: "Creative Console",
     year: "2024",
     type: ["Web Design"],
-    description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad. \n\n I designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
+    description: `Not every app idea deserves just another cookie-cutter logo and some off-the-shelf UI. When a product promises to bridge professionals and services through a smart digital library, the identity and experience need to reflect that promise — with clarity, modernism, and intention. That’s what we aimed for with Applibry.\n
+We handled everything from the brand logo to the full UI design. The logo is a clean, intelligent symbol that merges the essence of a digital library and mobile access — simple enough to be memorable, distinct enough to own its space. The UI followed suit: sleek layouts, accessible interactions, and a calming color system designed to make users feel like they’re actually in control of their digital content. \n
+This wasn’t just a design task — it was a design stance. And we’re proud to say it now powers a growing platform that people are beginning to talk about.
+Applibry is one of those projects where thoughtful branding and intuitive interface came together. We loved working on it — and our clients loved launching it.`,
     projectLink: "https://www.applibry.com",
     images: [
       '/images/applibry slide 1.png',
@@ -60,7 +63,10 @@ const projects = [
     company: "Engineering Service",
     year: "2023",
     type: ["Web Design"],
-    description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad. \n\n I designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
+    description: `Engineering might be about precision, but branding one? That’s about clarity, confidence, and trust.
+When LX Engineering Services came to us, they didn’t just need a website. They needed an identity — something that communicated strength, structure, and modern engineering excellence without saying too much. So we got to work, from the ground up.\n
+We started with the branding concept, building a visual language that spoke to both corporate clients and engineering professionals. The logo was designed to reflect structure and movement — sharp, minimal, and built on purpose. Then came the website: modern, responsive, and built to showcase their services clearly without overwhelming visitors. The color palette? Professional and bold. The user flow? Straightforward and intuitive.\n
+This wasn’t just a design project — it was a transformation. From logo to launch, we helped shape how LX Engineering shows up in the world — and now they’re doing exactly what engineers do best: building things that last.`,
     projectLink: "https://www.lxengineeringservices.com",
     images: [
       '/images/lx slider 1.png',
@@ -76,7 +82,12 @@ const projects = [
     company: "Travels",
     year: "2024",
     type: ["Branding", "UI Kits", "Interface Design"],
-    description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad. \n\n I designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
+    description: `Some brands want to blend in. Boustta wasn’t one of them.
+From day one, it was clear this brand needed a presence — bold, clean, and unmissable. Our job? To craft the branding and logo that would give Boustta its voice before a single word was spoken.\n
+We began with the brand strategy, exploring the identity behind Boustta — what it stands for, who it's speaking to, and how it should make people feel. The result was a branding system built around clarity, confidence, and sharp visual consistency.\n
+The logo? Simple yet striking. Built with a distinct type style and mark that reflects movement and trust — the kind of mark that works as well on a digital screen as it does embossed on packaging or printed on a storefront.\n
+This wasn’t just about making something look good — it was about making something last. And with Boustta’s brand now fully formed, it's ready to grow, connect, and lead.
+`,
     projectLink: "https://www.lxengineeringservices.com",
     images: [
       '/images/boustta slide 1.png',
