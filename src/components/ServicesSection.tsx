@@ -38,7 +38,7 @@ const ServiceCard = ({
       style={{
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.15)',
         background: isHovering
-          ? `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, ${spotlightColor}, transparent 80%)`
+          ? `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, ${spotlightColor}, transparent 60%)`
           : undefined,
       }}
       onMouseMove={handleMouseMove}
