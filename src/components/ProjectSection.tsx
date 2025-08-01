@@ -90,12 +90,13 @@ This wasn’t just about making something look good — it was about making some
 `,
     projectLink: "https://www.lxengineeringservices.com",
     images: [
+      '/images/Bouvstta logo animation.gif',
       '/images/boustta slide 1.png',
-      '/images/boustta slide 1.png',
-      '/images/boustta slide 1.png',
+      '/images/Bouvstta logo animation.gif',
       '/images/boustta slide 1.png'
     ],
     modalBackground: "'/images/boustta modal bg.png'", // Example background for another project
+    firstSlideModalBackground: "'/images/white bg.png'", // Special background for first slide
   },
    {
     id: 5,
@@ -360,41 +361,134 @@ const ProjectSection = () => {
                 className={`relative rounded-3xl w-[90vw] h-[95vh] lg:h-[90vh] flex flex-col lg:flex-row shadow-2xl overflow-y-auto lg:overflow-hidden gap-4 mb-10 lg:mb-0`}
               >
                 {/* Left: Image Slide */}
-                <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative mt-10 lg:mt-0 min-h-[220px] md:min-h-[300px]" style={{
-                  backgroundImage: `url(${currentProject?.modalBackground})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  backgroundSize: "cover"
-                }}>
-                  {/* Prev Button */}
-                  <button
-                    onClick={prevSlide}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
-                    aria-label="Previous Slide"
-                  >
-                    <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
-                  </button>
-                  {/* Image */}
-                  {currentProject?.images[0] && <Image src={slides[slide]} alt={`Slide ${slide + 1}`} width={300} height={350} className={`rounded-2xl object-contain max-h-[50vh] w-[200px] lg:w-[600px]  ${currentProjectId === 4 ? '-mt-10 md:-mt-20 h-[150px]' : ''}`} />}
-                  {/* Next Button */}
-                  <button
-                    onClick={nextSlide}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
-                    aria-label="Next Slide"
-                  >
-                    <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
-                  </button>
-                  {/* Pagination Dots */}
-                  <div className="absolute bottom-[5px] md:bottom-[20px] left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-[#11111133] p-2 rounded-full">
-                    {slides.map((_, idx) => (
-                      <span
-                        key={idx}
-                        onClick={() => setSlide(idx)}
-                        className={`cursor-pointer w-[7px] h-[7px] rounded-full ${idx === slide ? 'bg-white' : 'bg-[#FFFFFF80]'} transition-all duration-300 hover:bg-white`}
-                      ></span>
-                    ))}
+                {currentProject?.id === 4 ? (
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.div
+                      key={slide === 0 || slide === 2 ? "first-bg" : "default-bg"}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative mt-10 lg:mt-0 min-h-[220px] md:min-h-[300px]"
+                      style={{
+                        backgroundImage: `url(${
+                          slide === 0 || slide === 2
+                            ? currentProject.firstSlideModalBackground
+                            : currentProject.modalBackground
+                        })`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                        position: "relative",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {/* Prev Button */}
+                      <button
+                        onClick={prevSlide}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
+                        aria-label="Previous Slide"
+                      >
+                        <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
+                      </button>
+                      {/* Image */}
+                      <AnimatePresence mode="wait" initial={false}>
+                        <motion.div
+                          key={slide}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "center",
+                            position: "relative",
+                          }}
+                        >
+                          <Image
+                            src={slides[slide]}
+                            alt={`Slide ${slide + 1}`}
+                            width={300}
+                            height={350}
+                            className={`rounded-2xl object-contain max-h-[50vh] w-[200px] lg:w-[600px]  -mt-10 md:-mt-20 h-[150px] lg:h-[270px] lg:w-[100%]`}
+                          />
+                        </motion.div>
+                      </AnimatePresence>
+                      {/* Next Button */}
+                      <button
+                        onClick={nextSlide}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
+                        aria-label="Next Slide"
+                      >
+                        <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
+                      </button>
+                      {/* Pagination Dots */}
+                      <div className="absolute bottom-[5px] md:bottom-[20px] left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-[#11111133] p-2 rounded-full">
+                        {slides.map((_, idx) => (
+                          <span
+                            key={idx}
+                            onClick={() => setSlide(idx)}
+                            className={`cursor-pointer w-[7px] h-[7px] rounded-full ${idx === slide ? 'bg-white' : 'bg-[#FFFFFF80]'} transition-all duration-300 hover:bg-white`}
+                          ></span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                ) : (
+                  <div className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative mt-10 lg:mt-0 min-h-[220px] md:min-h-[300px]" style={{
+                    backgroundImage: `url(${currentProject?.modalBackground})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundSize: "cover"
+                  }}>
+                    {/* Prev Button */}
+                    <button
+                      onClick={prevSlide}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
+                      aria-label="Previous Slide"
+                    >
+                      <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+                    {/* Image */}
+                    <AnimatePresence mode="wait" initial={false}>
+                      <motion.div
+                        key={slide}
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -100 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        style={{ position: "absolute", width: "100%", display: "flex", justifyContent: "center" }}
+                      >
+                        <Image
+                          src={slides[slide]}
+                          alt={`Slide ${slide + 1}`}
+                          width={300}
+                          height={350}
+                          className={`rounded-2xl object-contain max-h-[50vh] w-[200px] lg:w-[600px]  ${currentProjectId === 4 ? '-mt-10 md:-mt-20 h-[150px] lg:h-[270px] lg:w-[100%]' : ''}`}
+                        />
+                      </motion.div>
+                    </AnimatePresence>
+                    {/* Next Button */}
+                    <button
+                      onClick={nextSlide}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
+                      aria-label="Next Slide"
+                    >
+                      <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                    {/* Pagination Dots */}
+                    <div className="absolute bottom-[5px] md:bottom-[20px] left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-[#11111133] p-2 rounded-full">
+                      {slides.map((_, idx) => (
+                        <span
+                          key={idx}
+                          onClick={() => setSlide(idx)}
+                          className={`cursor-pointer w-[7px] h-[7px] rounded-full ${idx === slide ? 'bg-white' : 'bg-[#FFFFFF80]'} transition-all duration-300 hover:bg-white`}
+                        ></span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
                 {/* Right: Controls */}
                 <div className={`w-[100%] lg:w-[40%] 2xl:w-[35%] max-w-full flex flex-col p-4 rounded-[10px] shadow-lg min-h-[300px] ${theme === 'dark' ? 'bg-[#111111] text-white' : 'bg-white text-black'}`}>
                   {/* Header */}
