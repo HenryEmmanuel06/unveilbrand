@@ -44,25 +44,26 @@ Applibry is one of those projects where thoughtful branding and intuitive interf
     {
     id: 2,
     title: "Homly",
-    company: "Creative Console",
+    company: "Housing",
     year: "2023",
-    type: ["Web Design"],
+    type: ["Branding", "Interface Design"],
     description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad.\n\nI designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
     projectLink: "https://www.gethomly.com",
     images: [
       '/images/homly modal slide 1.png',
       '/images/homly modal slide 1.png',
-      '/images/homly modal slide 1.png',
-      '/images/homly modal slide 1.png'
+      '/images/homly slide 2.png',
+      '/images/homly slide 3.png'
     ],
-    modalBackground: "'/images/homly modal background.png'", // Example background for another project
+    modalBackground: "'/images/homly modal background.png'", // Default background
+    firstSlideModalBackground: "'/images/firstbg homly.png'", // Special background for first slide
   },
   {
     id: 3,
     title: "lx engineering",
     company: "Engineering Service",
     year: "2023",
-    type: ["Web Design"],
+    type: ["Branding", "Web Development"],
     description: `Engineering might be about precision, but branding one? That’s about clarity, confidence, and trust.
 When LX Engineering Services came to us, they didn’t just need a website. They needed an identity — something that communicated strength, structure, and modern engineering excellence without saying too much. So we got to work, from the ground up.\n
 We started with the branding concept, building a visual language that spoke to both corporate clients and engineering professionals. The logo was designed to reflect structure and movement — sharp, minimal, and built on purpose. Then came the website: modern, responsive, and built to showcase their services clearly without overwhelming visitors. The color palette? Professional and bold. The user flow? Straightforward and intuitive.\n
@@ -88,7 +89,7 @@ We began with the brand strategy, exploring the identity behind Boustta — what
 The logo? Simple yet striking. Built with a distinct type style and mark that reflects movement and trust — the kind of mark that works as well on a digital screen as it does embossed on packaging or printed on a storefront.\n
 This wasn’t just about making something look good — it was about making something last. And with Boustta’s brand now fully formed, it's ready to grow, connect, and lead.
 `,
-    projectLink: "https://www.lxengineeringservices.com",
+    projectLink: "https://www.boustta.com",
     images: [
       '/images/Bouvstta logo animation.gif',
       '/images/boustta slide 1.png',
@@ -100,14 +101,14 @@ This wasn’t just about making something look good — it was about making some
   },
    {
     id: 5,
-    title: "Boustta",
-    company: "Travels",
-    year: "2024",
+    title: "Sharefood",
+    company: "Food Lovers",
+    year: "2023",
     type: ["Branding", "UI Kits", "Interface Design"],
     description: `As much as we love them, not all our friends and family members take security as seriously as we'd like. So if we ever send them our passwords, credit card numbers, or sensitive text, you can assume your secret just set itself up rent-free in your recipient's chat history or inbox indefinitely. That's bad. \n\n I designed Sendsecure.ly at a recent 3-day hackathon when the Basis Theory team was together in Miami for an off-site. The logo was a combination of the "S" from its name and a link icon. Cheesy? Maybe. But effective and recognizable.\n\n We've also launched it in Product Hunt, which was pretty cool. Lots of good feedback and people using it to send sensitive information to co-workers and friends.`,
     projectLink: "https://www.lxengineeringservices.com",
     images: [
-      
+    
     ],
     modalBackground: "'/images/sharefood modal bg.png'", // Example background for another project
   },
@@ -413,6 +414,82 @@ const ProjectSection = () => {
                             height={350}
                             className={`rounded-2xl object-contain max-h-[50vh] w-[200px] lg:w-[600px]  -mt-10 md:-mt-20 h-[150px] lg:h-[270px] lg:w-[100%]`}
                           />
+                        </motion.div>
+                      </AnimatePresence>
+                      {/* Next Button */}
+                      <button
+                        onClick={nextSlide}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
+                        aria-label="Next Slide"
+                      >
+                        <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" /></svg>
+                      </button>
+                      {/* Pagination Dots */}
+                      <div className="absolute bottom-[5px] md:bottom-[20px] left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-[#11111133] p-2 rounded-full">
+                        {slides.map((_, idx) => (
+                          <span
+                            key={idx}
+                            onClick={() => setSlide(idx)}
+                            className={`cursor-pointer w-[7px] h-[7px] rounded-full ${idx === slide ? 'bg-white' : 'bg-[#FFFFFF80]'} transition-all duration-300 hover:bg-white`}
+                          ></span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                ) : currentProject?.id === 2 ? (
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.div
+                      key={slide === 0 ? "homly-first-bg" : "homly-default-bg"}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
+                      className="flex-1 flex items-center justify-center p-6 rounded-2xl shadow-lg relative mt-10 lg:mt-0 min-h-[220px] md:min-h-[300px]"
+                      style={{
+                        backgroundImage: `url(${
+                          slide === 0
+                            ? currentProject.firstSlideModalBackground
+                            : currentProject.modalBackground
+                        })`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                        position: "relative",
+                        overflow: "hidden",
+                      }}
+                    >
+                      {/* Prev Button */}
+                      <button
+                        onClick={prevSlide}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/80 hover:bg-white shadow-lg z-10 cursor-pointer"
+                        aria-label="Previous Slide"
+                      >
+                        <svg width="24" height="24" fill="none" stroke="black" strokeWidth="2" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" /></svg>
+                      </button>
+                      {/* Image */}
+                      <AnimatePresence mode="wait" initial={false}>
+                        <motion.div
+                          key={slide}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                          style={{
+                            width: "100%",
+                            display: "flex",
+                            justifyContent: "center",
+                            position: "relative",
+                          }}
+                        >
+                          {slide !== 0 && (
+                            <Image
+                              src={slides[slide]}
+                              alt={`Slide ${slide + 1}`}
+                              width={300}
+                              height={350}
+                              className={`rounded-2xl object-contain max-h-[50vh] w-[200px] lg:w-[600px]`}
+                            />
+                          )}
                         </motion.div>
                       </AnimatePresence>
                       {/* Next Button */}

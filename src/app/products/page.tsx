@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import TrueFocus from '@/components/TrueFocus';
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -69,9 +70,18 @@ export default function Products() {
             </button>
           ))}
         </div>
-          <h1 className={`text-3xl md:text-8xl mx-auto text-center font-bold text-center py-[100px] rounded-lg backdrop-blur-[1.5px] ${theme === 'dark' ? 'bg-[#FFFFFF1A] text-white' : 'bg-black/5 text-black'} transition-colors duration-300`}>COMING SOON</h1>
+          {/* <h1 className={`text-3xl md:text-8xl mx-auto text-center font-bold text-center py-[100px] rounded-lg backdrop-blur-[1.5px] ${theme === 'dark' ? 'bg-[#FFFFFF1A] text-white' : 'bg-black/5 text-black'} transition-colors duration-300`}>COMING SOON</h1> */}
 
       </div>
+      <TrueFocus 
+sentence="COMING SOON"
+manualMode={false}
+blurAmount={5}
+borderColor="#A212A8"
+animationDuration={2}
+pauseBetweenAnimations={1}
+theme={theme as 'dark' | 'light'}
+/>
     </main>
   );
 } 
