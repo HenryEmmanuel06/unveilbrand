@@ -20,6 +20,7 @@
   
   .focus-word.active {
     filter: blur(0);
+    color: #A212A8 !important;
   }
   
   .focus-frame {

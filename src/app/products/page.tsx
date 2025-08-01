@@ -78,7 +78,7 @@ sentence="COMING SOON"
 manualMode={false}
 blurAmount={5}
 borderColor="#A212A8"
-animationDuration={2}
+animationDuration={0.3}
 pauseBetweenAnimations={1}
 theme={theme as 'dark' | 'light'}
 />
