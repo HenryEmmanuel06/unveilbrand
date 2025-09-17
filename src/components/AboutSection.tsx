@@ -90,7 +90,7 @@ const AboutSection = () => {
       <AnimatedSection className="w-[90%] lg:w-full max-w-[1332px] mx-auto">
         <div style={{
           backgroundImage: theme === 'dark' ? 'url("/images/about section shinny bg.png")' : 'none',
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundColor: theme === 'light' ? '#fff' : 'transparent',

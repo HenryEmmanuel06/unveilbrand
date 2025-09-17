@@ -109,7 +109,7 @@ const ProcessSection = () => {
         className="w-[90%] max-w-[1330px] mx-auto flex flex-col items-center text-center gap-2 py-5 pt-10 md:py-30 md:pt-40" 
         style={{
           backgroundImage: theme === 'dark' ? 'url("/images/shiny bg Abilities.png")' : 'none',
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
         backgroundPosition: 'center -100px',
           backgroundRepeat: "no-repeat",
           backgroundColor: theme === 'light' ? '#ffffff' : 'transparent',

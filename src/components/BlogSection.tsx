@@ -89,7 +89,7 @@ export default function BlogSection() {
         className="relative mx-auto w-[90%] max-w-[1180px]" 
         style={{
           backgroundImage: theme === 'dark' ? 'url("/images/shiny bg blogs.png")' : 'none',
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
         backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundColor: theme === 'light' ? '#fff' : 'transparent',

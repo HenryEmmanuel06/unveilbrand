@@ -85,7 +85,7 @@ const ServicesSection = () => {
         className="relative mx-auto w-[90%] max-w-[1200px] py-5 pt-10 md:py-30 md:pt-40"
         style={{
           backgroundImage: theme === 'dark' ? 'url("/images/shiny bg services.png")' : 'none',
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: "no-repeat",
           backgroundColor: theme === 'light' ? '#fff' : 'transparent',

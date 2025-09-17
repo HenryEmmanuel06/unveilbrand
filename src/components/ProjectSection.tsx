@@ -210,7 +210,7 @@ const ProjectSection = () => {
       `}</style>
       <div className="relative mx-auto w-[90%] max-w-[1330px]" style={{
         backgroundImage: theme === 'dark' ? 'url("/images/shiny bg Projects.png")' : 'none',
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
         backgroundPositionY: '-100px',
         backgroundRepeat: "no-repeat",
         backgroundColor: theme === 'light' ? '#fff' : 'transparent',

@@ -194,7 +194,7 @@ const HeroSection = () => {
         className="relative z-10 mx-auto w-[90%] max-w-[1330px] flex flex-col items-center text-center gap-2" 
         style={{
           backgroundImage: theme === 'dark' ? 'url("/images/shiny bg hero.png")' : 'none',
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           backgroundPositionY: '80px',
           backgroundColor: theme === 'light' ? '#ffffff' : 'transparent',
       }}>
