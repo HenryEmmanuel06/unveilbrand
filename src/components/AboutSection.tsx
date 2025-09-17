@@ -141,7 +141,7 @@ const AboutSection = () => {
                 unoptimized={true}
                 className="mb-2"
               />
-              <h3 className={`text-xl md:text-3xl font-extrabold mb-4 ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>People Over Technology</h3>
+              <h3 className={`text-xl md:text-3xl font-extrabold mb-4 ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>Built for People</h3>
               <p className={`text-sm md:text-base ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>
               We don&apos;t just build with code, we build with care. At Unveilbrand, we place people at the center of every project. Whether it&apos;s a website, brand identity, or digital strategy, our goal is to create experiences that feel intuitive, thoughtful, and emotionally engaging. Because great tech should never outshine the people it&apos;s meant to serve.
               </p>
@@ -157,7 +157,7 @@ const AboutSection = () => {
                 unoptimized={true}
                 className="mb-2"
               />
-              <h3 className={`text-xl md:text-3xl font-extrabold mb-4 ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>Shared Success</h3>
+              <h3 className={`text-xl md:text-3xl font-extrabold mb-4 ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>We Grow Together</h3>
               <p className={`text-sm md:text-base ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>
               We believe in partnerships, not just projects. Our success is tied directly to the growth of the businesses we work with. That&apos;s why we go all in thinking deeply, iterating fast, and delivering outcomes that move the needle. When you win, we win. Simple as that.
               </p>
@@ -173,7 +173,7 @@ const AboutSection = () => {
                 unoptimized={true}
                 className="mb-2"
               />
-              <h3 className={`text-xl md:text-3xl font-extrabold mb-4 ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>Shared Success</h3>
+              <h3 className={`text-xl md:text-3xl font-extrabold mb-4 ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>Smart Innovation</h3>
               <p className={`text-sm md:text-base ${theme === 'dark' ? 'text-white' : 'text-black'} transition-colors duration-300`}>
               We bring creativity and precision into perfect balance. From advanced UI structures to seamless automation and branding systems, we use innovation as a tool not a gimmick. Every build, every solution, every strategy we create is grounded in solving real problems, not chasing trends.
               </p>
